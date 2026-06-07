@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NoCrickets — Client Onboarding</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230D0D0D'/><text y='.9em' font-size='80' x='10'>🦗</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #00E676;
+    --green-dim: rgba(0,230,118,0.08);
+    --green-border: rgba(0,230,118,0.2);
+    --dark: #0D0D0D;
+    --dark2: #141414;
+    --dark3: #1a1a1a;
+    --dark4: #222;
+    --text: #F0F0F0;
+    --text-dim: #999;
+    --muted: #444;
+    --border: #2a2a2a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* GRAIN */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 128px 128px;
+  }
+
+  /* LANG BAR */
+  .lang-bar {
+    background: var(--dark2);
+    padding: 10px 24px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+  }
+  .lang-btn {
+    background: transparent;
+    border: 1.5px solid var(--border);
+    color: var(--text-dim);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .lang-btn.active {
+    background: var(--green);
+    border-color: var(--green);
+    color: #000;
+    font-weight: 600;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--dark2);
+    padding: 60px 24px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(0,230,118,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -60px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(0,230,118,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-brand {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    color: var(--text-dim);
+    font-size: 15px;
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .accent-line {
+    width: 40px;
+    height: 2px;
+    background: var(--green);
+    margin: 20px auto 0;
+    border-radius: 2px;
+  }
+
+  /* FORM WRAP */
+  .form-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  /* SECTION */
+  .section {
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .section-head {
+    background: var(--dark3);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-num {
+    background: var(--green);
+    color: #000;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    width: 28px; height: 28px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    letter-spacing: 0.5px;
+  }
+  .section-head h2 {
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .section-body { padding: 24px; }
+
+  /* FIELD */
+  .field { margin-bottom: 20px; }
+  .field:last-child { margin-bottom: 0; }
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+    letter-spacing: 0.2px;
+  }
+  .field-hint {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+  .field-note {
+    font-size: 12px;
+    color: var(--green);
+    margin-top: 6px;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    line-height: 1.5;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="url"],
+  textarea,
+  select {
+    width: 100%;
+    background: var(--dark3);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 11px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    appearance: none;
+  }
+  input::placeholder, textarea::placeholder { color: var(--muted); }
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(0,230,118,0.08);
+  }
+  textarea { resize: vertical; min-height: 90px; }
+  select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' fill='none' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+  select option { background: var(--dark2); color: var(--text); }
+
+  /* TWO COL */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 520px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* PILLS */
+  .options-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+  .option-pill { position: relative; }
+  .option-pill input[type="radio"],
+  .option-pill input[type="checkbox"] { position: absolute; opacity: 0; width: 0; height: 0; }
+  .option-pill label {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 24px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-dim);
+    cursor: pointer;
+    transition: all 0.18s;
+    margin: 0;
+    background: var(--dark3);
+  }
+  .option-pill input:checked + label {
+    border-color: var(--green);
+    background: var(--green-dim);
+    color: var(--green);
+  }
+
+  /* HOURS TABLE */
+  .hours-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .hours-table th {
+    background: var(--dark3);
+    color: var(--text-dim);
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hours-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  .hours-table tr:last-child td { border-bottom: none; }
+  .hours-table td:first-child { font-weight: 600; color: var(--text); width: 110px; }
+  .hours-table input[type="text"] { padding: 6px 10px; font-size: 13px; border-radius: 6px; }
+  .hours-table input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--green); cursor: pointer; }
+
+  /* SERVICES */
+  .services-rows .service-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.2fr auto;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+  @media (max-width: 560px) { .services-rows .service-row { grid-template-columns: 1fr 1fr; } }
+
+  /* DIVIDER */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+
+  /* SUBMIT */
+  .submit-wrap {
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px 28px;
+    text-align: center;
+  }
+  .submit-wrap p { color: var(--text-dim); font-size: 13.5px; margin-bottom: 20px; line-height: 1.6; }
+  .btn-submit {
+    background: var(--green);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    padding: 15px 40px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.3px;
+  }
+  .btn-submit:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0,230,118,0.2);
+  }
+
+  /* SUCCESS */
+  .success-msg {
+    display: none;
+    background: rgba(0,230,118,0.08);
+    border: 1.5px solid var(--green);
+    border-radius: 10px;
+    padding: 20px 24px;
+    text-align: center;
+    color: var(--green);
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 16px;
+  }
+
+  .req { color: var(--green); margin-left: 3px; }
+</style>
+</head>
+<body>
+
+<!-- LANG BAR -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')" id="btn-en">English</button>
+  <button class="lang-btn" onclick="setLang('es')" id="btn-es">Español</button>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-brand">NoCrickets</div>
+  <h1 id="hero-title">Client Onboarding Questionnaire</h1>
+  <p id="hero-sub">Help us build a custom AI chatbot tailored to your business. Complete this form and we'll take care of the rest.</p>
+  <div class="accent-line"></div>
+</div>
+
+<!-- FORM -->
+<div class="form-wrap">
+<form id="onboarding-form" onsubmit="handleSubmit(event)">
+
+  <!-- S1: BUSINESS INFO -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-num">01</div>
+      <h2 id="s1-title">Business Information</h2>
+    </div>
+    <div class="section-body">
+      <div class="two-col">
+        <div class="field">
+          <label for="biz-name" id="l-biz-name">Business Name <span class="req">*</span></label>
+          <input type="text" id="biz-name" required>
+        </div>
+        <div class="field">
+          <label for="biz-type" id="l-biz-type">Business Type <span class="req">*</span></label>
+          <input type="text" id="biz-type" placeholder="Salon, Restaurant, Retail…" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="biz-address" id="l-biz-address">Full Business Address</label>
+        <input type="text" id="biz-address">
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label for="biz-website" id="l-biz-website">Website URL</label>
+          <input type="url" id="biz-website" placeholder="https://…">
+        </div>
+        <div class="field">
+          <label for="biz-phone" id="l-biz-phone">Business Phone <span class="req">*</span></label>
+          <input type="tel" id="biz-phone" required>
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label for="biz-whatsapp" id="l-biz-whatsapp">WhatsApp Number</label>
+          <div class="field-hint" id="h-biz-whatsapp">This is where customers will be directed</div>
+          <input type="tel" id="biz-whatsapp">
+        </div>
+        <div class="field">
+          <label id="l-biz-contact">Preferred Customer Contact</label>
+          <div class="options-group" style="margin-top:28px">
+            <div class="option-pill"><input type="radio" name="contact" id="c-wa" value="WhatsApp"><label for="c-wa">WhatsApp</label></div>
+            <div class="option-pill"><input type="radio" name="contact" id="c-ph" value="Phone"><label for="c-ph" id="l-c-ph">Phone</label></div>
+            <div class="option-pill"><input type="radio" name="contact" id="c-em" value="Email"><label for="c-em">Email</label></div>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="biz-social">Social Media Links</label>
+        <div class="field-hint">Instagram, Facebook, TikTok, or any other profiles</div>
+        <textarea id="biz-social" rows="3" placeholder="Instagram: https://instagram.com/yourbusiness&#10;Facebook: https://facebook.com/yourbusiness"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- S2: HOURS -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-num">02</div>
+      <h2 id="s2-title">Hours & Availability</h2>
+    </div>
+    <div class="section-body">
+      <table class="hours-table">
+        <thead>
+          <tr>
+            <th id="th-day">Day</th>
+            <th id="th-open">Opens</th>
+            <th id="th-close">Closes</th>
+            <th id="th-closed">Closed</th>
+          </tr>
+        </thead>
+        <tbody id="hours-body"></tbody>
+      </table>
+      <hr class="divider">
+      <div class="field">
+        <label id="l-appt">Do you accept appointments, walk-ins, or both?</label>
+        <div class="options-group">
+          <div class="option-pill"><input type="radio" name="appt" id="a-req" value="Appointments only"><label for="a-req" id="l-a-req">Appointments only</label></div>
+          <div class="option-pill"><input type="radio" name="appt" id="a-walk" value="Walk-ins welcome"><label for="a-walk" id="l-a-walk">Walk-ins welcome</label></div>
+          <div class="option-pill"><input type="radio" name="appt" id="a-both" value="Both"><label for="a-both" id="l-a-both">Both</label></div>
+        </div>
+        <div class="field-note" id="appt-note">ℹ️ The bot will collect your customer's preferred appointment time and log it to your leads sheet. You confirm directly with the customer.</div>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label for="advance-book" id="l-advance-book">How far in advance do you typically book?</label>
+          <input type="text" id="advance-book" placeholder="e.g. 1–2 days, same week…">
+        </div>
+        <div class="field">
+          <label for="blackout" id="l-blackout">Upcoming closures or blackout dates?</label>
+          <input type="text" id="blackout">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S3: SERVICES -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-num">03</div>
+      <h2 id="s3-title">Services & Pricing</h2>
+    </div>
+    <div class="section-body">
+      <div class="services-rows" id="services-rows"></div>
+      <button type="button" id="add-service-btn" onclick="addServiceRow()" style="margin-top:10px;background:transparent;border:1.5px solid var(--border);color:var(--green);padding:8px 18px;border-radius:7px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s;letter-spacing:0.3px;">+ Add Service</button>
+      <div class="field" style="margin-top:16px">
+        <label for="svc-notes" id="l-svc-notes">Any service disclaimers or special notes?</label>
+        <textarea id="svc-notes" rows="3"></textarea>
+      </div>
+      <div class="field">
+        <label for="competitors" id="l-competitors">Who are your top 2–3 local competitors?</label>
+        <input type="text" id="competitors" placeholder="e.g. Studio X, Salon Y…">
+      </div>
+    </div>
+  </div>
+
+  <!-- S4: BOT PERSONALITY -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-num">04</div>
+      <h2 id="s4-title">Bot Personality & Language</h2>
+    </div>
+    <div class="section-body">
+      <div class="field">
+        <label id="l-lang-pref">Preferred Language</label>
+        <div class="options-group">
+          <div class="option-pill"><input type="radio" name="lang-pref" id="lp-en" value="English only"><label for="lp-en" id="l-lp-en">English only</label></div>
+          <div class="option-pill"><input type="radio" name="lang-pref" id="lp-es" value="Spanish only"><label for="lp-es" id="l-lp-es">Spanish only</label></div>
+          <div class="option-pill"><input type="radio" name="lang-pref" id="lp-bi" value="Bilingual"><label for="lp-bi" id="l-lp-bi">Bilingual (both)</label></div>
+        </div>
+      </div>
+      <div class="field">
+        <label id="l-tone">Preferred Tone</label>
+        <div class="options-group">
+          <div class="option-pill"><input type="radio" name="tone" id="t-formal" value="Formal"><label for="t-formal" id="l-t-formal">Formal & Professional</label></div>
+          <div class="option-pill"><input type="radio" name="tone" id="t-friendly" value="Friendly"><label for="t-friendly" id="l-t-friendly">Friendly & Warm</label></div>
+          <div class="option-pill"><input type="radio" name="tone" id="t-fun" value="Fun"><label for="t-fun" id="l-t-fun">Fun & Playful</label></div>
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field">
+          <label for="team-name" id="l-team-name">What should the bot call your team?</label>
+          <div class="field-hint" id="h-team-name">e.g. "our team", "our specialists"</div>
+          <input type="text" id="team-name">
+        </div>
+        <div class="field">
+          <label for="avoid-words" id="l-avoid-words">Words or topics to NEVER use?</label>
+          <textarea id="avoid-words" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="field">
+        <label id="l-bot-goal">What is the #1 goal of the bot?</label>
+        <div class="options-group">
+          <div class="option-pill"><input type="radio" name="bot-goal" id="bg-book" value="Book appointments"><label for="bg-book">Collect appointment requests</label></div>
+          <div class="option-pill"><input type="radio" name="bot-goal" id="bg-capture" value="Capture contact info"><label for="bg-capture">Capture contact info</label></div>
+          <div class="option-pill"><input type="radio" name="bot-goal" id="bg-faq" value="Answer FAQs"><label for="bg-faq">Answer FAQs</label></div>
+          <div class="option-pill"><input type="radio" name="bot-goal" id="bg-all" value="All three"><label for="bg-all">All three</label></div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="natural-greeting" id="l-natural-greeting">How do you currently greet customers when they walk in or call?</label>
+        <div class="field-hint" id="h-natural-greeting">Helps us match your natural voice so the bot sounds like you</div>
+        <textarea id="natural-greeting" rows="3"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- S5: FAQ -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-num">05</div>
+      <h2 id="s5-title">Additional Customer Questions</h2>
+    </div>
+    <div class="section-body">
+      <div class="field">
+        <label for="faq-textarea" id="s5-hint">Any questions your customers ask that aren't covered by your services or hours?</label>
+        <div class="field-hint">e.g. parking, cancellation policy, payment methods, age requirements, gift cards</div>
+        <textarea id="faq-textarea" rows="6" placeholder="Q: Do you have parking?
+A: Yes, free parking in the lot behind the building.
+
+Q: What is your cancellation policy?
+A: We ask for 24 hours notice."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- S6: LEAD CAPTURE -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-num">06</div>
+      <h2 id="s6-title">Lead Capture & Follow-Up</h2>
+    </div>
+    <div class="section-body">
+      <div class="two-col">
+        <div class="field">
+          <label for="lead-name" id="l-lead-name">Who receives leads? (Name) <span class="req">*</span></label>
+          <input type="text" id="lead-name" required>
+        </div>
+        <div class="field">
+          <label for="lead-email" id="l-lead-email">Who receives leads? (Email) <span class="req">*</span></label>
+          <input type="email" id="lead-email" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="followup-speed" id="l-followup-speed">How quickly do you follow up?</label>
+        <input type="text" id="followup-speed" placeholder="e.g. Within 1 hour, same day…">
+      </div>
+      <div class="field">
+        <label id="l-followup-method">Preferred Follow-Up Method</label>
+        <div class="options-group">
+          <div class="option-pill"><input type="radio" name="followup" id="f-wa" value="WhatsApp"><label for="f-wa">WhatsApp</label></div>
+          <div class="option-pill"><input type="radio" name="followup" id="f-ph" value="Phone"><label for="f-ph" id="l-f-ph">Phone</label></div>
+          <div class="option-pill"><input type="radio" name="followup" id="f-em" value="Email"><label for="f-em">Email</label></div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="lead-notes" id="l-lead-notes">Anything else about your lead process?</label>
+        <textarea id="lead-notes" rows="3"></textarea>
+      </div>
+      <div class="field">
+        <label for="email-content" id="l-email-content">What would you like your automated follow-up email to say?</label>
+        <div class="field-hint">Edit the template below or write your own. We'll polish it before it goes live.</div>
+        <textarea id="email-content" rows="14">Subject: Thanks for reaching out to [Business Name]!
+
+Hi [Customer Name],
+
+Thanks for getting in touch with us! We received your message and wanted to follow up personally.
+
+We'd love to help you with [service]. Here's what you can expect from us:
+- [Benefit 1 — e.g. "Fast response times"]
+- [Benefit 2 — e.g. "Friendly, professional service"]
+- [Benefit 3 — e.g. "Flexible scheduling"]
+
+Ready to get started? Reply to this email, call us at [phone], or message us on WhatsApp at [WhatsApp].
+
+We look forward to hearing from you!
+
+[Your Name]
+[Business Name]</textarea>
+      </div>
+      <div class="field">
+        <label id="l-approve-email">Would you like to approve the automated follow-up email before it goes live?</label>
+        <div class="options-group">
+          <div class="option-pill"><input type="radio" name="approve-email" id="ae-y" value="Yes"><label for="ae-y">Yes</label></div>
+          <div class="option-pill"><input type="radio" name="approve-email" id="ae-n" value="No"><label for="ae-n">No — just send it</label></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S7: BRANDING -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-num">07</div>
+      <h2 id="s7-title">Branding</h2>
+    </div>
+    <div class="section-body">
+      <div class="two-col">
+        <div class="field">
+          <label for="brand-colors" id="l-brand-colors">Brand Colors</label>
+          <div class="field-hint" id="h-brand-colors">e.g. Navy & gold, pink & white, or hex codes</div>
+          <input type="text" id="brand-colors">
+        </div>
+        <div class="field">
+          <label for="tagline" id="l-tagline">Tagline or Slogan</label>
+          <input type="text" id="tagline">
+        </div>
+      </div>
+      <div class="field">
+        <label for="brand-notes" id="l-brand-notes">Other branding notes or preferences</label>
+        <textarea id="brand-notes" rows="3"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMIT -->
+  <div class="submit-wrap">
+    <p id="submit-note">Once you submit, your NoCrickets account manager will review your responses and reach out within 1–2 business days to begin building your bot.</p>
+    <button type="submit" class="btn-submit" id="btn-submit">Submit Questionnaire →</button>
+    <div class="success-msg" id="success-msg">
+      ✅ Thank you! We received your responses and will be in touch soon.
+    </div>
+  </div>
+
+</form>
+</div>
+
+<script>
+const T = {
+  en: {
+    heroTitle: 'Client Onboarding Questionnaire',
+    heroSub: "Help us build a custom AI chatbot tailored to your business. Complete this form and we'll take care of the rest.",
+    s1:'Business Information', s2:'Hours & Availability', s3:'Services & Pricing',
+    s4:'Bot Personality & Language', s5:'Common Customer Questions',
+    s6:'Lead Capture & Follow-Up', s7:'Branding',
+    thDay:'Day', thOpen:'Opens', thClose:'Closes', thClosed:'Closed',
+    days:['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
+    svcPlaceholders:['Service 1','Service 2','Service 3','Service 4','Service 5','Service 6','Service 7','Service 8'],
+    s5Hint:'List your top 5 customer questions and the answers you want the bot to give.',
+    submitNote:'Once you submit, your NoCrickets account manager will review your responses and reach out within 1–2 business days to begin building your bot.',
+    btnSubmit:'Submit Questionnaire →',
+    successTxt:'✅ Thank you! We received your responses and will be in touch soon.',
+    consult:'Requires consultation?', consultY:'Yes', consultN:'No',
+    apptNote:'ℹ️ The bot will collect your customer\'s preferred appointment time and log it to your leads sheet. You confirm directly with the customer.',
+  },
+  es: {
+    heroTitle:'Cuestionario de Incorporación',
+    heroSub:'Ayúdanos a construir un chatbot de IA personalizado para tu negocio. Completa este formulario y nosotros nos encargamos del resto.',
+    s1:'Información del Negocio', s2:'Horarios y Disponibilidad', s3:'Servicios y Precios',
+    s4:'Personalidad del Bot e Idioma', s5:'Preguntas Frecuentes de Clientes',
+    s6:'Captura de Leads y Seguimiento', s7:'Marca',
+    thDay:'Día', thOpen:'Abre', thClose:'Cierra', thClosed:'Cerrado',
+    days:['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'],
+    svcPlaceholders:['Servicio 1','Servicio 2','Servicio 3','Servicio 4','Servicio 5','Servicio 6','Servicio 7','Servicio 8'],
+    s5Hint:'Lista las preguntas más frecuentes de tus clientes y las respuestas que quieres que el bot dé.',
+    submitNote:'Una vez enviado, tu gestor de cuenta de NoCrickets revisará tus respuestas y se pondrá en contacto en 1–2 días hábiles para comenzar a construir tu bot.',
+    btnSubmit:'Enviar Cuestionario →',
+    successTxt:'✅ ¡Gracias! Recibimos tus respuestas y nos pondremos en contacto pronto.',
+    consult:'¿Requiere consulta?', consultY:'Sí', consultN:'No',
+    apptNote:'ℹ️ El bot recopilará el horario preferido de tu cliente y lo registrará en tu hoja de leads. Tú confirmas directamente con el cliente.',
+  }
+};
+
+let currentLang = 'en';
+
+function buildHours(lang) {
+  const t = T[lang];
+  const tbody = document.getElementById('hours-body');
+  tbody.innerHTML = '';
+  t.days.forEach((day) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${day}</td><td><input type="text" placeholder="9:00 AM" style="width:100%;"></td><td><input type="text" placeholder="6:00 PM" style="width:100%;"></td><td style="text-align:center;"><input type="checkbox"></td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+function makeServiceRow(placeholder, t) {
+  const row = document.createElement('div');
+  row.className = 'service-row';
+  row.style.position = 'relative';
+  row.innerHTML = `<input type="text" placeholder="${placeholder}"><input type="text" placeholder="$0"><input type="text" placeholder="30 min"><select><option value="">${t.consult}</option><option value="yes">${t.consultY}</option><option value="no">${t.consultN}</option></select><button type="button" onclick="this.parentElement.remove()" style="background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:18px;padding:0 4px;line-height:1;flex-shrink:0;" title="Remove">×</button>`;
+  return row;
+}
+
+function buildServices(lang) {
+  const t = T[lang];
+  const container = document.getElementById('services-rows');
+  container.innerHTML = '';
+  const placeholders = t.svcPlaceholders;
+  for (let i = 0; i < 8; i++) {
+    container.appendChild(makeServiceRow(placeholders[i], t));
+  }
+}
+
+function addServiceRow() {
+  const t = T[currentLang];
+  const container = document.getElementById('services-rows');
+  const count = container.querySelectorAll('.service-row').length + 1;
+  container.appendChild(makeServiceRow(`Service ${count}`, t));
+}
+
+function applyLang(lang) {
+  const t = T[lang];
+  const ids = {
+    'hero-title': t.heroTitle, 'hero-sub': t.heroSub,
+    's1-title': t.s1, 's2-title': t.s2, 's3-title': t.s3,
+    's4-title': t.s4, 's5-title': t.s5, 's6-title': t.s6, 's7-title': t.s7,
+    'th-day': t.thDay, 'th-open': t.thOpen, 'th-close': t.thClose, 'th-closed': t.thClosed,
+    's5-hint': t.s5Hint, 'submit-note': t.submitNote, 'btn-submit': t.btnSubmit,
+    'appt-note': t.apptNote,
+  };
+  Object.entries(ids).forEach(([id, val]) => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = val;
+  });
+  buildHours(lang);
+  buildServices(lang);
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+  applyLang(lang);
+}
+
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwHt4yjBYkWgsa6KCuK0yrT_TC8_K2AiLQBdW4LLmvKn0g8rsUaVF1gd7izGCeNDUD5TQ/exec';
+
+function collectFormData() {
+  const hourRows = document.querySelectorAll('#hours-body tr');
+  const days = T[currentLang].days;
+  let hoursStr = '';
+  hourRows.forEach((row, i) => {
+    const inputs = row.querySelectorAll('input[type="text"]');
+    const closed = row.querySelector('input[type="checkbox"]').checked;
+    hoursStr += `${days[i]}: ${closed ? 'Closed' : (inputs[0].value || '?') + ' - ' + (inputs[1].value || '?')}; `;
+  });
+
+  const svcRows = document.querySelectorAll('.service-row');
+  let svcsStr = '';
+  svcRows.forEach(row => {
+    const inputs = row.querySelectorAll('input');
+    const sel = row.querySelector('select');
+    if (inputs[0].value) svcsStr += `${inputs[0].value} | ${inputs[1].value} | ${inputs[2].value} | Consult: ${sel.value}; `;
+  });
+
+  const getRadio = (name) => { const c = document.querySelector(`input[name="${name}"]:checked`); return c ? c.value : ''; };
+
+  return {
+    bizName: document.getElementById('biz-name').value,
+    bizType: document.getElementById('biz-type').value,
+    bizAddress: document.getElementById('biz-address').value,
+    bizWebsite: document.getElementById('biz-website').value,
+    bizPhone: document.getElementById('biz-phone').value,
+    bizWhatsapp: document.getElementById('biz-whatsapp').value,
+    bizSocial: document.getElementById('biz-social').value,
+    contactMethod: getRadio('contact'),
+    hours: hoursStr,
+    appointments: getRadio('appt'),
+    advanceBooking: document.getElementById('advance-book').value,
+    blackoutDates: document.getElementById('blackout').value,
+    services: svcsStr,
+    serviceNotes: document.getElementById('svc-notes').value,
+    competitors: document.getElementById('competitors').value,
+    langPref: getRadio('lang-pref'),
+    tone: getRadio('tone'),
+    teamName: document.getElementById('team-name').value,
+    avoidWords: document.getElementById('avoid-words').value,
+    botGoal: getRadio('bot-goal'),
+    naturalGreeting: document.getElementById('natural-greeting').value,
+    faq: document.getElementById('faq-textarea').value,
+    leadName: document.getElementById('lead-name').value,
+    leadEmail: document.getElementById('lead-email').value,
+    followupSpeed: document.getElementById('followup-speed').value,
+    followupMethod: getRadio('followup'),
+    bizSocial: document.getElementById('biz-social').value,
+    leadNotes: document.getElementById('lead-notes').value,
+    approveEmail: getRadio('approve-email'),
+    emailContent: document.getElementById('email-content').value,
+    brandColors: document.getElementById('brand-colors').value,
+    tagline: document.getElementById('tagline').value,
+    brandNotes: document.getElementById('brand-notes').value,
+    formLang: currentLang,
+  };
+}
+
+async function handleSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('btn-submit');
+  btn.disabled = true;
+  btn.textContent = '…';
+  try {
+    await fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(collectFormData()) });
+    document.getElementById('success-msg').style.display = 'block';
+    document.getElementById('success-msg').innerHTML = T[currentLang].successTxt;
+    btn.style.display = 'none';
+    document.getElementById('submit-note').style.display = 'none';
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = T[currentLang].btnSubmit;
+    alert('Something went wrong. Please try again.');
+  }
+}
+
+applyLang('en');
+</script>
+</body>
+</html>
