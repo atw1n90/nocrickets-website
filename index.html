@@ -530,7 +530,7 @@
     <div class="section-body">
       <div class="field">
         <label for="faq-textarea" id="s5-hint">Any questions your customers ask that aren't covered by your services or hours?</label>
-        <div class="field-hint">e.g. parking, cancellation policy, payment methods, age requirements, gift cards</div>
+        <div class="field-hint" id="s5-sub-hint">e.g. parking, cancellation policy, payment methods, age requirements, gift cards</div>
         <textarea id="faq-textarea" rows="6" placeholder="Q: Do you have parking?
 A: Yes, free parking in the lot behind the building.
 
@@ -575,7 +575,7 @@ A: We ask for 24 hours notice."></textarea>
       </div>
       <div class="field">
         <label for="email-content" id="l-email-content">What would you like your automated follow-up email to say?</label>
-        <div class="field-hint">Edit the template below or write your own. We'll polish it before it goes live.</div>
+        <div class="field-hint" id="h-email-content">Edit the template below or write your own. We'll polish it before it goes live.</div>
         <textarea id="email-content" rows="14">Subject: Thanks for reaching out to [Business Name]!
 
 Hi [Customer Name],
@@ -597,8 +597,8 @@ We look forward to hearing from you!
       <div class="field">
         <label id="l-approve-email">Would you like to approve the automated follow-up email before it goes live?</label>
         <div class="options-group">
-          <div class="option-pill"><input type="radio" name="approve-email" id="ae-y" value="Yes"><label for="ae-y">Yes</label></div>
-          <div class="option-pill"><input type="radio" name="approve-email" id="ae-n" value="No"><label for="ae-n">No — just send it</label></div>
+          <div class="option-pill"><input type="radio" name="approve-email" id="ae-y" value="Yes"><label for="ae-y" id="l-ae-y">Yes</label></div>
+          <div class="option-pill"><input type="radio" name="approve-email" id="ae-n" value="No"><label for="ae-n" id="l-ae-n">No — just send it</label></div>
         </div>
       </div>
     </div>
@@ -647,33 +647,111 @@ const T = {
     heroTitle: 'Client Onboarding Questionnaire',
     heroSub: "Help us build a custom AI chatbot tailored to your business. Complete this form and we'll take care of the rest.",
     s1:'Business Information', s2:'Hours & Availability', s3:'Services & Pricing',
-    s4:'Bot Personality & Language', s5:'Common Customer Questions',
+    s4:'Bot Personality & Language', s5:'Additional Customer Questions',
     s6:'Lead Capture & Follow-Up', s7:'Branding',
     thDay:'Day', thOpen:'Opens', thClose:'Closes', thClosed:'Closed',
     days:['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
     svcPlaceholders:['Service 1','Service 2','Service 3','Service 4','Service 5','Service 6','Service 7','Service 8'],
-    s5Hint:'List your top 5 customer questions and the answers you want the bot to give.',
+    s5Hint:'Any questions your customers ask that aren\'t covered by your services or hours?',
+    s5SubHint:'e.g. parking, cancellation policy, payment methods, age requirements, gift cards',
     submitNote:'Once you submit, your NoCrickets account manager will review your responses and reach out within 1–2 business days to begin building your bot.',
     btnSubmit:'Submit Questionnaire →',
     successTxt:'✅ Thank you! We received your responses and will be in touch soon.',
     consult:'Requires consultation?', consultY:'Yes', consultN:'No',
     apptNote:'ℹ️ The bot will collect your customer\'s preferred appointment time and log it to your leads sheet. You confirm directly with the customer.',
+    addService:'+ Add Service',
+    // S1 labels
+    lBizName:'Business Name', lBizType:'Business Type', lBizTypePh:'Salon, Restaurant, Retail…',
+    lBizAddress:'Full Business Address', lBizWebsite:'Website URL', lBizPhone:'Business Phone',
+    lBizWhatsapp:'WhatsApp Number', hBizWhatsapp:'This is where customers will be directed',
+    lBizContact:'Preferred Customer Contact', lBizSocial:'Social Media Links',
+    hBizSocial:'Instagram, Facebook, TikTok, or any other profiles',
+    // S2 labels
+    lAppt:'Do you accept appointments, walk-ins, or both?',
+    lAReq:'Appointments only', lAWalk:'Walk-ins welcome', lABoth:'Both',
+    lAdvanceBook:'How far in advance do you typically book?', lAdvanceBookPh:'e.g. 1–2 days, same week…',
+    lBlackout:'Upcoming closures or blackout dates?',
+    // S3 labels
+    lSvcNotes:'Any service disclaimers or special notes?',
+    lCompetitors:'Who are your top 2–3 local competitors?', lCompetitorsPh:'e.g. Studio X, Salon Y…',
+    // S4 labels
+    lLangPref:'Preferred Language', lLpEn:'English only', lLpEs:'Spanish only', lLpBi:'Bilingual (both)',
+    lTone:'Preferred Tone', lTFormal:'Formal & Professional', lTFriendly:'Friendly & Warm', lTFun:'Fun & Playful',
+    lTeamName:'What should the bot call your team?', hTeamName:'e.g. "our team", "our specialists"',
+    lAvoidWords:'Words or topics to NEVER use?',
+    lBotGoal:'What is the #1 goal of the bot?',
+    lBgBook:'Collect appointment requests', lBgCapture:'Capture contact info', lBgFaq:'Answer FAQs', lBgAll:'All three',
+    lNaturalGreeting:'How do you currently greet customers when they walk in or call?',
+    hNaturalGreeting:'Helps us match your natural voice so the bot sounds like you',
+    // S5 labels
+    lFaqPh:'Q: Do you have parking?\nA: Yes, free parking in the lot behind the building.\n\nQ: What is your cancellation policy?\nA: We ask for 24 hours notice.',
+    // S6 labels
+    lLeadName:'Who receives leads? (Name)', lLeadEmail:'Who receives leads? (Email)',
+    lFollowupSpeed:'How quickly do you follow up?', lFollowupSpeedPh:'e.g. Within 1 hour, same day…',
+    lFollowupMethod:'Preferred Follow-Up Method',
+    lLeadNotes:'Anything else about your lead process?',
+    lEmailContent:'What would you like your automated follow-up email to say?',
+    hEmailContent:'Edit the template below or write your own. We\'ll polish it before it goes live.',
+    lApproveEmail:'Would you like to approve the automated follow-up email before it goes live?',
+    lAeY:'Yes', lAeN:'No — just send it',
+    // S7 labels
+    lBrandColors:'Brand Colors', hBrandColors:'e.g. Navy & gold, pink & white, or hex codes',
+    lTagline:'Tagline or Slogan', lBrandNotes:'Other branding notes or preferences',
   },
   es: {
     heroTitle:'Cuestionario de Incorporación',
     heroSub:'Ayúdanos a construir un chatbot de IA personalizado para tu negocio. Completa este formulario y nosotros nos encargamos del resto.',
     s1:'Información del Negocio', s2:'Horarios y Disponibilidad', s3:'Servicios y Precios',
-    s4:'Personalidad del Bot e Idioma', s5:'Preguntas Frecuentes de Clientes',
+    s4:'Personalidad del Bot e Idioma', s5:'Preguntas Adicionales de Clientes',
     s6:'Captura de Leads y Seguimiento', s7:'Marca',
     thDay:'Día', thOpen:'Abre', thClose:'Cierra', thClosed:'Cerrado',
     days:['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'],
     svcPlaceholders:['Servicio 1','Servicio 2','Servicio 3','Servicio 4','Servicio 5','Servicio 6','Servicio 7','Servicio 8'],
-    s5Hint:'Lista las preguntas más frecuentes de tus clientes y las respuestas que quieres que el bot dé.',
+    s5Hint:'¿Hay preguntas que tus clientes hacen que no están cubiertas por tus servicios u horarios?',
+    s5SubHint:'ej. estacionamiento, política de cancelación, métodos de pago, requisitos de edad, tarjetas de regalo',
     submitNote:'Una vez enviado, tu gestor de cuenta de NoCrickets revisará tus respuestas y se pondrá en contacto en 1–2 días hábiles para comenzar a construir tu bot.',
     btnSubmit:'Enviar Cuestionario →',
     successTxt:'✅ ¡Gracias! Recibimos tus respuestas y nos pondremos en contacto pronto.',
     consult:'¿Requiere consulta?', consultY:'Sí', consultN:'No',
     apptNote:'ℹ️ El bot recopilará el horario preferido de tu cliente y lo registrará en tu hoja de leads. Tú confirmas directamente con el cliente.',
+    addService:'+ Agregar Servicio',
+    // S1 labels
+    lBizName:'Nombre del Negocio', lBizType:'Tipo de Negocio', lBizTypePh:'Salón, Restaurante, Retail…',
+    lBizAddress:'Dirección Completa', lBizWebsite:'Sitio Web', lBizPhone:'Teléfono del Negocio',
+    lBizWhatsapp:'Número de WhatsApp', hBizWhatsapp:'Aquí es donde dirigiremos a los clientes',
+    lBizContact:'Método de Contacto Preferido', lBizSocial:'Redes Sociales',
+    hBizSocial:'Instagram, Facebook, TikTok u otros perfiles',
+    // S2 labels
+    lAppt:'¿Aceptas citas, clientes sin cita, o ambos?',
+    lAReq:'Solo con cita', lAWalk:'Sin cita bienvenido', lABoth:'Ambos',
+    lAdvanceBook:'¿Con cuánta anticipación reservas normalmente?', lAdvanceBookPh:'ej. 1–2 días, misma semana…',
+    lBlackout:'¿Próximos cierres o fechas no disponibles?',
+    // S3 labels
+    lSvcNotes:'¿Algún aviso o nota especial sobre tus servicios?',
+    lCompetitors:'¿Quiénes son tus 2–3 principales competidores locales?', lCompetitorsPh:'ej. Estudio X, Salón Y…',
+    // S4 labels
+    lLangPref:'Idioma Preferido', lLpEn:'Solo inglés', lLpEs:'Solo español', lLpBi:'Bilingüe (ambos)',
+    lTone:'Tono Preferido', lTFormal:'Formal y Profesional', lTFriendly:'Amigable y Cálido', lTFun:'Divertido y Juguetón',
+    lTeamName:'¿Cómo debe llamar el bot a tu equipo?', hTeamName:'ej. "nuestro equipo", "nuestros especialistas"',
+    lAvoidWords:'¿Palabras o temas que NUNCA debe usar?',
+    lBotGoal:'¿Cuál es el objetivo #1 del bot?',
+    lBgBook:'Recopilar solicitudes de citas', lBgCapture:'Capturar información de contacto', lBgFaq:'Responder preguntas frecuentes', lBgAll:'Los tres',
+    lNaturalGreeting:'¿Cómo saludas actualmente a los clientes cuando entran o llaman?',
+    hNaturalGreeting:'Nos ayuda a hacer que el bot suene como tú',
+    // S5 labels
+    lFaqPh:'P: ¿Tienen estacionamiento?\nR: Sí, estacionamiento gratuito detrás del edificio.\n\nP: ¿Cuál es su política de cancelación?\nR: Pedimos 24 horas de aviso.',
+    // S6 labels
+    lLeadName:'¿Quién recibe los leads? (Nombre)', lLeadEmail:'¿Quién recibe los leads? (Correo)',
+    lFollowupSpeed:'¿Qué tan rápido haces seguimiento?', lFollowupSpeedPh:'ej. En 1 hora, el mismo día…',
+    lFollowupMethod:'Método de Seguimiento Preferido',
+    lLeadNotes:'¿Algo más sobre tu proceso de leads?',
+    lEmailContent:'¿Qué te gustaría que dijera el correo de seguimiento automático?',
+    hEmailContent:'Edita la plantilla a continuación o escribe la tuya. La puliremos antes de publicarla.',
+    lApproveEmail:'¿Te gustaría aprobar el correo de seguimiento automático antes de que salga?',
+    lAeY:'Sí', lAeN:'No — envíalo directamente',
+    // S7 labels
+    lBrandColors:'Colores de Marca', hBrandColors:'ej. Azul marino y dorado, rosa y blanco, o códigos hex',
+    lTagline:'Eslogan o Frase de Marca', lBrandNotes:'Otras notas o preferencias de marca',
   }
 };
 
@@ -717,18 +795,62 @@ function addServiceRow() {
 
 function applyLang(lang) {
   const t = T[lang];
+
+  // Simple ID → text map
   const ids = {
     'hero-title': t.heroTitle, 'hero-sub': t.heroSub,
     's1-title': t.s1, 's2-title': t.s2, 's3-title': t.s3,
     's4-title': t.s4, 's5-title': t.s5, 's6-title': t.s6, 's7-title': t.s7,
     'th-day': t.thDay, 'th-open': t.thOpen, 'th-close': t.thClose, 'th-closed': t.thClosed,
     's5-hint': t.s5Hint, 'submit-note': t.submitNote, 'btn-submit': t.btnSubmit,
-    'appt-note': t.apptNote,
+    'appt-note': t.apptNote, 'add-service-btn': t.addService,
+    // S1
+    'l-biz-name': t.lBizName, 'l-biz-type': t.lBizType,
+    'l-biz-address': t.lBizAddress, 'l-biz-website': t.lBizWebsite,
+    'l-biz-phone': t.lBizPhone, 'l-biz-whatsapp': t.lBizWhatsapp,
+    'h-biz-whatsapp': t.hBizWhatsapp, 'l-biz-contact': t.lBizContact,
+    // S2
+    'l-appt': t.lAppt, 'l-a-req': t.lAReq, 'l-a-walk': t.lAWalk, 'l-a-both': t.lABoth,
+    'l-advance-book': t.lAdvanceBook, 'l-blackout': t.lBlackout,
+    // S3
+    'l-svc-notes': t.lSvcNotes, 'l-competitors': t.lCompetitors,
+    // S4
+    'l-lang-pref': t.lLangPref, 'l-lp-en': t.lLpEn, 'l-lp-es': t.lLpEs, 'l-lp-bi': t.lLpBi,
+    'l-tone': t.lTone, 'l-t-formal': t.lTFormal, 'l-t-friendly': t.lTFriendly, 'l-t-fun': t.lTFun,
+    'l-team-name': t.lTeamName, 'h-team-name': t.hTeamName,
+    'l-avoid-words': t.lAvoidWords, 'l-bot-goal': t.lBotGoal,
+    'l-natural-greeting': t.lNaturalGreeting, 'h-natural-greeting': t.hNaturalGreeting,
+    // S6
+    'l-lead-name': t.lLeadName, 'l-lead-email': t.lLeadEmail,
+    'l-followup-speed': t.lFollowupSpeed, 'l-followup-method': t.lFollowupMethod,
+    'l-lead-notes': t.lLeadNotes, 'l-email-content': t.lEmailContent,
+    'h-email-content': t.hEmailContent, 'l-approve-email': t.lApproveEmail,
+    'l-ae-y': t.lAeY, 'l-ae-n': t.lAeN,
+    // S7
+    'l-brand-colors': t.lBrandColors, 'h-brand-colors': t.hBrandColors,
+    'l-tagline': t.lTagline, 'l-brand-notes': t.lBrandNotes,
   };
+
   Object.entries(ids).forEach(([id, val]) => {
     const el = document.getElementById(id);
-    if (el) el.innerHTML = val;
+    if (el && val) el.innerHTML = val;
   });
+
+  // Update placeholders
+  const phs = {
+    'biz-type': t.lBizTypePh, 'advance-book': t.lAdvanceBookPh,
+    'competitors': t.lCompetitorsPh, 'followup-speed': t.lFollowupSpeedPh,
+    'faq-textarea': t.lFaqPh,
+  };
+  Object.entries(phs).forEach(([id, val]) => {
+    const el = document.getElementById(id);
+    if (el && val) el.placeholder = val;
+  });
+
+  // Update s5 sub-hint
+  const s5sub = document.getElementById('s5-sub-hint');
+  if (s5sub) s5sub.innerHTML = t.s5SubHint;
+
   buildHours(lang);
   buildServices(lang);
 }
