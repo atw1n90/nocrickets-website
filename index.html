@@ -576,23 +576,7 @@ A: We ask for 24 hours notice."></textarea>
       <div class="field">
         <label for="email-content" id="l-email-content">What would you like your automated follow-up email to say?</label>
         <div class="field-hint" id="h-email-content">Edit the template below or write your own. We'll polish it before it goes live.</div>
-        <textarea id="email-content" rows="14">Subject: Thanks for reaching out to [Business Name]!
-
-Hi [Customer Name],
-
-Thanks for getting in touch with us! We received your message and wanted to follow up personally.
-
-We'd love to help you with [service]. Here's what you can expect from us:
-- [Benefit 1 — e.g. "Fast response times"]
-- [Benefit 2 — e.g. "Friendly, professional service"]
-- [Benefit 3 — e.g. "Flexible scheduling"]
-
-Ready to get started? Reply to this email, call us at [phone], or message us on WhatsApp at [WhatsApp].
-
-We look forward to hearing from you!
-
-[Your Name]
-[Business Name]</textarea>
+        <textarea id="email-content" rows="14"></textarea>
       </div>
       <div class="field">
         <label id="l-approve-email">Would you like to approve the automated follow-up email before it goes live?</label>
@@ -694,6 +678,23 @@ const T = {
     hEmailContent:'Edit the template below or write your own. We\'ll polish it before it goes live.',
     lApproveEmail:'Would you like to approve the automated follow-up email before it goes live?',
     lAeY:'Yes', lAeN:'No — just send it',
+    emailTemplate:`Subject: Thanks for reaching out to [Business Name]!
+
+Hi [Customer Name],
+
+Thanks for getting in touch with us! We received your message and wanted to follow up personally.
+
+We'd love to help you with [service]. Here's what you can expect from us:
+- [Benefit 1 — e.g. "Fast response times"]
+- [Benefit 2 — e.g. "Friendly, professional service"]
+- [Benefit 3 — e.g. "Flexible scheduling"]
+
+Ready to get started? Reply to this email, call us at [phone], or message us on WhatsApp at [WhatsApp].
+
+We look forward to hearing from you!
+
+[Your Name]
+[Business Name]`,
     // S7 labels
     lBrandColors:'Brand Colors', hBrandColors:'e.g. Navy & gold, pink & white, or hex codes',
     lTagline:'Tagline or Slogan', lBrandNotes:'Other branding notes or preferences',
@@ -749,6 +750,23 @@ const T = {
     hEmailContent:'Edita la plantilla a continuación o escribe la tuya. La puliremos antes de publicarla.',
     lApproveEmail:'¿Te gustaría aprobar el correo de seguimiento automático antes de que salga?',
     lAeY:'Sí', lAeN:'No — envíalo directamente',
+    emailTemplate:`Asunto: ¡Gracias por contactar a [Nombre del Negocio]!
+
+Hola [Nombre del Cliente],
+
+¡Gracias por ponerte en contacto con nosotros! Recibimos tu mensaje y queríamos hacer seguimiento personalmente.
+
+Nos encantaría ayudarte con [servicio]. Esto es lo que puedes esperar de nosotros:
+- [Beneficio 1 — ej. "Respuesta rápida"]
+- [Beneficio 2 — ej. "Servicio amable y profesional"]
+- [Beneficio 3 — ej. "Horarios flexibles"]
+
+¿Listo para comenzar? Responde a este correo, llámanos al [teléfono] o escríbenos por WhatsApp al [WhatsApp].
+
+¡Esperamos saber de ti pronto!
+
+[Tu Nombre]
+[Nombre del Negocio]`,
     // S7 labels
     lBrandColors:'Colores de Marca', hBrandColors:'ej. Azul marino y dorado, rosa y blanco, o códigos hex',
     lTagline:'Eslogan o Frase de Marca', lBrandNotes:'Otras notas o preferencias de marca',
@@ -850,6 +868,10 @@ function applyLang(lang) {
   // Update s5 sub-hint
   const s5sub = document.getElementById('s5-sub-hint');
   if (s5sub) s5sub.innerHTML = t.s5SubHint;
+
+  // Update email template textarea
+  const emailEl = document.getElementById('email-content');
+  if (emailEl) emailEl.value = t.emailTemplate;
 
   buildHours(lang);
   buildServices(lang);
