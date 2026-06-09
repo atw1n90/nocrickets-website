@@ -282,7 +282,7 @@
     opacity: 0;
     animation: fadeUp 0.7s 0.25s ease forwards;
   }
-  .hero h1 .accent { color: var(--green); }
+  .hero h1 .accent { color: var(--green); display: inline-block; min-width: 8ch; }
   .hero h1 .typed-cursor {
     display: inline-block;
     width: 3px;
@@ -772,7 +772,7 @@
     nav { padding: 16px 24px; }
     .nav-links { display: none; }
     section, .hero { padding: 80px 24px; }
-    .hero h1 { letter-spacing: -1px; }
+    .hero h1 { letter-spacing: -1px; min-height: 3em; }
     .hero-stats { flex-wrap: wrap; gap: 28px; }
     .solution-grid { grid-template-columns: 1fr; }
     .faq-grid { grid-template-columns: 1fr; }
@@ -805,7 +805,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-eyebrow" id="hero-eyebrow">AI Marketing for Local Business</div>
-  <h1 id="hero-headline"><span id="hero-headline-static">Your Business Deserves More Than </span><br><span class="accent" id="typed-word"></span><span class="typed-cursor" id="cursor"></span></h1>
+  <h1 id="hero-headline"><span id="hero-headline-static">Your Business Deserves More Than </span><span class="accent" id="typed-word"></span><span class="typed-cursor" id="cursor"></span></h1>
   <p class="hero-sub" id="hero-sub">We build AI-powered chatbots that capture leads and automatically follow up — so you never lose a customer again.</p>
   <div class="hero-actions">
     <a href="#demo" class="btn-primary" id="hero-cta1">
@@ -1086,7 +1086,7 @@ const SITE_T = {
     closingCta:'Get started today',
     footerCopy:'© 2026 NoCrickets. AI Marketing for Local Business.',
     footerCta:'Get started',
-    typedWords:['Crickets.', 'Silence.', 'Lost Leads.', 'Crickets.'],
+    typedWords:['Crickets.', 'Silence.', 'Missed Leads.', 'Crickets.'],
   },
   es: {
     navHow:'Cómo funciona', navPricing:'Precios', navDemo:'Ver demo', navCta:'Comenzar',
@@ -1139,7 +1139,7 @@ const SITE_T = {
     closingCta:'Comenzar hoy',
     footerCopy:'© 2026 NoCrickets. Marketing con IA para Negocios Locales.',
     footerCta:'Comenzar',
-    typedWords:['Grillos.', 'Silencio.', 'Oportunidades.', 'Grillos.'],
+    typedWords:['Grillos.', 'Silencio.', 'Clientes Perdidos.', 'Grillos.'],
   }
 };
 
@@ -1204,7 +1204,8 @@ function setLang(lang) {
 
   // Update typewriter words
   words.length = 0;
-  t.typedWords.forEach(w => words.push(w));
+  const mobileWords = isMobile ? t.typedWords.filter(w => w.length <= 10) : t.typedWords;
+  mobileWords.forEach(w => words.push(w));
   wordIndex = 0; charIndex = 0; isDeleting = false;
 }
 
@@ -1215,7 +1216,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-const words = ['Crickets.', 'Silence.', 'Lost Leads.', 'Crickets.'];
+const isMobile = window.matchMedia('(max-width: 768px)').matches;
+const words = isMobile
+  ? ['Crickets.', 'Silence.', 'Crickets.']
+  : ['Crickets.', 'Silence.', 'Missed Leads.', 'Crickets.'];
 let wordIndex = 0, charIndex = 0, isDeleting = false;
 const typedEl = document.getElementById('typed-word');
 
