@@ -614,6 +614,34 @@ A: We ask for 24 hours notice."></textarea>
     </div>
   </div>
 
+  <!-- PLAN SELECTOR -->
+  <div class="submit-wrap" style="margin-bottom:0;padding-bottom:0;">
+    <p id="plan-label" style="font-weight:700;margin-bottom:12px;">Select your plan:</p>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+      <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;" id="plan-starter-wrap">
+        <input type="radio" name="plan" value="starter" id="plan-starter" style="margin-top:3px;">
+        <div>
+          <div id="plan-starter-label" style="font-weight:700;font-size:15px;">Starter — $99/mo</div>
+          <div id="plan-starter-desc" style="font-size:13px;color:#777;">Bot + lead capture</div>
+        </div>
+      </label>
+      <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;" id="plan-growth-wrap">
+        <input type="radio" name="plan" value="growth" id="plan-growth" style="margin-top:3px;">
+        <div>
+          <div id="plan-growth-label" style="font-weight:700;font-size:15px;">Growth — $199/mo</div>
+          <div id="plan-growth-desc" style="font-size:13px;color:#777;">Bot + lead capture + automated email follow-up</div>
+        </div>
+      </label>
+      <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;" id="plan-whitelabel-wrap">
+        <input type="radio" name="plan" value="whitelabel" id="plan-whitelabel" style="margin-top:3px;">
+        <div>
+          <div id="plan-whitelabel-label" style="font-weight:700;font-size:15px;">Growth + White-label — $249/mo</div>
+          <div id="plan-whitelabel-desc" style="font-size:13px;color:#777;">Full white-label — no NoCrickets branding anywhere</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
   <!-- SUBMIT -->
   <div class="submit-wrap">
     <p id="submit-note">Once you submit, your NoCrickets account manager will review your responses and reach out within 3–5 business days to begin building your bot.</p>
@@ -640,6 +668,10 @@ const T = {
     s5Hint:'Any questions your customers ask that aren\'t covered by your services or hours?',
     s5SubHint:'e.g. parking, cancellation policy, payment methods, age requirements, gift cards',
     submitNote:'Once you submit, your NoCrickets account manager will review your responses and reach out within 3–5 business days to begin building your bot.',
+    planLabel:'Select your plan:',
+    planStarterLabel:'Starter — $99/mo', planStarterDesc:'Bot + lead capture',
+    planGrowthLabel:'Growth — $199/mo', planGrowthDesc:'Bot + lead capture + automated email follow-up',
+    planWLLabel:'Growth + White-label — $249/mo', planWLDesc:'Full white-label — no NoCrickets branding anywhere',
     btnSubmit:'Submit Questionnaire →',
     successTxt:`<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ We received your submission!</div><p style="color:#555;margin-bottom:24px;">Choose your plan below to get started. Your bot will be ready within 3–5 business days after payment.</p><div style="display:flex;flex-direction:column;gap:12px;max-width:360px;margin:0 auto;"><a href="https://buy.stripe.com/6oU14ndbu0j2bSY8ZS8Vi00" target="_blank" style="display:block;background:#0D0D0D;color:#00E676;border:2px solid #00E676;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Starter — $99/mo<br><span style="font-size:13px;font-weight:400;color:#aaa;">Bot + lead capture</span></a><a href="https://buy.stripe.com/9B64gz7RafdW4qwfog8Vi01" target="_blank" style="display:block;background:#00E676;color:#000;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Growth — $199/mo<br><span style="font-size:13px;font-weight:400;color:#004d1a;">Bot + lead capture + automated email follow-up</span></a></div></div>`,
     consult:'Requires consultation?', consultY:'Yes', consultN:'No',
@@ -712,6 +744,10 @@ We look forward to hearing from you!
     s5Hint:'¿Hay preguntas que tus clientes hacen que no están cubiertas por tus servicios u horarios?',
     s5SubHint:'ej. estacionamiento, política de cancelación, métodos de pago, requisitos de edad, tarjetas de regalo',
     submitNote:'Una vez enviado, tu gestor de cuenta de NoCrickets revisará tus respuestas y se pondrá en contacto en 3–5 días hábiles para comenzar a construir tu bot.',
+    planLabel:'Selecciona tu plan:',
+    planStarterLabel:'Starter — $99/mes', planStarterDesc:'Bot + captura de leads',
+    planGrowthLabel:'Growth — $199/mes', planGrowthDesc:'Bot + leads + seguimiento automático por correo',
+    planWLLabel:'Growth + White-label — $249/mes', planWLDesc:'White-label completo — sin marca NoCrickets',
     btnSubmit:'Enviar Cuestionario →',
     successTxt:`<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ ¡Recibimos tu formulario!</div><p style="color:#555;margin-bottom:24px;">Elige tu plan para comenzar. Tu bot estará listo en 3–5 días hábiles después del pago.</p><div style="display:flex;flex-direction:column;gap:12px;max-width:360px;margin:0 auto;"><a href="https://buy.stripe.com/6oU14ndbu0j2bSY8ZS8Vi00" target="_blank" style="display:block;background:#0D0D0D;color:#00E676;border:2px solid #00E676;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Starter — $99/mes<br><span style="font-size:13px;font-weight:400;color:#aaa;">Bot + captura de leads</span></a><a href="https://buy.stripe.com/9B64gz7RafdW4qwfog8Vi01" target="_blank" style="display:block;background:#00E676;color:#000;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Growth — $199/mes<br><span style="font-size:13px;font-weight:400;color:#004d1a;">Bot + leads + seguimiento automático por correo</span></a></div></div>`,
     consult:'¿Requiere consulta?', consultY:'Sí', consultN:'No',
@@ -823,6 +859,10 @@ function applyLang(lang) {
     'th-day': t.thDay, 'th-open': t.thOpen, 'th-close': t.thClose, 'th-closed': t.thClosed,
     's5-hint': t.s5Hint, 'submit-note': t.submitNote, 'btn-submit': t.btnSubmit,
     'appt-note': t.apptNote, 'add-service-btn': t.addService,
+    'plan-label': t.planLabel,
+    'plan-starter-label': t.planStarterLabel, 'plan-starter-desc': t.planStarterDesc,
+    'plan-growth-label': t.planGrowthLabel, 'plan-growth-desc': t.planGrowthDesc,
+    'plan-whitelabel-label': t.planWLLabel, 'plan-whitelabel-desc': t.planWLDesc,
     // S1
     'l-biz-name': t.lBizName, 'l-biz-type': t.lBizType,
     'l-biz-address': t.lBizAddress, 'l-biz-website': t.lBizWebsite,
@@ -948,12 +988,41 @@ function collectFormData() {
 async function handleSubmit(e) {
   e.preventDefault();
   const btn = document.getElementById('btn-submit');
+
+  // Get selected plan
+  const selectedPlan = document.querySelector('input[name="plan"]:checked');
+  if (!selectedPlan) {
+    alert(currentLang === 'es' ? 'Por favor selecciona un plan antes de continuar.' : 'Please select a plan before submitting.');
+    return;
+  }
+
+  const stripeLinks = {
+    starter: 'https://buy.stripe.com/6oU14ndbu0j2bSY8ZS8Vi00',
+    growth: 'https://buy.stripe.com/9B64gz7RafdW4qwfog8Vi01',
+    whitelabel: 'https://buy.stripe.com/5kQcN53AUc1K7CIdg88Vi02'
+  };
+
+  const planLabels = {
+    en: { starter: 'Starter — $99/mo', growth: 'Growth — $199/mo', whitelabel: 'Growth + White-label — $249/mo' },
+    es: { starter: 'Starter — $99/mes', growth: 'Growth — $199/mes', whitelabel: 'Growth + White-label — $249/mes' }
+  };
+
   btn.disabled = true;
   btn.textContent = '…';
   try {
-    await fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(collectFormData()) });
+    const formData = collectFormData();
+    formData.selectedPlan = selectedPlan.value;
+    await fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(formData) });
+
+    const stripeUrl = stripeLinks[selectedPlan.value];
+    const planLabel = planLabels[currentLang][selectedPlan.value];
+
+    const successHTML = currentLang === 'es'
+      ? `<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ ¡Recibimos tu formulario!</div><p style="color:#555;margin-bottom:8px;">Seleccionaste: <strong>${planLabel}</strong></p><p style="color:#555;margin-bottom:24px;">Haz clic abajo para completar tu pago. Tu bot estará listo en 3–5 días hábiles.</p><a href="${stripeUrl}" target="_blank" style="display:inline-block;background:#00E676;color:#000;padding:16px 32px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Pagar ahora →</a></div>`
+      : `<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ We received your submission!</div><p style="color:#555;margin-bottom:8px;">Selected plan: <strong>${planLabel}</strong></p><p style="color:#555;margin-bottom:24px;">Click below to complete your payment. Your bot will be ready within 3–5 business days.</p><a href="${stripeUrl}" target="_blank" style="display:inline-block;background:#00E676;color:#000;padding:16px 32px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Pay now →</a></div>`;
+
     document.getElementById('success-msg').style.display = 'block';
-    document.getElementById('success-msg').innerHTML = T[currentLang].successTxt;
+    document.getElementById('success-msg').innerHTML = successHTML;
     btn.style.display = 'none';
     document.getElementById('submit-note').style.display = 'none';
   } catch (err) {
@@ -964,6 +1033,18 @@ async function handleSubmit(e) {
 }
 
 applyLang('en');
+
+// Plan selector highlight
+document.querySelectorAll('input[name="plan"]').forEach(radio => {
+  radio.addEventListener('change', () => {
+    document.querySelectorAll('input[name="plan"]').forEach(r => {
+      r.closest('label').style.borderColor = '#333';
+      r.closest('label').style.background = 'transparent';
+    });
+    radio.closest('label').style.borderColor = '#00E676';
+    radio.closest('label').style.background = 'rgba(0,230,118,0.08)';
+  });
+});
 </script>
 </body>
 </html>
