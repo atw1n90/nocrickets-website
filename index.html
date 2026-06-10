@@ -352,6 +352,8 @@
   <div class="accent-line"></div>
 </div>
 
+<p id="required-note" style="text-align:center;font-size:13px;color:#777;margin:-8px 0 16px;">Fields marked with <span style="color:var(--green);">*</span> are required</p>
+
 <!-- FORM -->
 <div class="form-wrap">
 <form id="onboarding-form" onsubmit="handleSubmit(event)">
@@ -383,23 +385,27 @@
           <input type="url" id="biz-website" placeholder="https://…">
         </div>
         <div class="field">
-          <label for="biz-phone" id="l-biz-phone">Business Phone <span class="req">*</span></label>
-          <input type="tel" id="biz-phone" required>
+          <label for="biz-email" id="l-biz-email">Business Email <span class="req">*</span></label>
+          <input type="email" id="biz-email" required>
         </div>
       </div>
       <div class="two-col">
+        <div class="field">
+          <label for="biz-phone" id="l-biz-phone">Business Phone <span class="req">*</span></label>
+          <input type="tel" id="biz-phone" required>
+        </div>
         <div class="field">
           <label for="biz-whatsapp" id="l-biz-whatsapp">WhatsApp Number</label>
           <div class="field-hint" id="h-biz-whatsapp"></div>
           <input type="tel" id="biz-whatsapp">
         </div>
-        <div class="field">
-          <label id="l-biz-contact">Preferred Customer Contact</label>
-          <div class="options-group" style="margin-top:28px">
-            <div class="option-pill"><input type="radio" name="contact" id="c-wa" value="WhatsApp"><label for="c-wa">WhatsApp</label></div>
-            <div class="option-pill"><input type="radio" name="contact" id="c-ph" value="Phone"><label for="c-ph" id="l-c-ph">Phone</label></div>
-            <div class="option-pill"><input type="radio" name="contact" id="c-em" value="Email"><label for="c-em">Email</label></div>
-          </div>
+      </div>
+      <div class="field">
+        <label id="l-biz-contact">Preferred Customer Contact</label>
+        <div class="options-group" style="margin-top:8px">
+          <div class="option-pill"><input type="radio" name="contact" id="c-wa" value="WhatsApp"><label for="c-wa">WhatsApp</label></div>
+          <div class="option-pill"><input type="radio" name="contact" id="c-ph" value="Phone"><label for="c-ph" id="l-c-ph">Phone</label></div>
+          <div class="option-pill"><input type="radio" name="contact" id="c-em" value="Email"><label for="c-em">Email</label></div>
         </div>
       </div>
       <div class="field">
@@ -618,25 +624,25 @@ A: We ask for 24 hours notice."></textarea>
   <div class="submit-wrap" style="margin-bottom:0;padding-bottom:0;">
     <p id="plan-label" style="font-weight:700;margin-bottom:12px;">Select your plan:</p>
     <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
-      <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;" id="plan-starter-wrap">
+      <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;" id="plan-starter-wrap" style="text-align:left;">
         <input type="radio" name="plan" value="starter" id="plan-starter" style="margin-top:3px;">
         <div>
           <div id="plan-starter-label" style="font-weight:700;font-size:15px;">Starter — $99/mo</div>
           <div id="plan-starter-desc" style="font-size:13px;color:#777;">Bot + lead capture</div>
         </div>
       </label>
-      <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;" id="plan-growth-wrap">
+      <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;" id="plan-growth-wrap" style="text-align:left;">
         <input type="radio" name="plan" value="growth" id="plan-growth" style="margin-top:3px;">
         <div>
-          <div id="plan-growth-label" style="font-weight:700;font-size:15px;">Growth — $199/mo</div>
-          <div id="plan-growth-desc" style="font-size:13px;color:#777;">Bot + lead capture + automated email follow-up</div>
+          <div id="plan-growth-label" style="font-weight:700;font-size:15px;text-align:left;">Growth — $199/mo</div>
+          <div id="plan-growth-desc" style="font-size:13px;color:#777;text-align:left;">Bot + lead capture + automated email follow-up</div>
         </div>
       </label>
-      <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;" id="plan-whitelabel-wrap">
+      <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;" id="plan-whitelabel-wrap" style="text-align:left;">
         <input type="radio" name="plan" value="whitelabel" id="plan-whitelabel" style="margin-top:3px;">
         <div>
-          <div id="plan-whitelabel-label" style="font-weight:700;font-size:15px;">Growth + White-label — $249/mo</div>
-          <div id="plan-whitelabel-desc" style="font-size:13px;color:#777;">Full white-label — no NoCrickets branding anywhere</div>
+          <div id="plan-whitelabel-label" style="font-weight:700;font-size:15px;text-align:left;">Growth + White-label — $249/mo</div>
+          <div id="plan-whitelabel-desc" style="font-size:13px;color:#777;text-align:left;">Full white-label — no NoCrickets branding anywhere</div>
         </div>
       </label>
     </div>
@@ -659,6 +665,7 @@ const T = {
   en: {
     heroTitle: 'Client Onboarding Questionnaire',
     heroSub: "Help us build a custom AI chatbot tailored to your business. Complete this form and we'll take care of the rest.",
+    requiredNote: 'Fields marked with * are required',
     s1:'Business Information', s2:'Hours & Availability', s3:'Services & Pricing',
     s4:'Bot Personality & Language', s5:'Additional Customer Questions',
     s6:'Lead Capture & Follow-Up', s7:'Branding',
@@ -678,8 +685,9 @@ const T = {
     apptNote:'ℹ️ The bot will collect your customer\'s preferred appointment time and log it to your leads sheet. You confirm directly with the customer.',
     addService:'+ Add Service',
     // S1 labels
-    lBizName:'Business Name', lBizType:'Business Type', lBizTypePh:'Salon, Restaurant, Retail…',
-    lBizAddress:'Full Business Address', lBizWebsite:'Website URL', lBizPhone:'Business Phone',
+    lBizName:'Business Name *', lBizType:'Business Type *', lBizTypePh:'Salon, Restaurant, Retail…',
+    lBizAddress:'Full Business Address', lBizWebsite:'Website URL', lBizPhone:'Business Phone *',
+    lBizEmail:'Business Email *',
     lBizWhatsapp:'WhatsApp Number', hBizWhatsapp:'',
     lBizContact:'Preferred Customer Contact', lBizSocial:'Social Media Links',
     hBizSocial:'Instagram, Facebook, TikTok, or any other profiles',
@@ -703,7 +711,7 @@ const T = {
     // S5 labels
     lFaqPh:'Q: Do you have parking?\nA: Yes, free parking in the lot behind the building.\n\nQ: What is your cancellation policy?\nA: We ask for 24 hours notice.',
     // S6 labels
-    lLeadName:'Who receives leads? (Name)', lLeadEmail:'Who receives leads? (Email)',
+    lLeadName:'Who receives leads? (Name) *', lLeadEmail:'Who receives leads? (Email) *',
     lFollowupSpeed:'How quickly do you follow up?', lFollowupSpeedPh:'e.g. Within 1 hour, same day…',
     lFollowupMethod:'Preferred Follow-Up Method',
     lLeadNotes:'Anything else about your lead process?',
@@ -735,6 +743,7 @@ We look forward to hearing from you!
   es: {
     heroTitle:'Cuestionario de Incorporación',
     heroSub:'Ayúdanos a construir un chatbot de IA personalizado para tu negocio. Completa este formulario y nosotros nos encargamos del resto.',
+    requiredNote:'Los campos marcados con * son obligatorios',
     s1:'Información del Negocio', s2:'Horarios y Disponibilidad', s3:'Servicios y Precios',
     s4:'Personalidad del Bot e Idioma', s5:'Preguntas Adicionales de Clientes',
     s6:'Captura de Leads y Seguimiento', s7:'Marca',
@@ -754,8 +763,9 @@ We look forward to hearing from you!
     apptNote:'ℹ️ El bot recopilará el horario preferido de tu cliente y lo registrará en tu hoja de leads. Tú confirmas directamente con el cliente.',
     addService:'+ Agregar Servicio',
     // S1 labels
-    lBizName:'Nombre del Negocio', lBizType:'Tipo de Negocio', lBizTypePh:'Salón, Restaurante, Retail…',
-    lBizAddress:'Dirección Completa', lBizWebsite:'Sitio Web', lBizPhone:'Teléfono del Negocio',
+    lBizName:'Nombre del Negocio *', lBizType:'Tipo de Negocio *', lBizTypePh:'Salón, Restaurante, Retail…',
+    lBizAddress:'Dirección Completa', lBizWebsite:'Sitio Web', lBizPhone:'Teléfono del Negocio *',
+    lBizEmail:'Correo del Negocio *',
     lBizWhatsapp:'Número de WhatsApp', hBizWhatsapp:'',
     lBizContact:'Método de Contacto Preferido', lBizSocial:'Redes Sociales',
     hBizSocial:'Instagram, Facebook, TikTok u otros perfiles',
@@ -779,7 +789,7 @@ We look forward to hearing from you!
     // S5 labels
     lFaqPh:'P: ¿Tienen estacionamiento?\nR: Sí, estacionamiento gratuito detrás del edificio.\n\nP: ¿Cuál es su política de cancelación?\nR: Pedimos 24 horas de aviso.',
     // S6 labels
-    lLeadName:'¿Quién recibe los leads? (Nombre)', lLeadEmail:'¿Quién recibe los leads? (Correo)',
+    lLeadName:'¿Quién recibe los leads? (Nombre) *', lLeadEmail:'¿Quién recibe los leads? (Correo) *',
     lFollowupSpeed:'¿Qué tan rápido haces seguimiento?', lFollowupSpeedPh:'ej. En 1 hora, el mismo día…',
     lFollowupMethod:'Método de Seguimiento Preferido',
     lLeadNotes:'¿Algo más sobre tu proceso de leads?',
@@ -853,7 +863,7 @@ function applyLang(lang) {
 
   // Simple ID → text map
   const ids = {
-    'hero-title': t.heroTitle, 'hero-sub': t.heroSub,
+    'hero-title': t.heroTitle, 'hero-sub': t.heroSub, 'required-note': t.requiredNote,
     's1-title': t.s1, 's2-title': t.s2, 's3-title': t.s3,
     's4-title': t.s4, 's5-title': t.s5, 's6-title': t.s6, 's7-title': t.s7,
     'th-day': t.thDay, 'th-open': t.thOpen, 'th-close': t.thClose, 'th-closed': t.thClosed,
@@ -865,7 +875,7 @@ function applyLang(lang) {
     'plan-whitelabel-label': t.planWLLabel, 'plan-whitelabel-desc': t.planWLDesc,
     // S1
     'l-biz-name': t.lBizName, 'l-biz-type': t.lBizType,
-    'l-biz-address': t.lBizAddress, 'l-biz-website': t.lBizWebsite,
+    'l-biz-address': t.lBizAddress, 'l-biz-website': t.lBizWebsite, 'l-biz-email': t.lBizEmail,
     'l-biz-phone': t.lBizPhone, 'l-biz-whatsapp': t.lBizWhatsapp,
     'h-biz-whatsapp': t.hBizWhatsapp, 'l-biz-contact': t.lBizContact,
     // S2
@@ -952,6 +962,7 @@ function collectFormData() {
     bizType: document.getElementById('biz-type').value,
     bizAddress: document.getElementById('biz-address').value,
     bizWebsite: document.getElementById('biz-website').value,
+    bizEmail: document.getElementById('biz-email').value,
     bizPhone: document.getElementById('biz-phone').value,
     bizWhatsapp: document.getElementById('biz-whatsapp').value,
     bizSocial: document.getElementById('biz-social').value,
