@@ -610,6 +610,7 @@ A: We ask for 24 hours notice."></textarea>
         </div>
         <div class="field">
           <label for="tagline" id="l-tagline">Tagline or Slogan</label>
+          <div class="field-hint" style="visibility:hidden;">placeholder</div>
           <input type="text" id="tagline">
         </div>
       </div>
@@ -1029,8 +1030,8 @@ async function handleSubmit(e) {
     const planLabel = planLabels[currentLang][selectedPlan.value];
 
     const successHTML = currentLang === 'es'
-      ? `<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ ¡Recibimos tu formulario!</div><p style="color:#555;margin-bottom:8px;">Seleccionaste: <strong>${planLabel}</strong></p><p style="color:#555;margin-bottom:24px;">Haz clic abajo para completar tu pago. Tu bot estará listo en 3–5 días hábiles.</p><a href="${stripeUrl}" target="_blank" style="display:inline-block;background:#00E676;color:#000;padding:16px 32px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Pagar ahora →</a></div>`
-      : `<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ We received your submission!</div><p style="color:#555;margin-bottom:8px;">Selected plan: <strong>${planLabel}</strong></p><p style="color:#555;margin-bottom:24px;">Click below to complete your payment. Your bot will be ready within 3–5 business days.</p><a href="${stripeUrl}" target="_blank" style="display:inline-block;background:#00E676;color:#000;padding:16px 32px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Pay now →</a></div>`;
+      ? `<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ ¡Recibimos tu formulario!</div><p style="color:#555;margin-bottom:8px;">Seleccionaste: <strong>${planLabel}</strong></p><p style="color:#555;margin-bottom:24px;">Haz clic abajo para completar tu pago. Tu bot estará listo en 3–5 días hábiles.</p><a href="${stripeUrl}" target="_blank" style="display:inline-block;background:#00E676;color:#000;padding:16px 32px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Pagar ahora →</a><p style="color:#777;font-size:13px;margin-top:20px;">¿Necesitas cambiar tu plan? Escríbenos a <a href="mailto:hello@nocrickets.co" style="color:#00E676;">hello@nocrickets.co</a></p></div>`
+      : `<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ We received your submission!</div><p style="color:#555;margin-bottom:8px;">Selected plan: <strong>${planLabel}</strong></p><p style="color:#555;margin-bottom:24px;">Click below to complete your payment. Your bot will be ready within 3–5 business days.</p><a href="${stripeUrl}" target="_blank" style="display:inline-block;background:#00E676;color:#000;padding:16px 32px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Pay now →</a><p style="color:#777;font-size:13px;margin-top:20px;">Need to change your plan? Email us at <a href="mailto:hello@nocrickets.co" style="color:#00E676;">hello@nocrickets.co</a></p></div>`;
 
     document.getElementById('success-msg').style.display = 'block';
     document.getElementById('success-msg').innerHTML = successHTML;
