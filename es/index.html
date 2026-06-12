@@ -67,7 +67,7 @@
         { "@type": "AdministrativeArea", "name": "Permian Basin" },
         { "@type": "Country", "name": "United States" }
       ],
-      "priceRange": "$99-$199/mes",
+      "priceRange": "$99-$299/mes",
       "parentOrganization": { "@id": "https://nocrickets.co/#organization" }
     },
     {
@@ -638,10 +638,10 @@
   /* PRICING */
   .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     margin-top: 60px;
-    max-width: 800px;
+    max-width: 1100px;
   }
   .pricing-card {
     background: var(--dark2);
@@ -950,7 +950,7 @@
 <section id="pricing">
   <div class="section-label reveal" id="price-label">Pricing</div>
   <h2 class="section-title reveal reveal-delay-1" id="price-title">Simple pricing. No surprises.</h2>
-  <p class="section-sub reveal reveal-delay-2" id="price-sub">Both plans are fully automated after setup. Your ongoing work is essentially zero per client.</p>
+  <p class="section-sub reveal reveal-delay-2" id="price-sub">All plans are fully automated after setup. Your ongoing work is essentially zero per client.</p>
   <div class="pricing-grid">
     <div class="pricing-card reveal reveal-delay-1">
       <div class="pricing-tier" id="tier1-name">Starter</div>
@@ -963,7 +963,6 @@
         <li id="f1-4">Email notification on every lead</li>
         <li id="f1-5">Works with or without a website — embed on your site or get a shareable link</li>
         <li id="f1-6">Setup included</li>
-        <li id="f1-7" style="display:none;"></li>
       </ul>
       <a href="https://onboarding.nocrickets.co" class="pricing-cta outline" id="cta-starter">Get started</a>
     </div>
@@ -979,9 +978,23 @@
         <li id="f2-4">Subscriber list — export anytime</li>
         <li id="f2-5">Priority setup (48hr turnaround)</li>
         <li id="f2-6">Monthly check-in + bot updates</li>
-        <li id="f2-7" style="color:var(--text-dim);font-size:13px;border-top:1px solid #222;padding-top:12px;margin-top:4px;">✦ White-label add-on available — custom branding + branded emails · <span style="color:var(--green)">+$50/mo</span></li>
+        <li id="f2-7" style="color:var(--text-dim);font-size:13px;border-top:1px solid #222;padding-top:12px;margin-top:4px;">✦ White-label add-on available · <span style="color:var(--green)">+$50/mo</span></li>
       </ul>
       <a href="https://onboarding.nocrickets.co" class="pricing-cta primary" id="cta-growth">Get started</a>
+    </div>
+    <div class="pricing-card reveal reveal-delay-3">
+      <div class="pricing-tier" id="tier3-name">Pro</div>
+      <div class="pricing-price"><sup>$</sup>299</div>
+      <div class="pricing-period" id="tier3-period">per month</div>
+      <ul class="pricing-features">
+        <li id="f3-1">Everything in Growth</li>
+        <li id="f3-2">Branded online booking page</li>
+        <li id="f3-3">Bot walks leads directly to booking</li>
+        <li id="f3-4">Google &amp; Apple Calendar sync</li>
+        <li id="f3-5">Full front-to-back automation</li>
+        <li id="f3-6" style="color:var(--text-dim);font-size:13px;border-top:1px solid #222;padding-top:12px;margin-top:4px;">✦ White-label add-on available · <span style="color:var(--green)">+$50/mo</span></li>
+      </ul>
+      <a href="https://onboarding.nocrickets.co" class="pricing-cta outline" id="cta-pro">Get started</a>
     </div>
   </div>
 </section>
@@ -1067,18 +1080,21 @@ const SITE_T = {
     demoComing:'Coming soon — bot launching shortly',
     demoCta:'Get started instead →',
     priceLabel:'Pricing', priceTitle:'Simple pricing. No surprises.',
-    priceSub:'Both plans are fully automated after setup. Your ongoing work is essentially zero per client.',
-    tier1:'Starter', tier2:'Growth', perMonth:'per month', popular:'Most popular',
+    priceSub:'All plans are fully automated after setup. Your ongoing work is essentially zero per client.',
+    tier1:'Starter', tier2:'Growth', tier3:'Pro', perMonth:'per month', popular:'Most popular',
     f1_1:'Custom AI chatbot for your business', f1_2:'Bilingual support (English + Spanish)',
     f1_3:'Lead capture to live Google Sheet', f1_4:'Email notification on every lead',
     f1_5:'Works with or without a website — embed on your site or get a shareable link',
     f1_6:'Setup included',
-    f1_7:'',
     f2_1:'Everything in Starter', f2_2:'Automated email follow-up on every lead',
     f2_3:'Custom follow-up email for your brand', f2_4:'Subscriber list — export anytime',
     f2_5:'Priority setup (48hr turnaround)', f2_6:'Monthly check-in + bot updates',
-    f2_7:'✦ White-label add-on available — custom branding + branded emails · <span style="color:var(--green)">+$50/mo</span>',
-    ctaStarter:'Get started', ctaGrowth:'Get started',
+    f2_7:'✦ White-label add-on available · <span style="color:var(--green)">+$50/mo</span>',
+    f3_1:'Everything in Growth', f3_2:'Branded online booking page',
+    f3_3:'Bot walks leads directly to booking', f3_4:'Google & Apple Calendar sync',
+    f3_5:'Full front-to-back automation',
+    f3_6:'✦ White-label add-on available · <span style="color:var(--green)">+$50/mo</span>',
+    ctaStarter:'Get started', ctaGrowth:'Get started', ctaPro:'Get started',
     closingTitle:'Stop being the best-kept <span>secret</span> in town.',
     closingSub:'Your competitors aren\'t waiting. Neither should you.',
     closingCta:'Get started today',
@@ -1120,18 +1136,21 @@ const SITE_T = {
     demoComing:'Próximamente — bot lanzando en breve',
     demoCta:'Comenzar en su lugar →',
     priceLabel:'Precios', priceTitle:'Precios simples. Sin sorpresas.',
-    priceSub:'Ambos planes son completamente automáticos después de la configuración. Tu trabajo continuo es prácticamente cero.',
-    tier1:'Inicial', tier2:'Crecimiento', perMonth:'por mes', popular:'Más popular',
+    priceSub:'Todos los planes son completamente automáticos después de la configuración. Tu trabajo continuo es prácticamente cero.',
+    tier1:'Inicial', tier2:'Crecimiento', tier3:'Pro', perMonth:'por mes', popular:'Más popular',
     f1_1:'Chatbot de IA personalizado para tu negocio', f1_2:'Soporte bilingüe (inglés + español)',
     f1_3:'Captura de leads en Google Sheets en vivo', f1_4:'Notificación por correo en cada lead',
     f1_5:'Funciona con o sin sitio web — integrado en tu sitio o con enlace compartible',
     f1_6:'Configuración incluida',
-    f1_7:'',
     f2_1:'Todo lo del plan Inicial', f2_2:'Correo de seguimiento automático en cada lead',
     f2_3:'Correo de seguimiento personalizado para tu marca', f2_4:'Lista de suscriptores — exportable en cualquier momento',
     f2_5:'Configuración prioritaria (entrega en 48hrs)', f2_6:'Revisión mensual + actualizaciones del bot',
-    f2_7:'✦ Complemento de marca blanca disponible — marca personalizada + correos con tu marca · <span style="color:var(--green)">+$50/mes</span>',
-    ctaStarter:'Comenzar', ctaGrowth:'Comenzar',
+    f2_7:'✦ Complemento de marca blanca disponible · <span style="color:var(--green)">+$50/mes</span>',
+    f3_1:'Todo lo del plan Crecimiento', f3_2:'Página de reservas con tu marca',
+    f3_3:'El bot lleva a los leads directamente a reservar', f3_4:'Sincronización con Google y Apple Calendar',
+    f3_5:'Automatización completa de principio a fin',
+    f3_6:'✦ Complemento de marca blanca disponible · <span style="color:var(--green)">+$50/mes</span>',
+    ctaStarter:'Comenzar', ctaGrowth:'Comenzar', ctaPro:'Comenzar',
     closingTitle:'Deja de ser el mejor <span>secreto</span> de la ciudad.',
     closingSub:'Tus competidores no están esperando. Tú tampoco deberías.',
     closingCta:'Comenzar hoy',
@@ -1190,14 +1209,16 @@ function setLang(lang) {
   set('demo-body1', t.demoBody1); set('demo-body2', t.demoBody2);
   set('demo-coming', t.demoComing); set('demo-cta', t.demoCta);
   set('price-label', t.priceLabel); set('price-title', t.priceTitle); set('price-sub', t.priceSub);
-  set('tier1-name', t.tier1); set('tier2-name', t.tier2);
-  set('tier1-period', t.perMonth); set('tier2-period', t.perMonth);
+  set('tier1-name', t.tier1); set('tier2-name', t.tier2); set('tier3-name', t.tier3);
+  set('tier1-period', t.perMonth); set('tier2-period', t.perMonth); set('tier3-period', t.perMonth);
   set('popular-badge', t.popular);
   set('f1-1', t.f1_1); set('f1-2', t.f1_2); set('f1-3', t.f1_3);
-  set('f1-4', t.f1_4); set('f1-5', t.f1_5); set('f1-6', t.f1_6); set('f1-7', t.f1_7);
+  set('f1-4', t.f1_4); set('f1-5', t.f1_5); set('f1-6', t.f1_6);
   set('f2-1', t.f2_1); set('f2-2', t.f2_2); set('f2-3', t.f2_3);
   set('f2-4', t.f2_4); set('f2-5', t.f2_5); set('f2-6', t.f2_6); set('f2-7', t.f2_7);
-  set('cta-starter', t.ctaStarter); set('cta-growth', t.ctaGrowth);
+  set('f3-1', t.f3_1); set('f3-2', t.f3_2); set('f3-3', t.f3_3);
+  set('f3-4', t.f3_4); set('f3-5', t.f3_5); set('f3-6', t.f3_6);
+  set('cta-starter', t.ctaStarter); set('cta-growth', t.ctaGrowth); set('cta-pro', t.ctaPro);
   set('closing-title', t.closingTitle); set('closing-sub', t.closingSub);
   set('closing-cta', t.closingCta + ' <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M3 8h10M9 4l4 4-4 4"/></svg>');
   set('footer-copy', t.footerCopy); set('footer-cta', t.footerCta);
