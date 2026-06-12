@@ -352,10 +352,9 @@
   <div class="accent-line"></div>
 </div>
 
-<p id="required-note" style="text-align:center;font-size:13px;color:#777;margin:-8px 0 16px;">Fields marked with <span style="color:var(--green);">*</span> are required</p>
-
 <!-- FORM -->
 <div class="form-wrap">
+<p id="required-note" style="text-align:center;font-size:13px;color:#777;margin:0 0 24px;">Fields marked with <span style="color:var(--green);">*</span> are required</p>
 <form id="onboarding-form" onsubmit="handleSubmit(event)">
 
   <!-- S1: BUSINESS INFO -->
@@ -624,29 +623,36 @@ A: We ask for 24 hours notice."></textarea>
   <!-- PLAN SELECTOR -->
   <div class="submit-wrap" style="margin-bottom:0;padding-bottom:0;">
     <p id="plan-label" style="font-weight:700;margin-bottom:12px;">Select your plan:</p>
-    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
-      <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;" id="plan-starter-wrap" style="text-align:left;">
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+      <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;" id="plan-starter-wrap">
         <input type="radio" name="plan" value="starter" id="plan-starter" style="margin-top:3px;">
         <div>
           <div id="plan-starter-label" style="font-weight:700;font-size:15px;">Starter — $99/mo</div>
           <div id="plan-starter-desc" style="font-size:13px;color:#777;">Bot + lead capture</div>
         </div>
       </label>
-      <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;" id="plan-growth-wrap" style="text-align:left;">
+      <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;" id="plan-growth-wrap">
         <input type="radio" name="plan" value="growth" id="plan-growth" style="margin-top:3px;">
         <div>
           <div id="plan-growth-label" style="font-weight:700;font-size:15px;text-align:left;">Growth — $199/mo</div>
           <div id="plan-growth-desc" style="font-size:13px;color:#777;text-align:left;">Bot + lead capture + automated email follow-up</div>
         </div>
       </label>
-      <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;" id="plan-whitelabel-wrap" style="text-align:left;">
-        <input type="radio" name="plan" value="whitelabel" id="plan-whitelabel" style="margin-top:3px;">
+      <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;" id="plan-pro-wrap">
+        <input type="radio" name="plan" value="pro" id="plan-pro" style="margin-top:3px;">
         <div>
-          <div id="plan-whitelabel-label" style="font-weight:700;font-size:15px;text-align:left;">Growth + White-label — $249/mo</div>
-          <div id="plan-whitelabel-desc" style="font-size:13px;color:#777;text-align:left;">Full white-label — no NoCrickets branding anywhere</div>
+          <div id="plan-pro-label" style="font-weight:700;font-size:15px;text-align:left;">Pro — $299/mo</div>
+          <div id="plan-pro-desc" style="font-size:13px;color:#777;text-align:left;">Full automation — bot + email follow-up + branded booking page</div>
         </div>
       </label>
     </div>
+    <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:12px 16px;border:1px solid #333;border-radius:8px;margin-bottom:24px;background:#111;">
+      <input type="checkbox" name="whitelabel" id="addon-whitelabel" style="margin-top:3px;">
+      <div>
+        <div id="addon-wl-label" style="font-weight:700;font-size:14px;text-align:left;">Add White-label — <span style="color:#00E676;">+$50/mo</span></div>
+        <div id="addon-wl-desc" style="font-size:13px;color:#777;text-align:left;">Remove all NoCrickets branding — your name everywhere</div>
+      </div>
+    </label>
   </div>
 
   <!-- SUBMIT -->
@@ -679,9 +685,10 @@ const T = {
     planLabel:'Select your plan:',
     planStarterLabel:'Starter — $99/mo', planStarterDesc:'Bot + lead capture',
     planGrowthLabel:'Growth — $199/mo', planGrowthDesc:'Bot + lead capture + automated email follow-up',
-    planWLLabel:'Growth + White-label — $249/mo', planWLDesc:'Full white-label — no NoCrickets branding anywhere',
+    planProLabel:'Pro — $299/mo', planProDesc:'Full automation — bot + email follow-up + branded booking page',
+    addonWLLabel:'Add White-label — <span style="color:#00E676;">+$50/mo</span>', addonWLDesc:'Remove all NoCrickets branding — your name everywhere',
     btnSubmit:'Submit Questionnaire →',
-    successTxt:`<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ We received your submission!</div><p style="color:#555;margin-bottom:24px;">Choose your plan below to get started. Your bot will be ready within 3–5 business days after payment.</p><div style="display:flex;flex-direction:column;gap:12px;max-width:360px;margin:0 auto;"><a href="https://buy.stripe.com/6oU14ndbu0j2bSY8ZS8Vi00" target="_blank" style="display:block;background:#0D0D0D;color:#00E676;border:2px solid #00E676;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Starter — $99/mo<br><span style="font-size:13px;font-weight:400;color:#aaa;">Bot + lead capture</span></a><a href="https://buy.stripe.com/9B64gz7RafdW4qwfog8Vi01" target="_blank" style="display:block;background:#00E676;color:#000;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Growth — $199/mo<br><span style="font-size:13px;font-weight:400;color:#004d1a;">Bot + lead capture + automated email follow-up</span></a></div></div>`,
+    successTxt:`<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ We received your submission!</div><p style="color:#555;margin-bottom:24px;">Choose your plan below to get started. Your bot will be ready within 3–5 business days after payment.</p><div style="display:flex;flex-direction:column;gap:12px;max-width:360px;margin:0 auto;"><a href="https://buy.stripe.com/6oU14ndbu0j2bSY8ZS8Vi00" target="_blank" style="display:block;background:#0D0D0D;color:#00E676;border:2px solid #00E676;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Starter — $99/mo<br><span style="font-size:13px;font-weight:400;color:#aaa;">Bot + lead capture</span></a><a href="https://buy.stripe.com/9B64gz7RafdW4qwfog8Vi01" target="_blank" style="display:block;background:#00E676;color:#000;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Growth — $199/mo<br><span style="font-size:13px;font-weight:400;color:#004d1a;">Bot + lead capture + automated email follow-up</span></a><a href="https://buy.stripe.com/5kQdR9fjC8Pyg9e0tm8Vi03" target="_blank" style="display:block;background:#0D0D0D;color:#00E676;border:2px solid #00E676;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Pro — $299/mo<br><span style="font-size:13px;font-weight:400;color:#aaa;">Full automation + branded booking page</span></a><a href="https://buy.stripe.com/5kQcN53AUc1K7CIdg88Vi02" target="_blank" style="display:block;background:#111;color:#00E676;border:1px solid #333;padding:12px 24px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;">+ Add White-label — $50/mo<br><span style="font-size:12px;font-weight:400;color:#777;">Add to any plan above</span></a></div></div>`,
     consult:'Requires consultation?', consultY:'Yes', consultN:'No',
     apptNote:'ℹ️ The bot will collect your customer\'s preferred appointment time and log it to your leads sheet. You confirm directly with the customer.',
     addService:'+ Add Service',
@@ -757,9 +764,10 @@ We look forward to hearing from you!
     planLabel:'Selecciona tu plan:',
     planStarterLabel:'Starter — $99/mes', planStarterDesc:'Bot + captura de leads',
     planGrowthLabel:'Growth — $199/mes', planGrowthDesc:'Bot + leads + seguimiento automático por correo',
-    planWLLabel:'Growth + White-label — $249/mes', planWLDesc:'White-label completo — sin marca NoCrickets',
+    planProLabel:'Pro — $299/mes', planProDesc:'Automatización completa — bot + correo + página de reservas con tu marca',
+    addonWLLabel:'Agregar Marca Blanca — <span style="color:#00E676;">+$50/mes</span>', addonWLDesc:'Elimina toda la marca NoCrickets — tu nombre en todos lados',
     btnSubmit:'Enviar Cuestionario →',
-    successTxt:`<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ ¡Recibimos tu formulario!</div><p style="color:#555;margin-bottom:24px;">Elige tu plan para comenzar. Tu bot estará listo en 3–5 días hábiles después del pago.</p><div style="display:flex;flex-direction:column;gap:12px;max-width:360px;margin:0 auto;"><a href="https://buy.stripe.com/6oU14ndbu0j2bSY8ZS8Vi00" target="_blank" style="display:block;background:#0D0D0D;color:#00E676;border:2px solid #00E676;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Starter — $99/mes<br><span style="font-size:13px;font-weight:400;color:#aaa;">Bot + captura de leads</span></a><a href="https://buy.stripe.com/9B64gz7RafdW4qwfog8Vi01" target="_blank" style="display:block;background:#00E676;color:#000;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Growth — $199/mes<br><span style="font-size:13px;font-weight:400;color:#004d1a;">Bot + leads + seguimiento automático por correo</span></a></div></div>`,
+    successTxt:`<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ ¡Recibimos tu formulario!</div><p style="color:#555;margin-bottom:24px;">Elige tu plan para comenzar. Tu bot estará listo en 3–5 días hábiles después del pago.</p><div style="display:flex;flex-direction:column;gap:12px;max-width:360px;margin:0 auto;"><a href="https://buy.stripe.com/6oU14ndbu0j2bSY8ZS8Vi00" target="_blank" style="display:block;background:#0D0D0D;color:#00E676;border:2px solid #00E676;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Starter — $99/mes<br><span style="font-size:13px;font-weight:400;color:#aaa;">Bot + captura de leads</span></a><a href="https://buy.stripe.com/9B64gz7RafdW4qwfog8Vi01" target="_blank" style="display:block;background:#00E676;color:#000;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Growth — $199/mes<br><span style="font-size:13px;font-weight:400;color:#004d1a;">Bot + leads + seguimiento automático por correo</span></a><a href="https://buy.stripe.com/5kQdR9fjC8Pyg9e0tm8Vi03" target="_blank" style="display:block;background:#0D0D0D;color:#00E676;border:2px solid #00E676;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Pro — $299/mes<br><span style="font-size:13px;font-weight:400;color:#aaa;">Automatización completa + página de reservas</span></a><a href="https://buy.stripe.com/5kQcN53AUc1K7CIdg88Vi02" target="_blank" style="display:block;background:#111;color:#00E676;border:1px solid #333;padding:12px 24px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;">+ Agregar Marca Blanca — $50/mes<br><span style="font-size:12px;font-weight:400;color:#777;">Agregar a cualquier plan</span></a></div></div>`,
     consult:'¿Requiere consulta?', consultY:'Sí', consultN:'No',
     apptNote:'ℹ️ El bot recopilará el horario preferido de tu cliente y lo registrará en tu hoja de leads. Tú confirmas directamente con el cliente.',
     addService:'+ Agregar Servicio',
@@ -873,7 +881,8 @@ function applyLang(lang) {
     'plan-label': t.planLabel,
     'plan-starter-label': t.planStarterLabel, 'plan-starter-desc': t.planStarterDesc,
     'plan-growth-label': t.planGrowthLabel, 'plan-growth-desc': t.planGrowthDesc,
-    'plan-whitelabel-label': t.planWLLabel, 'plan-whitelabel-desc': t.planWLDesc,
+    'plan-pro-label': t.planProLabel, 'plan-pro-desc': t.planProDesc,
+    'addon-wl-label': t.addonWLLabel, 'addon-wl-desc': t.addonWLDesc,
     // S1
     'l-biz-name': t.lBizName, 'l-biz-type': t.lBizType,
     'l-biz-address': t.lBizAddress, 'l-biz-website': t.lBizWebsite, 'l-biz-email': t.lBizEmail,
