@@ -1111,7 +1111,7 @@ function setLang(lang) {
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwHt4yjBYkWgsa6KCuK0yrT_TC8_K2AiLQBdW4LLmvKn0g8rsUaVF1gd7izGCeNDUD5TQ/exec';
 
 function buildFeatureFlags(plan, whiteLabelAddon) {
-  const flags = { lead_capture: true, booking_page: false, calendar_sync: false, automated_followup: false, white_label: false, custom_branding: false };
+  const flags = { lead_capture: true, booking_page: false, calendar_sync: false, automated_followup: false, white_label: false, custom_branding: false, analytics: true };
   if (plan === 'growth' || plan === 'pro') { flags.booking_page = true; flags.calendar_sync = true; }
   if (plan === 'pro') { flags.automated_followup = true; }
   if (whiteLabelAddon) { flags.white_label = true; flags.custom_branding = true; }
@@ -1157,9 +1157,23 @@ function buildBotConfig(formData, plan, whiteLabelAddon) {
   return {
     business: { name: formData.bizName||'', type: formData.bizType||'', address: formData.bizAddress||'', phone: formData.bizPhone||'', email: formData.bizEmail||'', website: formData.bizWebsite||'', whatsapp: formData.bizWhatsapp||'', social_links: formData.bizSocial||'', hours: formData.hours||'' },
     features: buildFeatureFlags(plan, whiteLabelAddon),
-    bot: { language: formData.langPref||'', tone: formData.tone||'', goal: formData.botGoal||'', team_name: formData.teamName||'', natural_greeting: formData.naturalGreeting||'', lead_fields: getCheckedValues('lead-fields'), custom_lead_fields: formData.customLeadFields||'', max_ai_calls_per_session: getRecommendedMaxAICalls(formData.bizType) },
+    aiConfiguration: {
+      maxAiCallsPerSession: getRecommendedMaxAICalls(formData.bizType),
+      languagePersistence: true,
+      allowSpanishWithoutAccents: true,
+      consentRequired: true
+    },
+    bot: { language: formData.langPref||'', tone: formData.tone||'', goal: formData.botGoal||'', team_name: formData.teamName||'', natural_greeting: formData.naturalGreeting||'', lead_fields: getCheckedValues('lead-fields'), custom_lead_fields: formData.customLeadFields||'' },
     booking: { workflow: formData.bookingWorkflow||'', url: formData.bookingUrl||'', notes: formData.bookingNotes||'', appointments: formData.appointments||'', advance_booking: formData.advanceBooking||'', blackout_dates: formData.blackoutDates||'' },
-    knowledge_base: { services: collectStructuredServices(), service_notes: formData.serviceNotes||'', faqs: collectStructuredFaqs(), extra_faqs: formData.faq||'', urgent: { has_urgent: formData.hasUrgentSituations === 'Yes', situations: formData.urgentExamples||'', action: formData.urgentAction||'' }, escalation_rules: formData.escalationRules||'', never_say_rules: formData.neverSay||'' },
+    knowledge_base: {
+      services: collectStructuredServices(),
+      service_notes: formData.serviceNotes||'',
+      faqs: collectStructuredFaqs(),
+      extra_faqs: formData.faq||'',
+      urgent: { has_urgent: formData.hasUrgentSituations === 'Yes', situations: formData.urgentExamples||'', action: formData.urgentAction||'' },
+      escalation_rules: (formData.escalationRules||'').split('.').map(s => s.trim()).filter(s => s.length > 0),
+      never_say_rules: (formData.neverSay||'').split('.').map(s => s.trim()).filter(s => s.length > 0)
+    },
     lead_routing: { recipient_name: formData.leadName||'', recipient_email: formData.leadEmail||'', followup_speed: formData.followupSpeed||'', followup_method: formData.followupMethod||'', lead_notes: formData.leadNotes||'' },
     branding: { enabled: whiteLabelAddon, brand_colors: formData.brandColors||'', tagline: formData.tagline||'', brand_notes: formData.brandNotes||'' },
     pro_followup: { enabled: plan === 'pro', email_content: formData.emailContent||'', approval_required: formData.approveEmail||'' },
