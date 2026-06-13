@@ -288,6 +288,20 @@
   }
   @media (max-width: 560px) { .services-rows .service-row { grid-template-columns: 1fr 1fr; } }
 
+
+  /* CHECKBOX GRID */
+  .checkbox-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 8px; }
+  @media (max-width: 560px) { .checkbox-grid { grid-template-columns: 1fr; } }
+  .check-card {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--dark3); border: 1.5px solid var(--border);
+    border-radius: 8px; padding: 10px 12px; color: var(--text-dim);
+    font-size: 13px; cursor: pointer;
+  }
+  .check-card input { width: 16px; height: 16px; accent-color: var(--green); }
+  .faq-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  @media (max-width: 560px) { .faq-row { grid-template-columns: 1fr; } }
+
   /* DIVIDER */
   .divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
 
@@ -415,10 +429,51 @@
     </div>
   </div>
 
-  <!-- S2: HOURS -->
-  <div class="section">
+  <!-- S2: PLAN SELECTOR -->
+  <div class="section" id="plan-section">
     <div class="section-head">
       <div class="section-num">02</div>
+      <h2 id="plan-section-title">Select Your Plan</h2>
+    </div>
+    <div class="section-body">
+      <p id="plan-helper" style="color:var(--text-dim);font-size:13.5px;margin-bottom:18px;line-height:1.6;">Choose your plan first so this form only asks for the setup details that apply to you.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+        <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;" id="plan-starter-wrap">
+          <input type="radio" name="plan" value="starter" id="plan-starter" style="margin-top:3px;">
+          <div>
+            <div id="plan-starter-label" style="font-weight:700;font-size:15px;">Starter — $99/mo</div>
+            <div id="plan-starter-desc" style="font-size:13px;color:#777;">Bot + lead capture</div>
+          </div>
+        </label>
+        <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;" id="plan-growth-wrap">
+          <input type="radio" name="plan" value="growth" id="plan-growth" style="margin-top:3px;">
+          <div>
+            <div id="plan-growth-label" style="font-weight:700;font-size:15px;text-align:left;">Growth — $199/mo</div>
+            <div id="plan-growth-desc" style="font-size:13px;color:#777;text-align:left;">Bot + lead capture + branded booking page + calendar sync</div>
+          </div>
+        </label>
+        <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;" id="plan-pro-wrap">
+          <input type="radio" name="plan" value="pro" id="plan-pro" style="margin-top:3px;">
+          <div>
+            <div id="plan-pro-label" style="font-weight:700;font-size:15px;text-align:left;">Pro — $299/mo</div>
+            <div id="plan-pro-desc" style="font-size:13px;color:#777;text-align:left;">Everything + automated email follow-up + monthly campaigns</div>
+          </div>
+        </label>
+      </div>
+      <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:12px 16px;border:1px solid #333;border-radius:8px;background:#111;">
+        <input type="checkbox" name="whitelabel" id="addon-whitelabel" style="margin-top:3px;">
+        <div>
+          <div id="addon-wl-label" style="font-weight:700;font-size:14px;text-align:left;">Add Custom Branding / White-label — <span style="color:#00E676;">+$50/mo</span></div>
+          <div id="addon-wl-desc" style="font-size:13px;color:#777;text-align:left;">Unlock the branding section, custom colors, tagline, and white-label presentation</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <!-- S3: HOURS -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-num">03</div>
       <h2 id="s2-title">Hours & Availability</h2>
     </div>
     <div class="section-body">
@@ -456,10 +511,71 @@
     </div>
   </div>
 
-  <!-- S3: SERVICES -->
+
+
+  <!-- S4: BOOKING WORKFLOW -->
   <div class="section">
     <div class="section-head">
-      <div class="section-num">03</div>
+      <div class="section-num">04</div>
+      <h2 id="s-booking-title">Booking Workflow</h2>
+    </div>
+    <div class="section-body">
+      <div class="field">
+        <label id="l-booking-handle">How should the chatbot handle appointment or booking requests?</label>
+        <div class="options-group">
+          <div class="option-pill"><input type="radio" name="booking-workflow" id="bw-link" value="Send to booking link"><label for="bw-link" id="l-bw-link">Send customer to booking link</label></div>
+          <div class="option-pill"><input type="radio" name="booking-workflow" id="bw-request" value="Collect request"><label for="bw-request" id="l-bw-request">Collect request, then we contact them</label></div>
+          <div class="option-pill"><input type="radio" name="booking-workflow" id="bw-call" value="Ask customer to call"><label for="bw-call" id="l-bw-call">Ask customer to call</label></div>
+          <div class="option-pill"><input type="radio" name="booking-workflow" id="bw-text" value="Ask customer to text"><label for="bw-text" id="l-bw-text">Ask customer to text</label></div>
+        </div>
+      </div>
+      <div class="field" id="booking-url-field" style="display:none;">
+        <label for="booking-url" id="l-booking-url">Booking URL, if applicable</label>
+        <input type="url" id="booking-url" placeholder="https://…">
+      </div>
+      <div class="field">
+        <label for="booking-notes" id="l-booking-notes">Booking rules or notes</label>
+        <div class="field-hint" id="h-booking-notes">Example: new clients need consultations, deposits required, confirmations by phone only</div>
+        <textarea id="booking-notes" rows="3"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- S5: REQUIRED LEAD FIELDS -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-num">05</div>
+      <h2 id="s-lead-fields-title">Information the Bot Should Collect</h2>
+    </div>
+    <div class="section-body">
+      <div class="field">
+        <label id="l-lead-fields">Select the customer information your chatbot should collect</label>
+        <div class="field-hint" id="h-lead-fields">Leave anything unchecked if it does not apply.</div>
+        <div class="checkbox-grid">
+          <label class="check-card"><input type="checkbox" name="lead-fields" value="Name" checked> <span id="lf-name">Name</span></label>
+          <label class="check-card"><input type="checkbox" name="lead-fields" value="Phone" checked> <span id="lf-phone">Phone</span></label>
+          <label class="check-card"><input type="checkbox" name="lead-fields" value="Email" checked> <span id="lf-email">Email</span></label>
+          <label class="check-card"><input type="checkbox" name="lead-fields" value="Service needed" checked> <span id="lf-service">Service Needed</span></label>
+          <label class="check-card"><input type="checkbox" name="lead-fields" value="Preferred date"> <span id="lf-date">Preferred Date</span></label>
+          <label class="check-card"><input type="checkbox" name="lead-fields" value="Preferred time"> <span id="lf-time">Preferred Time</span></label>
+          <label class="check-card"><input type="checkbox" name="lead-fields" value="Address"> <span id="lf-address">Address</span></label>
+          <label class="check-card"><input type="checkbox" name="lead-fields" value="Budget"> <span id="lf-budget">Budget</span></label>
+          <label class="check-card"><input type="checkbox" name="lead-fields" value="Insurance provider"> <span id="lf-insurance">Insurance Provider</span></label>
+          <label class="check-card"><input type="checkbox" name="lead-fields" value="Project details"> <span id="lf-project">Project Details</span></label>
+        </div>
+      </div>
+      <div class="field">
+        <label for="custom-lead-fields" id="l-custom-lead-fields">Other fields to collect</label>
+        <input type="text" id="custom-lead-fields" placeholder="Example: vehicle type, case type, insurance ID…">
+      </div>
+    </div>
+  </div>
+
+
+  <!-- S6: SERVICES -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-num">06</div>
       <h2 id="s3-title">Services & Pricing</h2>
     </div>
     <div class="section-body">
@@ -476,10 +592,10 @@
     </div>
   </div>
 
-  <!-- S4: BOT PERSONALITY -->
+  <!-- S7: BOT PERSONALITY -->
   <div class="section">
     <div class="section-head">
-      <div class="section-num">04</div>
+      <div class="section-num">07</div>
       <h2 id="s4-title">Bot Personality & Language</h2>
     </div>
     <div class="section-body">
@@ -527,10 +643,10 @@
     </div>
   </div>
 
-  <!-- S5: FAQ -->
+  <!-- S8: FAQ -->
   <div class="section">
     <div class="section-head">
-      <div class="section-num">05</div>
+      <div class="section-num">08</div>
       <h2 id="s5-title">Additional Customer Questions</h2>
     </div>
     <div class="section-body">
@@ -543,13 +659,69 @@ A: Yes, free parking in the lot behind the building.
 Q: What is your cancellation policy?
 A: We ask for 24 hours notice."></textarea>
       </div>
+      <hr class="divider">
+      <div class="field">
+        <label id="l-top-faq">Top customer questions and approved answers</label>
+        <div class="field-hint" id="h-top-faq">Structured FAQs help the AI answer more accurately. Leave unused rows blank.</div>
+        <div id="structured-faqs">
+          <div class="faq-row"><input type="text" id="faq-q-1" placeholder="Question 1"><input type="text" id="faq-a-1" placeholder="Approved answer 1"></div>
+          <div class="faq-row"><input type="text" id="faq-q-2" placeholder="Question 2"><input type="text" id="faq-a-2" placeholder="Approved answer 2"></div>
+          <div class="faq-row"><input type="text" id="faq-q-3" placeholder="Question 3"><input type="text" id="faq-a-3" placeholder="Approved answer 3"></div>
+          <div class="faq-row"><input type="text" id="faq-q-4" placeholder="Question 4"><input type="text" id="faq-a-4" placeholder="Approved answer 4"></div>
+          <div class="faq-row"><input type="text" id="faq-q-5" placeholder="Question 5"><input type="text" id="faq-a-5" placeholder="Approved answer 5"></div>
+          <div class="faq-row"><input type="text" id="faq-q-6" placeholder="Question 6"><input type="text" id="faq-a-6" placeholder="Approved answer 6"></div>
+          <div class="faq-row"><input type="text" id="faq-q-7" placeholder="Question 7"><input type="text" id="faq-a-7" placeholder="Approved answer 7"></div>
+          <div class="faq-row"><input type="text" id="faq-q-8" placeholder="Question 8"><input type="text" id="faq-a-8" placeholder="Approved answer 8"></div>
+          <div class="faq-row"><input type="text" id="faq-q-9" placeholder="Question 9"><input type="text" id="faq-a-9" placeholder="Approved answer 9"></div>
+          <div class="faq-row"><input type="text" id="faq-q-10" placeholder="Question 10"><input type="text" id="faq-a-10" placeholder="Approved answer 10"></div>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <!-- S6: LEAD CAPTURE -->
+
+  <!-- S9: ESCALATION & SAFETY RULES -->
   <div class="section">
     <div class="section-head">
-      <div class="section-num">06</div>
+      <div class="section-num">09</div>
+      <h2 id="s-escalation-title">Escalation & Safety Rules</h2>
+    </div>
+    <div class="section-body">
+      <div class="field">
+        <label for="escalation-rules" id="l-escalation-rules">When should the chatbot stop answering and request human help?</label>
+        <div class="field-hint" id="h-escalation-rules">Examples: custom quotes, emergencies, complaints, insurance, legal/medical questions, pricing disputes</div>
+        <textarea id="escalation-rules" rows="4"></textarea>
+      </div>
+      <div class="field">
+        <label id="l-urgent">Does your business have urgent situations?</label>
+        <div class="options-group">
+          <div class="option-pill"><input type="radio" name="urgent-has" id="uh-no" value="No"><label for="uh-no" id="l-uh-no">No</label></div>
+          <div class="option-pill"><input type="radio" name="urgent-has" id="uh-yes" value="Yes"><label for="uh-yes" id="l-uh-yes">Yes</label></div>
+        </div>
+      </div>
+      <div class="two-col" id="urgent-details" style="display:none;">
+        <div class="field">
+          <label for="urgent-examples" id="l-urgent-examples">What situations are urgent?</label>
+          <textarea id="urgent-examples" rows="3" placeholder="Example: severe pain, gas smell, burst pipe…"></textarea>
+        </div>
+        <div class="field">
+          <label for="urgent-action" id="l-urgent-action">What should the chatbot do?</label>
+          <textarea id="urgent-action" rows="3" placeholder="Example: collect phone and tell them to call immediately…"></textarea>
+        </div>
+      </div>
+      <div class="field">
+        <label for="never-say" id="l-never-say">Things the chatbot should NEVER say or promise</label>
+        <div class="field-hint" id="h-never-say">Examples: do not guarantee availability, do not diagnose, do not quote exact prices unless listed</div>
+        <textarea id="never-say" rows="4"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- S10: LEAD CAPTURE -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-num">10</div>
       <h2 id="s6-title">Lead Capture & Follow-Up</h2>
     </div>
     <div class="section-body">
@@ -579,25 +751,28 @@ A: We ask for 24 hours notice."></textarea>
         <label for="lead-notes" id="l-lead-notes">Anything else about your lead process?</label>
         <textarea id="lead-notes" rows="3"></textarea>
       </div>
-      <div class="field">
-        <label for="email-content" id="l-email-content">What would you like your automated follow-up email to say?</label>
-        <div class="field-hint" id="h-email-content">Edit the template below or write your own. We'll polish it before it goes live.</div>
-        <textarea id="email-content" rows="14"></textarea>
-      </div>
-      <div class="field">
-        <label id="l-approve-email">Would you like to approve the automated follow-up email before it goes live?</label>
-        <div class="options-group">
-          <div class="option-pill"><input type="radio" name="approve-email" id="ae-y" value="Yes"><label for="ae-y" id="l-ae-y">Yes</label></div>
-          <div class="option-pill"><input type="radio" name="approve-email" id="ae-n" value="No"><label for="ae-n" id="l-ae-n">No — just send it</label></div>
+      <div id="pro-email-upsell" class="field-note" style="margin-top:14px;">✨ Automated email follow-up is included with Pro. Select Pro above to customize this section, or leave it hidden and upgrade later.</div>
+      <div id="pro-email-section" style="display:none;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);">
+        <div class="field">
+          <label for="email-content" id="l-email-content">Pro Add-On: What would you like your automated follow-up email to say?</label>
+          <div class="field-hint" id="h-email-content">Edit the template below or write your own. We'll polish it before it goes live.</div>
+          <textarea id="email-content" rows="14"></textarea>
+        </div>
+        <div class="field">
+          <label id="l-approve-email">Would you like to approve the automated follow-up email before it goes live?</label>
+          <div class="options-group">
+            <div class="option-pill"><input type="radio" name="approve-email" id="ae-y" value="Yes"><label for="ae-y" id="l-ae-y">Yes</label></div>
+            <div class="option-pill"><input type="radio" name="approve-email" id="ae-n" value="No"><label for="ae-n" id="l-ae-n">No — just send it</label></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- S7: BRANDING -->
-  <div class="section">
+  <!-- S11: BRANDING -->
+  <div class="section" id="branding-section" style="display:none;">
     <div class="section-head">
-      <div class="section-num">07</div>
+      <div class="section-num">11</div>
       <h2 id="s7-title">Branding</h2>
     </div>
     <div class="section-body">
@@ -620,41 +795,6 @@ A: We ask for 24 hours notice."></textarea>
     </div>
   </div>
 
-  <!-- PLAN SELECTOR -->
-  <div class="submit-wrap" style="margin-bottom:0;padding-bottom:0;">
-    <p id="plan-label" style="font-weight:700;margin-bottom:12px;">Select your plan:</p>
-    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
-      <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;" id="plan-starter-wrap">
-        <input type="radio" name="plan" value="starter" id="plan-starter" style="margin-top:3px;">
-        <div>
-          <div id="plan-starter-label" style="font-weight:700;font-size:15px;">Starter — $99/mo</div>
-          <div id="plan-starter-desc" style="font-size:13px;color:#777;">Bot + lead capture</div>
-        </div>
-      </label>
-      <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;" id="plan-growth-wrap">
-        <input type="radio" name="plan" value="growth" id="plan-growth" style="margin-top:3px;">
-        <div>
-          <div id="plan-growth-label" style="font-weight:700;font-size:15px;text-align:left;">Growth — $199/mo</div>
-          <div id="plan-growth-desc" style="font-size:13px;color:#777;text-align:left;">Bot + lead capture + branded booking page + calendar sync</div>
-        </div>
-      </label>
-      <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;" id="plan-pro-wrap">
-        <input type="radio" name="plan" value="pro" id="plan-pro" style="margin-top:3px;">
-        <div>
-          <div id="plan-pro-label" style="font-weight:700;font-size:15px;text-align:left;">Pro — $299/mo</div>
-          <div id="plan-pro-desc" style="font-size:13px;color:#777;text-align:left;">Everything + automated email follow-up + monthly campaigns</div>
-        </div>
-      </label>
-    </div>
-    <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:12px 16px;border:1px solid #333;border-radius:8px;margin-bottom:24px;background:#111;">
-      <input type="checkbox" name="whitelabel" id="addon-whitelabel" style="margin-top:3px;">
-      <div>
-        <div id="addon-wl-label" style="font-weight:700;font-size:14px;text-align:left;">Add White-label — <span style="color:#00E676;">+$50/mo</span></div>
-        <div id="addon-wl-desc" style="font-size:13px;color:#777;text-align:left;">Remove all NoCrickets branding — your name everywhere</div>
-      </div>
-    </label>
-  </div>
-
   <!-- SUBMIT -->
   <div class="submit-wrap">
     <p id="submit-note">Once you submit, your NoCrickets account manager will review your responses and reach out within 3–5 business days to begin building your bot.</p>
@@ -675,18 +815,26 @@ const T = {
     requiredNote: 'Fields marked with * are required',
     s1:'Business Information', s2:'Hours & Availability', s3:'Services & Pricing',
     s4:'Bot Personality & Language', s5:'Additional Customer Questions',
-    s6:'Lead Capture & Follow-Up', s7:'Branding',
+    s6:'Lead Capture & Follow-Up', s7:'Custom Branding',
     thDay:'Day', thOpen:'Opens', thClose:'Closes', thClosed:'Closed',
     days:['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
     svcPlaceholders:['Service 1','Service 2','Service 3','Service 4','Service 5','Service 6','Service 7','Service 8'],
     s5Hint:'Any questions your customers ask that aren\'t covered by your services or hours?',
     s5SubHint:'e.g. parking, cancellation policy, payment methods, age requirements, gift cards',
+    sBookingTitle:'Booking Workflow', sLeadFieldsTitle:'Information the Bot Should Collect', sEscalationTitle:'Escalation & Safety Rules',
+    lBookingHandle:'How should the chatbot handle appointment or booking requests?', lBwLink:'Send customer to booking link', lBwRequest:'Collect request, then we contact them', lBwCall:'Ask customer to call', lBwText:'Ask customer to text',
+    lBookingUrl:'Booking URL, if applicable', lBookingNotes:'Booking rules or notes', hBookingNotes:'Example: new clients need consultations, deposits required, confirmations by phone only',
+    lLeadFields:'Select the customer information your chatbot should collect', hLeadFields:'Leave anything unchecked if it does not apply.',
+    lfName:'Name', lfPhone:'Phone', lfEmail:'Email', lfService:'Service Needed', lfDate:'Preferred Date', lfTime:'Preferred Time', lfAddress:'Address', lfBudget:'Budget', lfInsurance:'Insurance Provider', lfProject:'Project Details', lCustomLeadFields:'Other fields to collect',
+    lTopFaq:'Top customer questions and approved answers', hTopFaq:'Structured FAQs help the AI answer more accurately. Leave unused rows blank.',
+    lEscalationRules:'When should the chatbot stop answering and request human help?', hEscalationRules:'Examples: custom quotes, emergencies, complaints, insurance, legal/medical questions, pricing disputes',
+    lUrgent:'Does your business have urgent situations?', lUhNo:'No', lUhYes:'Yes', lUrgentExamples:'What situations are urgent?', lUrgentAction:'What should the chatbot do?', lNeverSay:'Things the chatbot should NEVER say or promise', hNeverSay:'Examples: do not guarantee availability, do not diagnose, do not quote exact prices unless listed',
     submitNote:'Once you submit, your NoCrickets account manager will review your responses and reach out within 3–5 business days to begin building your bot.',
-    planLabel:'Select your plan:',
+    planLabel:'Select your plan:', planSectionTitle:'Select Your Plan', planHelper:'Choose your plan first so this form only asks for the setup details that apply to you.', proEmailUpsell:'✨ Automated email follow-up is included with Pro. Select Pro above to customize this section, or leave it hidden and upgrade later.',
     planStarterLabel:'Starter — $99/mo', planStarterDesc:'Bot + lead capture',
     planGrowthLabel:'Growth — $199/mo', planGrowthDesc:'Bot + lead capture + branded booking page + calendar sync',
     planProLabel:'Pro — $299/mo', planProDesc:'Everything + automated email follow-up + monthly campaigns',
-    addonWLLabel:'Add White-label — <span style="color:#00E676;">+$50/mo</span>', addonWLDesc:'Remove all NoCrickets branding — your name everywhere',
+    addonWLLabel:'Add Custom Branding / White-label — <span style="color:#00E676;">+$50/mo</span>', addonWLDesc:'Unlock the branding section, custom colors, tagline, and white-label presentation',
     btnSubmit:'Submit Questionnaire →',
     successTxt:`<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ We received your submission!</div><p style="color:#555;margin-bottom:24px;">Choose your plan below to get started. Your bot will be ready within 3–5 business days after payment.</p><div style="display:flex;flex-direction:column;gap:12px;max-width:360px;margin:0 auto;"><a href="https://buy.stripe.com/6oU14ndbu0j2bSY8ZS8Vi00" target="_blank" style="display:block;background:#0D0D0D;color:#00E676;border:2px solid #00E676;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Starter — $99/mo<br><span style="font-size:13px;font-weight:400;color:#aaa;">Bot + lead capture</span></a><a href="https://buy.stripe.com/9B64gz7RafdW4qwfog8Vi01" target="_blank" style="display:block;background:#00E676;color:#000;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Growth — $199/mo<br><span style="font-size:13px;font-weight:400;color:#004d1a;">Bot + booking page + calendar sync</span></a><a href="https://buy.stripe.com/5kQdR9fjC8Pyg9e0tm8Vi03" target="_blank" style="display:block;background:#0D0D0D;color:#00E676;border:2px solid #00E676;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Pro — $299/mo<br><span style="font-size:13px;font-weight:400;color:#aaa;">Everything + email follow-up + monthly campaigns</span></a><a href="https://buy.stripe.com/5kQcN53AUc1K7CIdg88Vi02" target="_blank" style="display:block;background:#111;color:#00E676;border:1px solid #333;padding:12px 24px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;">+ Add White-label — $50/mo<br><span style="font-size:12px;font-weight:400;color:#777;">Add to any plan above</span></a></div></div>`,
     consult:'Requires consultation?', consultY:'Yes', consultN:'No',
@@ -723,7 +871,7 @@ const T = {
     lFollowupSpeed:'How quickly do you follow up?', lFollowupSpeedPh:'e.g. Within 1 hour, same day…',
     lFollowupMethod:'Preferred Follow-Up Method',
     lLeadNotes:'Anything else about your lead process?',
-    lEmailContent:'What would you like your automated follow-up email to say?',
+    lEmailContent:'Pro Add-On: What would you like your automated follow-up email to say?',
     hEmailContent:'Edit the template below or write your own. We\'ll polish it before it goes live.',
     lApproveEmail:'Would you like to approve the automated follow-up email before it goes live?',
     lAeY:'Yes', lAeN:'No — just send it',
@@ -754,18 +902,26 @@ We look forward to hearing from you!
     requiredNote:'Los campos marcados con * son obligatorios',
     s1:'Información del Negocio', s2:'Horarios y Disponibilidad', s3:'Servicios y Precios',
     s4:'Personalidad del Bot e Idioma', s5:'Preguntas Adicionales de Clientes',
-    s6:'Captura de Leads y Seguimiento', s7:'Marca',
+    s6:'Captura de Leads y Seguimiento', s7:'Branding Personalizado',
     thDay:'Día', thOpen:'Abre', thClose:'Cierra', thClosed:'Cerrado',
     days:['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'],
     svcPlaceholders:['Servicio 1','Servicio 2','Servicio 3','Servicio 4','Servicio 5','Servicio 6','Servicio 7','Servicio 8'],
     s5Hint:'¿Hay preguntas que tus clientes hacen que no están cubiertas por tus servicios u horarios?',
     s5SubHint:'ej. estacionamiento, política de cancelación, métodos de pago, requisitos de edad, tarjetas de regalo',
+    sBookingTitle:'Flujo de Reservas', sLeadFieldsTitle:'Información que el Bot Debe Recopilar', sEscalationTitle:'Reglas de Escalación y Seguridad',
+    lBookingHandle:'¿Cómo debe manejar el chatbot las solicitudes de cita o reserva?', lBwLink:'Enviar al cliente a un enlace de reserva', lBwRequest:'Recopilar solicitud y luego contactarlo', lBwCall:'Pedir al cliente que llame', lBwText:'Pedir al cliente que mande texto',
+    lBookingUrl:'URL de reserva, si aplica', lBookingNotes:'Reglas o notas de reserva', hBookingNotes:'Ejemplo: clientes nuevos necesitan consulta, depósito requerido, confirmación solo por teléfono',
+    lLeadFields:'Selecciona la información del cliente que debe recopilar el chatbot', hLeadFields:'Deja sin marcar lo que no aplica.',
+    lfName:'Nombre', lfPhone:'Teléfono', lfEmail:'Correo', lfService:'Servicio Necesario', lfDate:'Fecha Preferida', lfTime:'Hora Preferida', lfAddress:'Dirección', lfBudget:'Presupuesto', lfInsurance:'Proveedor de Seguro', lfProject:'Detalles del Proyecto', lCustomLeadFields:'Otros campos para recopilar',
+    lTopFaq:'Preguntas principales de clientes y respuestas aprobadas', hTopFaq:'Las FAQs estructuradas ayudan a que la IA responda con más precisión. Deja filas sin usar en blanco.',
+    lEscalationRules:'¿Cuándo debe el chatbot dejar de responder y pedir ayuda humana?', hEscalationRules:'Ejemplos: cotizaciones personalizadas, emergencias, quejas, seguro, preguntas legales/médicas, disputas de precio',
+    lUrgent:'¿Tu negocio tiene situaciones urgentes?', lUhNo:'No', lUhYes:'Sí', lUrgentExamples:'¿Qué situaciones son urgentes?', lUrgentAction:'¿Qué debe hacer el chatbot?', lNeverSay:'Cosas que el chatbot NUNCA debe decir o prometer', hNeverSay:'Ejemplos: no garantizar disponibilidad, no diagnosticar, no dar precios exactos a menos que estén listados',
     submitNote:'Una vez enviado, tu gestor de cuenta de NoCrickets revisará tus respuestas y se pondrá en contacto en 3–5 días hábiles para comenzar a construir tu bot.',
-    planLabel:'Selecciona tu plan:',
+    planLabel:'Selecciona tu plan:', planSectionTitle:'Selecciona Tu Plan', planHelper:'Elige tu plan primero para que este formulario solo pida los detalles que aplican a ti.', proEmailUpsell:'✨ El seguimiento automático por correo está incluido con Pro. Selecciona Pro arriba para personalizar esta sección, o déjala oculta y actualiza después.',
     planStarterLabel:'Starter — $99/mes', planStarterDesc:'Bot + captura de leads',
     planGrowthLabel:'Growth — $199/mes', planGrowthDesc:'Bot + leads + página de reservas con tu marca + calendario',
     planProLabel:'Pro — $299/mes', planProDesc:'Todo lo anterior + seguimiento automático por correo + campañas mensuales',
-    addonWLLabel:'Agregar Marca Blanca — <span style="color:#00E676;">+$50/mes</span>', addonWLDesc:'Elimina toda la marca NoCrickets — tu nombre en todos lados',
+    addonWLLabel:'Agregar Branding Personalizado / Marca Blanca — <span style="color:#00E676;">+$50/mes</span>', addonWLDesc:'Desbloquea la sección de marca, colores, eslogan y presentación sin marca NoCrickets',
     btnSubmit:'Enviar Cuestionario →',
     successTxt:`<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ ¡Recibimos tu formulario!</div><p style="color:#555;margin-bottom:24px;">Elige tu plan para comenzar. Tu bot estará listo en 3–5 días hábiles después del pago.</p><div style="display:flex;flex-direction:column;gap:12px;max-width:360px;margin:0 auto;"><a href="https://buy.stripe.com/6oU14ndbu0j2bSY8ZS8Vi00" target="_blank" style="display:block;background:#0D0D0D;color:#00E676;border:2px solid #00E676;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Starter — $99/mes<br><span style="font-size:13px;font-weight:400;color:#aaa;">Bot + captura de leads</span></a><a href="https://buy.stripe.com/9B64gz7RafdW4qwfog8Vi01" target="_blank" style="display:block;background:#00E676;color:#000;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Growth — $199/mes<br><span style="font-size:13px;font-weight:400;color:#004d1a;">Bot + leads + seguimiento automático por correo</span></a><a href="https://buy.stripe.com/5kQdR9fjC8Pyg9e0tm8Vi03" target="_blank" style="display:block;background:#0D0D0D;color:#00E676;border:2px solid #00E676;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Pro — $299/mes<br><span style="font-size:13px;font-weight:400;color:#aaa;">Automatización completa + página de reservas</span></a><a href="https://buy.stripe.com/5kQcN53AUc1K7CIdg88Vi02" target="_blank" style="display:block;background:#111;color:#00E676;border:1px solid #333;padding:12px 24px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;">+ Agregar Marca Blanca — $50/mes<br><span style="font-size:12px;font-weight:400;color:#777;">Agregar a cualquier plan</span></a></div></div>`,
     consult:'¿Requiere consulta?', consultY:'Sí', consultN:'No',
@@ -802,7 +958,7 @@ We look forward to hearing from you!
     lFollowupSpeed:'¿Qué tan rápido haces seguimiento?', lFollowupSpeedPh:'ej. En 1 hora, el mismo día…',
     lFollowupMethod:'Método de Seguimiento Preferido',
     lLeadNotes:'¿Algo más sobre tu proceso de leads?',
-    lEmailContent:'¿Qué te gustaría que dijera el correo de seguimiento automático?',
+    lEmailContent:'Complemento Pro: ¿Qué te gustaría que dijera el correo de seguimiento automático?',
     hEmailContent:'Edita la plantilla a continuación o escribe la tuya. La puliremos antes de publicarla.',
     lApproveEmail:'¿Te gustaría aprobar el correo de seguimiento automático antes de que salga?',
     lAeY:'Sí', lAeN:'No — envíalo directamente',
@@ -875,10 +1031,17 @@ function applyLang(lang) {
     'hero-title': t.heroTitle, 'hero-sub': t.heroSub, 'required-note': t.requiredNote,
     's1-title': t.s1, 's2-title': t.s2, 's3-title': t.s3,
     's4-title': t.s4, 's5-title': t.s5, 's6-title': t.s6, 's7-title': t.s7,
+    's-booking-title': t.sBookingTitle, 's-lead-fields-title': t.sLeadFieldsTitle, 's-escalation-title': t.sEscalationTitle,
     'th-day': t.thDay, 'th-open': t.thOpen, 'th-close': t.thClose, 'th-closed': t.thClosed,
     's5-hint': t.s5Hint, 'submit-note': t.submitNote, 'btn-submit': t.btnSubmit,
     'appt-note': t.apptNote, 'add-service-btn': t.addService,
-    'plan-label': t.planLabel,
+    'l-booking-handle': t.lBookingHandle, 'l-bw-link': t.lBwLink, 'l-bw-request': t.lBwRequest, 'l-bw-call': t.lBwCall, 'l-bw-text': t.lBwText,
+    'l-booking-url': t.lBookingUrl, 'l-booking-notes': t.lBookingNotes, 'h-booking-notes': t.hBookingNotes,
+    'l-lead-fields': t.lLeadFields, 'h-lead-fields': t.hLeadFields, 'lf-name': t.lfName, 'lf-phone': t.lfPhone, 'lf-email': t.lfEmail, 'lf-service': t.lfService, 'lf-date': t.lfDate, 'lf-time': t.lfTime, 'lf-address': t.lfAddress, 'lf-budget': t.lfBudget, 'lf-insurance': t.lfInsurance, 'lf-project': t.lfProject, 'l-custom-lead-fields': t.lCustomLeadFields,
+    'l-top-faq': t.lTopFaq, 'h-top-faq': t.hTopFaq,
+    'l-escalation-rules': t.lEscalationRules, 'h-escalation-rules': t.hEscalationRules, 'l-urgent': t.lUrgent, 'l-uh-no': t.lUhNo, 'l-uh-yes': t.lUhYes, 'l-urgent-examples': t.lUrgentExamples, 'l-urgent-action': t.lUrgentAction, 'l-never-say': t.lNeverSay, 'h-never-say': t.hNeverSay,
+    
+    'plan-label': t.planLabel, 'plan-section-title': t.planSectionTitle, 'plan-helper': t.planHelper, 'pro-email-upsell': t.proEmailUpsell,
     'plan-starter-label': t.planStarterLabel, 'plan-starter-desc': t.planStarterDesc,
     'plan-growth-label': t.planGrowthLabel, 'plan-growth-desc': t.planGrowthDesc,
     'plan-pro-label': t.planProLabel, 'plan-pro-desc': t.planProDesc,
@@ -966,6 +1129,13 @@ function collectFormData() {
   });
 
   const getRadio = (name) => { const c = document.querySelector(`input[name="${name}"]:checked`); return c ? c.value : ''; };
+  const getCheckboxes = (name) => Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(c => c.value).join(', ');
+  let structuredFaqs = '';
+  for (let i = 1; i <= 10; i++) {
+    const q = document.getElementById(`faq-q-${i}`)?.value || '';
+    const a = document.getElementById(`faq-a-${i}`)?.value || '';
+    if (q || a) structuredFaqs += `Q${i}: ${q} | A${i}: ${a}; `;
+  }
 
   return {
     bizName: document.getElementById('biz-name').value,
@@ -981,6 +1151,11 @@ function collectFormData() {
     appointments: getRadio('appt'),
     advanceBooking: document.getElementById('advance-book').value,
     blackoutDates: document.getElementById('blackout').value,
+    bookingWorkflow: getRadio('booking-workflow'),
+    bookingUrl: document.getElementById('booking-url').value,
+    bookingNotes: document.getElementById('booking-notes').value,
+    requiredLeadFields: getCheckboxes('lead-fields'),
+    customLeadFields: document.getElementById('custom-lead-fields').value,
     services: svcsStr,
     serviceNotes: document.getElementById('svc-notes').value,
     competitors: document.getElementById('competitors').value,
@@ -991,6 +1166,12 @@ function collectFormData() {
     botGoal: getRadio('bot-goal'),
     naturalGreeting: document.getElementById('natural-greeting').value,
     faq: document.getElementById('faq-textarea').value,
+    structuredFaqs: structuredFaqs,
+    escalationRules: document.getElementById('escalation-rules').value,
+    hasUrgentSituations: getRadio('urgent-has'),
+    urgentExamples: document.getElementById('urgent-examples').value,
+    urgentAction: document.getElementById('urgent-action').value,
+    neverSay: document.getElementById('never-say').value,
     leadName: document.getElementById('lead-name').value,
     leadEmail: document.getElementById('lead-email').value,
     followupSpeed: document.getElementById('followup-speed').value,
@@ -1002,6 +1183,7 @@ function collectFormData() {
     brandColors: document.getElementById('brand-colors').value,
     tagline: document.getElementById('tagline').value,
     brandNotes: document.getElementById('brand-notes').value,
+    whiteLabelAddon: document.getElementById('addon-whitelabel')?.checked ? 'Yes' : 'No',
     formLang: currentLang,
   };
 }
@@ -1020,12 +1202,13 @@ async function handleSubmit(e) {
   const stripeLinks = {
     starter: 'https://buy.stripe.com/6oU14ndbu0j2bSY8ZS8Vi00',
     growth: 'https://buy.stripe.com/9B64gz7RafdW4qwfog8Vi01',
+    pro: 'https://buy.stripe.com/5kQdR9fjC8Pyg9e0tm8Vi03',
     whitelabel: 'https://buy.stripe.com/5kQcN53AUc1K7CIdg88Vi02'
   };
 
   const planLabels = {
-    en: { starter: 'Starter — $99/mo', growth: 'Growth — $199/mo', whitelabel: 'Growth + White-label — $249/mo' },
-    es: { starter: 'Starter — $99/mes', growth: 'Growth — $199/mes', whitelabel: 'Growth + White-label — $249/mes' }
+    en: { starter: 'Starter — $99/mo', growth: 'Growth — $199/mo', pro: 'Pro — $299/mo', whitelabel: 'Growth + White-label — $249/mo' },
+    es: { starter: 'Starter — $99/mes', growth: 'Growth — $199/mes', pro: 'Pro — $299/mes', whitelabel: 'Growth + White-label — $249/mes' }
   };
 
   btn.disabled = true;
@@ -1055,6 +1238,38 @@ async function handleSubmit(e) {
 
 applyLang('en');
 
+function toggleConditionalSections() {
+  const selectedPlan = document.querySelector('input[name="plan"]:checked')?.value || '';
+  const proSection = document.getElementById('pro-email-section');
+  const proUpsell = document.getElementById('pro-email-upsell');
+  const brandingSection = document.getElementById('branding-section');
+  const brandingAddon = document.getElementById('addon-whitelabel');
+  const bookingUrlField = document.getElementById('booking-url-field');
+  const bookingWorkflow = document.querySelector('input[name="booking-workflow"]:checked')?.value || '';
+  const urgentDetails = document.getElementById('urgent-details');
+  const urgentHas = document.querySelector('input[name="urgent-has"]:checked')?.value || '';
+
+  if (proSection && proUpsell) {
+    const showPro = selectedPlan === 'pro';
+    proSection.style.display = showPro ? 'block' : 'none';
+    proUpsell.style.display = showPro ? 'none' : 'flex';
+  }
+
+  if (brandingSection && brandingAddon) {
+    brandingSection.style.display = brandingAddon.checked ? 'block' : 'none';
+  }
+
+  if (bookingUrlField) {
+    bookingUrlField.style.display = bookingWorkflow === 'Send to booking link' ? 'block' : 'none';
+  }
+
+  if (urgentDetails) {
+    urgentDetails.style.display = urgentHas === 'Yes' ? 'grid' : 'none';
+  }
+}
+
+toggleConditionalSections();
+
 // Plan selector highlight
 document.querySelectorAll('input[name="plan"]').forEach(radio => {
   radio.addEventListener('change', () => {
@@ -1064,8 +1279,19 @@ document.querySelectorAll('input[name="plan"]').forEach(radio => {
     });
     radio.closest('label').style.borderColor = '#00E676';
     radio.closest('label').style.background = 'rgba(0,230,118,0.08)';
+    toggleConditionalSections();
   });
 });
+
+
+document.getElementById('addon-whitelabel')?.addEventListener('change', toggleConditionalSections);
+document.querySelectorAll('input[name="booking-workflow"]').forEach(radio => {
+  radio.addEventListener('change', toggleConditionalSections);
+});
+document.querySelectorAll('input[name="urgent-has"]').forEach(radio => {
+  radio.addEventListener('change', toggleConditionalSections);
+});
+
 </script>
 </body>
 </html>
