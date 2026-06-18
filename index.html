@@ -204,6 +204,26 @@
     gap: 6px;
     line-height: 1.5;
   }
+  .info-box {
+    background: rgba(0,230,118,0.06);
+    border: 1px solid var(--green-border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    color: var(--text-dim);
+    font-size: 13px;
+    line-height: 1.55;
+    margin-bottom: 18px;
+  }
+  .computed-preview {
+    background: #0b0b0b;
+    border: 1px dashed var(--green-border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: var(--green);
+    font-size: 12.5px;
+    margin-top: 8px;
+    word-break: break-word;
+  }
 
   input[type="text"],
   input[type="email"],
@@ -389,6 +409,11 @@
         </div>
       </div>
       <div class="field">
+        <label for="biz-description" id="l-biz-description">Short Business Description <span class="req">*</span></label>
+        <div class="field-hint" id="h-biz-description">One plain-English sentence the bot can use to explain what the business does.</div>
+        <textarea id="biz-description" rows="3" placeholder="Example: A local beauty studio offering brow and lash services." required></textarea>
+      </div>
+      <div class="field">
         <label for="biz-address" id="l-biz-address">Full Business Address</label>
         <input type="text" id="biz-address">
       </div>
@@ -467,6 +492,20 @@
           <div id="addon-wl-desc" style="font-size:13px;color:#777;text-align:left;">Unlock the branding section, custom colors, tagline, and white-label presentation</div>
         </div>
       </label>
+      <hr class="divider">
+      <div class="info-box" id="deployment-info">These fields help us safely duplicate the master bot without touching its logic.</div>
+      <div class="two-col">
+        <div class="field">
+          <label for="bot-slug" id="l-bot-slug">Suggested Bot Slug</label>
+          <div class="field-hint" id="h-bot-slug">Used for internal bot naming and future public links.</div>
+          <input type="text" id="bot-slug" placeholder="aabeauty-midland">
+        </div>
+        <div class="field">
+          <label for="webhook-source" id="l-webhook-source">Webhook Source Label</label>
+          <div class="field-hint" id="h-webhook-source">Used in the lead sheet to identify this bot/client.</div>
+          <input type="text" id="webhook-source" placeholder="A&A Beauty Bot">
+        </div>
+      </div>
     </div>
   </div>
 
@@ -523,15 +562,43 @@
       <div class="field">
         <label id="l-booking-handle">How should the chatbot handle appointment or booking requests?</label>
         <div class="options-group">
-          <div class="option-pill"><input type="radio" name="booking-workflow" id="bw-link" value="Send to booking link"><label for="bw-link" id="l-bw-link">Send customer to booking link</label></div>
-          <div class="option-pill"><input type="radio" name="booking-workflow" id="bw-request" value="Collect request"><label for="bw-request" id="l-bw-request">Collect request, then we contact them</label></div>
+          <div class="option-pill"><input type="radio" name="booking-workflow" id="bw-link" value="Let customer choose"><label for="bw-link" id="l-bw-link">Let customer choose: book online or contact me</label></div>
+          <div class="option-pill"><input type="radio" name="booking-workflow" id="bw-request" value="Contact me only"><label for="bw-request" id="l-bw-request">Contact-me only</label></div>
           <div class="option-pill"><input type="radio" name="booking-workflow" id="bw-call" value="Ask customer to call"><label for="bw-call" id="l-bw-call">Ask customer to call</label></div>
           <div class="option-pill"><input type="radio" name="booking-workflow" id="bw-text" value="Ask customer to text"><label for="bw-text" id="l-bw-text">Ask customer to text</label></div>
         </div>
       </div>
+      <div class="field">
+        <label id="l-booking-setup">Booking page setup</label>
+        <div class="field-hint" id="h-booking-setup">For Growth/Pro clients, this maps to the bot's BookingURL field.</div>
+        <div class="options-group">
+          <div class="option-pill"><input type="radio" name="booking-setup" id="bs-existing" value="Existing booking URL"><label for="bs-existing" id="l-bs-existing">Use existing booking URL</label></div>
+          <div class="option-pill"><input type="radio" name="booking-setup" id="bs-nc" value="NoCrickets booking page"><label for="bs-nc" id="l-bs-nc">Create NoCrickets booking page</label></div>
+          <div class="option-pill"><input type="radio" name="booking-setup" id="bs-none" value="No online booking"><label for="bs-none" id="l-bs-none">No online booking</label></div>
+        </div>
+      </div>
       <div class="field" id="booking-url-field" style="display:none;">
-        <label for="booking-url" id="l-booking-url">Booking URL, if applicable</label>
+        <label for="booking-url" id="l-booking-url">Existing Booking URL</label>
+        <div class="field-hint" id="h-booking-url">Calendly, Square, Fresha, Google Calendar booking page, website booking page, etc.</div>
         <input type="url" id="booking-url" placeholder="https://…">
+      </div>
+      <div class="two-col" id="booking-domain-fields">
+        <div class="field">
+          <label for="booking-subdomain" id="l-booking-subdomain">Preferred NoCrickets Booking Subdomain</label>
+          <div class="field-hint" id="h-booking-subdomain">Normal clients use booking-clientname.nocrickets.co.</div>
+          <input type="text" id="booking-subdomain" placeholder="booking-clientname.nocrickets.co">
+          <div class="computed-preview" id="booking-url-preview">BookingURL preview: —</div>
+        </div>
+        <div class="field">
+          <label for="white-label-domain" id="l-white-label-domain">White-label Booking Domain</label>
+          <div class="field-hint" id="h-white-label-domain">Optional. Only if they own/control a domain.</div>
+          <input type="text" id="white-label-domain" placeholder="booking.clientdomain.com">
+        </div>
+      </div>
+      <div class="field">
+        <label for="domain-access" id="l-domain-access">Domain/DNS access notes</label>
+        <div class="field-hint" id="h-domain-access">Who can update DNS if using a white-label booking domain?</div>
+        <textarea id="domain-access" rows="2"></textarea>
       </div>
       <div class="field">
         <label for="booking-notes" id="l-booking-notes">Booking rules or notes</label>
@@ -822,8 +889,10 @@ const T = {
     s5Hint:'Any questions your customers ask that aren\'t covered by your services or hours?',
     s5SubHint:'e.g. parking, cancellation policy, payment methods, age requirements, gift cards',
     sBookingTitle:'Booking Workflow', sLeadFieldsTitle:'Information the Bot Should Collect', sEscalationTitle:'Escalation & Safety Rules',
-    lBookingHandle:'How should the chatbot handle appointment or booking requests?', lBwLink:'Send customer to booking link', lBwRequest:'Collect request, then we contact them', lBwCall:'Ask customer to call', lBwText:'Ask customer to text',
-    lBookingUrl:'Booking URL, if applicable', lBookingNotes:'Booking rules or notes', hBookingNotes:'Example: new clients need consultations, deposits required, confirmations by phone only',
+    lBookingHandle:'How should the chatbot handle appointment or booking requests?', lBwLink:'Let customer choose: book online or contact me', lBwRequest:'Contact-me only', lBwCall:'Ask customer to call', lBwText:'Ask customer to text',
+    lBookingSetup:'Booking page setup', hBookingSetup:'For Growth/Pro clients, this maps to the bot\'s BookingURL field.', lBsExisting:'Use existing booking URL', lBsNc:'Create NoCrickets booking page', lBsNone:'No online booking',
+    lBookingUrl:'Existing Booking URL', hBookingUrl:'Calendly, Square, Fresha, Google Calendar booking page, website booking page, etc.', lBookingSubdomain:'Preferred NoCrickets Booking Subdomain', hBookingSubdomain:'Normal clients use booking-clientname.nocrickets.co.', lWhiteLabelDomain:'White-label Booking Domain', hWhiteLabelDomain:'Optional. Only if they own/control a domain.', lDomainAccess:'Domain/DNS access notes', hDomainAccess:'Who can update DNS if using a white-label booking domain?',
+    lBookingNotes:'Booking rules or notes', hBookingNotes:'Example: new clients need consultations, deposits required, confirmations by phone only',
     lLeadFields:'Select the customer information your chatbot should collect', hLeadFields:'Leave anything unchecked if it does not apply.',
     lfName:'Name', lfPhone:'Phone', lfEmail:'Email', lfService:'Service Needed', lfDate:'Preferred Date', lfTime:'Preferred Time', lfAddress:'Address', lfBudget:'Budget', lfInsurance:'Insurance Provider', lfProject:'Project Details', lCustomLeadFields:'Other fields to collect',
     lTopFaq:'Top customer questions and approved answers', hTopFaq:'Structured FAQs help the AI answer more accurately. Leave unused rows blank.',
@@ -834,14 +903,14 @@ const T = {
     planStarterLabel:'Starter — $99/mo', planStarterDesc:'Bot + lead capture',
     planGrowthLabel:'Growth — $199/mo', planGrowthDesc:'Bot + lead capture + branded booking page + calendar sync',
     planProLabel:'Pro — $299/mo', planProDesc:'Everything + automated email follow-up + monthly campaigns',
-    addonWLLabel:'Add Custom Branding / White-label — <span style="color:#00E676;">+$50/mo</span>', addonWLDesc:'Unlock the branding section, custom colors, tagline, and white-label presentation',
+    addonWLLabel:'Add Custom Branding / White-label — <span style="color:#00E676;">+$50/mo</span>', addonWLDesc:'Unlock the branding section, custom colors, tagline, and white-label presentation', deploymentInfo:'These fields help us safely duplicate the master bot without touching its logic.', lBotSlug:'Suggested Bot Slug', hBotSlug:'Used for internal bot naming and future public links.', lWebhookSource:'Webhook Source Label', hWebhookSource:'Used in the lead sheet to identify this bot/client.',
     btnSubmit:'Submit Questionnaire →',
     successTxt:`<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ We received your submission!</div><p style="color:#555;margin-bottom:24px;">Choose your plan below to get started. Your bot will be ready within 3–5 business days after payment.</p><div style="display:flex;flex-direction:column;gap:12px;max-width:360px;margin:0 auto;"><a href="https://buy.stripe.com/6oU14ndbu0j2bSY8ZS8Vi00" target="_blank" style="display:block;background:#0D0D0D;color:#00E676;border:2px solid #00E676;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Starter — $99/mo<br><span style="font-size:13px;font-weight:400;color:#aaa;">Bot + lead capture</span></a><a href="https://buy.stripe.com/9B64gz7RafdW4qwfog8Vi01" target="_blank" style="display:block;background:#00E676;color:#000;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Growth — $199/mo<br><span style="font-size:13px;font-weight:400;color:#004d1a;">Bot + booking page + calendar sync</span></a><a href="https://buy.stripe.com/5kQdR9fjC8Pyg9e0tm8Vi03" target="_blank" style="display:block;background:#0D0D0D;color:#00E676;border:2px solid #00E676;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Pro — $299/mo<br><span style="font-size:13px;font-weight:400;color:#aaa;">Everything + email follow-up + monthly campaigns</span></a><a href="https://buy.stripe.com/5kQcN53AUc1K7CIdg88Vi02" target="_blank" style="display:block;background:#111;color:#00E676;border:1px solid #333;padding:12px 24px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;">+ Add White-label — $50/mo<br><span style="font-size:12px;font-weight:400;color:#777;">Add to any plan above</span></a></div></div>`,
     consult:'Requires consultation?', consultY:'Yes', consultN:'No',
     apptNote:'ℹ️ The bot will collect your customer\'s preferred appointment time and log it to your leads sheet. You confirm directly with the customer.',
     addService:'+ Add Service',
     // S1 labels
-    lBizName:'Business Name *', lBizType:'Business Type *', lBizTypePh:'Salon, Restaurant, Retail…',
+    lBizName:'Business Name *', lBizType:'Business Type *', lBizTypePh:'Salon, Restaurant, Retail…', lBizDescription:'Short Business Description *', hBizDescription:'One plain-English sentence the bot can use to explain what the business does.',
     lBizAddress:'Full Business Address', lBizWebsite:'Website URL', lBizPhone:'Business Phone *',
     lBizEmail:'Business Email *',
     lBizWhatsapp:'WhatsApp Number', hBizWhatsapp:'',
@@ -909,8 +978,10 @@ We look forward to hearing from you!
     s5Hint:'¿Hay preguntas que tus clientes hacen que no están cubiertas por tus servicios u horarios?',
     s5SubHint:'ej. estacionamiento, política de cancelación, métodos de pago, requisitos de edad, tarjetas de regalo',
     sBookingTitle:'Flujo de Reservas', sLeadFieldsTitle:'Información que el Bot Debe Recopilar', sEscalationTitle:'Reglas de Escalación y Seguridad',
-    lBookingHandle:'¿Cómo debe manejar el chatbot las solicitudes de cita o reserva?', lBwLink:'Enviar al cliente a un enlace de reserva', lBwRequest:'Recopilar solicitud y luego contactarlo', lBwCall:'Pedir al cliente que llame', lBwText:'Pedir al cliente que mande texto',
-    lBookingUrl:'URL de reserva, si aplica', lBookingNotes:'Reglas o notas de reserva', hBookingNotes:'Ejemplo: clientes nuevos necesitan consulta, depósito requerido, confirmación solo por teléfono',
+    lBookingHandle:'¿Cómo debe manejar el chatbot las solicitudes de cita o reserva?', lBwLink:'Dejar que el cliente elija: reservar en línea o que lo contacten', lBwRequest:'Solo que lo contacten', lBwCall:'Pedir al cliente que llame', lBwText:'Pedir al cliente que mande texto',
+    lBookingSetup:'Configuración de página de reservas', hBookingSetup:'Para clientes Growth/Pro, esto alimenta el campo BookingURL del bot.', lBsExisting:'Usar URL de reserva existente', lBsNc:'Crear página de reservas NoCrickets', lBsNone:'Sin reserva en línea',
+    lBookingUrl:'URL de reserva existente', hBookingUrl:'Calendly, Square, Fresha, Google Calendar, página de reserva del sitio web, etc.', lBookingSubdomain:'Subdominio de reservas NoCrickets preferido', hBookingSubdomain:'Clientes normales usan booking-clientname.nocrickets.co.', lWhiteLabelDomain:'Dominio de reserva marca blanca', hWhiteLabelDomain:'Opcional. Solo si poseen/controlan un dominio.', lDomainAccess:'Notas de acceso DNS/dominio', hDomainAccess:'¿Quién puede actualizar DNS si usan dominio de marca blanca?',
+    lBookingNotes:'Reglas o notas de reserva', hBookingNotes:'Ejemplo: clientes nuevos necesitan consulta, depósito requerido, confirmación solo por teléfono',
     lLeadFields:'Selecciona la información del cliente que debe recopilar el chatbot', hLeadFields:'Deja sin marcar lo que no aplica.',
     lfName:'Nombre', lfPhone:'Teléfono', lfEmail:'Correo', lfService:'Servicio Necesario', lfDate:'Fecha Preferida', lfTime:'Hora Preferida', lfAddress:'Dirección', lfBudget:'Presupuesto', lfInsurance:'Proveedor de Seguro', lfProject:'Detalles del Proyecto', lCustomLeadFields:'Otros campos para recopilar',
     lTopFaq:'Preguntas principales de clientes y respuestas aprobadas', hTopFaq:'Las FAQs estructuradas ayudan a que la IA responda con más precisión. Deja filas sin usar en blanco.',
@@ -921,14 +992,14 @@ We look forward to hearing from you!
     planStarterLabel:'Starter — $99/mes', planStarterDesc:'Bot + captura de leads',
     planGrowthLabel:'Growth — $199/mes', planGrowthDesc:'Bot + leads + página de reservas con tu marca + calendario',
     planProLabel:'Pro — $299/mes', planProDesc:'Todo lo anterior + seguimiento automático por correo + campañas mensuales',
-    addonWLLabel:'Agregar Branding Personalizado / Marca Blanca — <span style="color:#00E676;">+$50/mes</span>', addonWLDesc:'Desbloquea la sección de marca, colores, eslogan y presentación sin marca NoCrickets',
+    addonWLLabel:'Agregar Branding Personalizado / Marca Blanca — <span style="color:#00E676;">+$50/mes</span>', addonWLDesc:'Desbloquea la sección de marca, colores, eslogan y presentación sin marca NoCrickets', deploymentInfo:'Estos campos nos ayudan a duplicar el bot maestro sin tocar la lógica.', lBotSlug:'Slug sugerido del bot', hBotSlug:'Usado para nombre interno del bot y futuros enlaces públicos.', lWebhookSource:'Etiqueta de Webhook Source', hWebhookSource:'Usada en la hoja de leads para identificar este bot/cliente.',
     btnSubmit:'Enviar Cuestionario →',
     successTxt:`<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ ¡Recibimos tu formulario!</div><p style="color:#555;margin-bottom:24px;">Elige tu plan para comenzar. Tu bot estará listo en 3–5 días hábiles después del pago.</p><div style="display:flex;flex-direction:column;gap:12px;max-width:360px;margin:0 auto;"><a href="https://buy.stripe.com/6oU14ndbu0j2bSY8ZS8Vi00" target="_blank" style="display:block;background:#0D0D0D;color:#00E676;border:2px solid #00E676;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Starter — $99/mes<br><span style="font-size:13px;font-weight:400;color:#aaa;">Bot + captura de leads</span></a><a href="https://buy.stripe.com/9B64gz7RafdW4qwfog8Vi01" target="_blank" style="display:block;background:#00E676;color:#000;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Growth — $199/mes<br><span style="font-size:13px;font-weight:400;color:#004d1a;">Bot + leads + seguimiento automático por correo</span></a><a href="https://buy.stripe.com/5kQdR9fjC8Pyg9e0tm8Vi03" target="_blank" style="display:block;background:#0D0D0D;color:#00E676;border:2px solid #00E676;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Pro — $299/mes<br><span style="font-size:13px;font-weight:400;color:#aaa;">Automatización completa + página de reservas</span></a><a href="https://buy.stripe.com/5kQcN53AUc1K7CIdg88Vi02" target="_blank" style="display:block;background:#111;color:#00E676;border:1px solid #333;padding:12px 24px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;">+ Agregar Marca Blanca — $50/mes<br><span style="font-size:12px;font-weight:400;color:#777;">Agregar a cualquier plan</span></a></div></div>`,
     consult:'¿Requiere consulta?', consultY:'Sí', consultN:'No',
     apptNote:'ℹ️ El bot recopilará el horario preferido de tu cliente y lo registrará en tu hoja de leads. Tú confirmas directamente con el cliente.',
     addService:'+ Agregar Servicio',
     // S1 labels
-    lBizName:'Nombre del Negocio *', lBizType:'Tipo de Negocio *', lBizTypePh:'Salón, Restaurante, Retail…',
+    lBizName:'Nombre del Negocio *', lBizType:'Tipo de Negocio *', lBizTypePh:'Salón, Restaurante, Retail…', lBizDescription:'Descripción Corta del Negocio *', hBizDescription:'Una frase sencilla que el bot puede usar para explicar qué hace el negocio.',
     lBizAddress:'Dirección Completa', lBizWebsite:'Sitio Web', lBizPhone:'Teléfono del Negocio *',
     lBizEmail:'Correo del Negocio *',
     lBizWhatsapp:'Número de WhatsApp', hBizWhatsapp:'',
@@ -1036,7 +1107,9 @@ function applyLang(lang) {
     's5-hint': t.s5Hint, 'submit-note': t.submitNote, 'btn-submit': t.btnSubmit,
     'appt-note': t.apptNote, 'add-service-btn': t.addService,
     'l-booking-handle': t.lBookingHandle, 'l-bw-link': t.lBwLink, 'l-bw-request': t.lBwRequest, 'l-bw-call': t.lBwCall, 'l-bw-text': t.lBwText,
-    'l-booking-url': t.lBookingUrl, 'l-booking-notes': t.lBookingNotes, 'h-booking-notes': t.hBookingNotes,
+    'l-booking-setup': t.lBookingSetup, 'h-booking-setup': t.hBookingSetup, 'l-bs-existing': t.lBsExisting, 'l-bs-nc': t.lBsNc, 'l-bs-none': t.lBsNone,
+    'l-booking-url': t.lBookingUrl, 'h-booking-url': t.hBookingUrl, 'l-booking-subdomain': t.lBookingSubdomain, 'h-booking-subdomain': t.hBookingSubdomain, 'l-white-label-domain': t.lWhiteLabelDomain, 'h-white-label-domain': t.hWhiteLabelDomain, 'l-domain-access': t.lDomainAccess, 'h-domain-access': t.hDomainAccess,
+    'l-booking-notes': t.lBookingNotes, 'h-booking-notes': t.hBookingNotes,
     'l-lead-fields': t.lLeadFields, 'h-lead-fields': t.hLeadFields, 'lf-name': t.lfName, 'lf-phone': t.lfPhone, 'lf-email': t.lfEmail, 'lf-service': t.lfService, 'lf-date': t.lfDate, 'lf-time': t.lfTime, 'lf-address': t.lfAddress, 'lf-budget': t.lfBudget, 'lf-insurance': t.lfInsurance, 'lf-project': t.lfProject, 'l-custom-lead-fields': t.lCustomLeadFields,
     'l-top-faq': t.lTopFaq, 'h-top-faq': t.hTopFaq,
     'l-escalation-rules': t.lEscalationRules, 'h-escalation-rules': t.hEscalationRules, 'l-urgent': t.lUrgent, 'l-uh-no': t.lUhNo, 'l-uh-yes': t.lUhYes, 'l-urgent-examples': t.lUrgentExamples, 'l-urgent-action': t.lUrgentAction, 'l-never-say': t.lNeverSay, 'h-never-say': t.hNeverSay,
@@ -1045,9 +1118,9 @@ function applyLang(lang) {
     'plan-starter-label': t.planStarterLabel, 'plan-starter-desc': t.planStarterDesc,
     'plan-growth-label': t.planGrowthLabel, 'plan-growth-desc': t.planGrowthDesc,
     'plan-pro-label': t.planProLabel, 'plan-pro-desc': t.planProDesc,
-    'addon-wl-label': t.addonWLLabel, 'addon-wl-desc': t.addonWLDesc,
+    'addon-wl-label': t.addonWLLabel, 'addon-wl-desc': t.addonWLDesc, 'deployment-info': t.deploymentInfo, 'l-bot-slug': t.lBotSlug, 'h-bot-slug': t.hBotSlug, 'l-webhook-source': t.lWebhookSource, 'h-webhook-source': t.hWebhookSource,
     // S1
-    'l-biz-name': t.lBizName, 'l-biz-type': t.lBizType,
+    'l-biz-name': t.lBizName, 'l-biz-type': t.lBizType, 'l-biz-description': t.lBizDescription, 'h-biz-description': t.hBizDescription,
     'l-biz-address': t.lBizAddress, 'l-biz-website': t.lBizWebsite, 'l-biz-email': t.lBizEmail,
     'l-biz-phone': t.lBizPhone, 'l-biz-whatsapp': t.lBizWhatsapp,
     'h-biz-whatsapp': t.hBizWhatsapp, 'l-biz-contact': t.lBizContact,
@@ -1110,6 +1183,88 @@ function setLang(lang) {
 
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwHt4yjBYkWgsa6KCuK0yrT_TC8_K2AiLQBdW4LLmvKn0g8rsUaVF1gd7izGCeNDUD5TQ/exec';
 
+
+function slugify(value) {
+  return String(value || '')
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 48);
+}
+
+function normalizeDomain(value) {
+  return String(value || '')
+    .trim()
+    .replace(/^https?:\/\//i, '')
+    .replace(/\/+$/g, '')
+    .toLowerCase();
+}
+
+function urlFromDomainOrUrl(value) {
+  const raw = String(value || '').trim();
+  if (!raw) return '';
+  if (/^https?:\/\//i.test(raw)) return raw;
+  return 'https://' + normalizeDomain(raw);
+}
+
+function getServiceNames() {
+  return collectStructuredServices().map(s => s.name).filter(Boolean);
+}
+
+function getServiceSummary() {
+  const services = collectStructuredServices();
+  return services.map(s => {
+    const bits = [s.name];
+    if (s.price) bits.push(s.price);
+    if (s.duration) bits.push(s.duration);
+    if (s.requires_consultation) bits.push('Consult: ' + s.requires_consultation);
+    return bits.join(' | ');
+  }).join('; ');
+}
+
+function deriveBookingMode(formData) {
+  const workflow = String(formData.bookingWorkflow || '').toLowerCase();
+  const setup = String(formData.bookingSetupType || '').toLowerCase();
+  if (workflow.includes('contact') || workflow.includes('call') || workflow.includes('text') || setup.includes('no online')) return 'callback';
+  return 'link';
+}
+
+function deriveBookingUrl(formData) {
+  const whiteLabelDomain = normalizeDomain(formData.whiteLabelBookingDomain);
+  if (whiteLabelDomain) return urlFromDomainOrUrl(whiteLabelDomain);
+  if (formData.bookingUrl) return urlFromDomainOrUrl(formData.bookingUrl);
+  const subdomain = normalizeDomain(formData.bookingSubdomain);
+  if (subdomain) return urlFromDomainOrUrl(subdomain);
+  const fallbackSlug = slugify(formData.bizName || formData.botSlug || 'client');
+  return `https://booking-${fallbackSlug}.nocrickets.co`;
+}
+
+function updateAutoDeploymentFields() {
+  const bizName = document.getElementById('biz-name')?.value || '';
+  const slug = slugify(bizName);
+  const botSlug = document.getElementById('bot-slug');
+  const webhookSource = document.getElementById('webhook-source');
+  const bookingSubdomain = document.getElementById('booking-subdomain');
+  if (botSlug && !botSlug.dataset.userEdited && slug) botSlug.value = slug;
+  if (webhookSource && !webhookSource.dataset.userEdited && bizName) webhookSource.value = bizName + ' Bot';
+  if (bookingSubdomain && !bookingSubdomain.dataset.userEdited && slug) bookingSubdomain.value = `booking-${slug}.nocrickets.co`;
+  updateBookingPreview();
+}
+
+function updateBookingPreview() {
+  const preview = document.getElementById('booking-url-preview');
+  if (!preview) return;
+  const fake = {
+    bizName: document.getElementById('biz-name')?.value || '',
+    botSlug: document.getElementById('bot-slug')?.value || '',
+    bookingUrl: document.getElementById('booking-url')?.value || '',
+    bookingSubdomain: document.getElementById('booking-subdomain')?.value || '',
+    whiteLabelBookingDomain: document.getElementById('white-label-domain')?.value || ''
+  };
+  preview.textContent = 'BookingURL preview: ' + (deriveBookingUrl(fake) || '—');
+}
+
 function buildFeatureFlags(plan, whiteLabelAddon) {
   const flags = { lead_capture: true, booking_page: false, calendar_sync: false, automated_followup: false, white_label: false, custom_branding: false, analytics: true };
   if (plan === 'growth' || plan === 'pro') { flags.booking_page = true; flags.calendar_sync = true; }
@@ -1154,31 +1309,113 @@ function getRecommendedMaxAICalls(bizType) {
 }
 
 function buildBotConfig(formData, plan, whiteLabelAddon) {
+  const services = collectStructuredServices();
+  const serviceNames = services.map(s => s.name).filter(Boolean);
+  const bookingMode = deriveBookingMode(formData);
+  const resolvedBookingUrl = deriveBookingUrl(formData);
+  const botSlug = formData.botSlug || slugify(formData.bizName);
+  const webhookSource = formData.webhookSource || `${formData.bizName || 'Client'} Bot`;
+
   return {
-    business: { name: formData.bizName||'', type: formData.bizType||'', address: formData.bizAddress||'', phone: formData.bizPhone||'', email: formData.bizEmail||'', website: formData.bizWebsite||'', whatsapp: formData.bizWhatsapp||'', social_links: formData.bizSocial||'', hours: formData.hours||'' },
+    template: {
+      name: 'Universal Typebot Leads+Booking',
+      typebotId: 'cmqhbxbwy00031fmhkbbt5vn9',
+      templateType: 'Lead Capture + Booking',
+      templateVersion: 'NoCrickets Booking v2.0',
+      source: 'Typebot'
+    },
+    mapperSafeValues: {
+      BusinessName: formData.bizName || '',
+      BusinessType: formData.bizType || '',
+      BusinessDescription: formData.bizDescription || '',
+      BusinessLocation: formData.bizAddress || '',
+      BusinessPhone: formData.bizPhone || '',
+      BusinessHours: formData.hours || '',
+      Services: formData.services || getServiceSummary(),
+      Service1: serviceNames[0] || '',
+      Service2: serviceNames[1] || '',
+      Service3: serviceNames[2] || '',
+      Tone: formData.tone || '',
+      BookingMode: bookingMode,
+      BookingURL: resolvedBookingUrl,
+      WebhookSource: webhookSource,
+      BotSlug: botSlug,
+      TemplateType: 'Lead Capture + Booking',
+      TemplateVersion: 'NoCrickets Booking v2.0',
+      Source: 'Typebot'
+    },
+    business: {
+      name: formData.bizName || '',
+      type: formData.bizType || '',
+      description: formData.bizDescription || '',
+      address: formData.bizAddress || '',
+      phone: formData.bizPhone || '',
+      email: formData.bizEmail || '',
+      website: formData.bizWebsite || '',
+      whatsapp: formData.bizWhatsapp || '',
+      social_links: formData.bizSocial || '',
+      hours: formData.hours || ''
+    },
+    deployment: {
+      bot_slug: botSlug,
+      webhook_source: webhookSource,
+      booking_setup_type: formData.bookingSetupType || '',
+      booking_mode: bookingMode,
+      booking_url: resolvedBookingUrl,
+      booking_subdomain: formData.bookingSubdomain || '',
+      white_label_booking_domain: formData.whiteLabelBookingDomain || '',
+      domain_access_notes: formData.domainAccess || '',
+      duplicate_from_master: true,
+      master_bot_name: 'Universal Typebot Leads+Booking',
+      master_typebot_id: 'cmqhbxbwy00031fmhkbbt5vn9'
+    },
     features: buildFeatureFlags(plan, whiteLabelAddon),
     aiConfiguration: {
       maxAiCallsPerSession: getRecommendedMaxAICalls(formData.bizType),
       languagePersistence: true,
       allowSpanishWithoutAccents: true,
-      consentRequired: true
+      consentRequired: true,
+      noFakeScheduling: true,
+      noConfirmedAppointmentLanguage: true
     },
-    bot: { language: formData.langPref||'', tone: formData.tone||'', goal: formData.botGoal||'', team_name: formData.teamName||'', natural_greeting: formData.naturalGreeting||'', lead_fields: getCheckedValues('lead-fields'), custom_lead_fields: formData.customLeadFields||'' },
-    booking: { workflow: formData.bookingWorkflow||'', url: formData.bookingUrl||'', notes: formData.bookingNotes||'', appointments: formData.appointments||'', advance_booking: formData.advanceBooking||'', blackout_dates: formData.blackoutDates||'' },
+    bot: {
+      language: formData.langPref || '',
+      tone: formData.tone || '',
+      goal: formData.botGoal || '',
+      team_name: formData.teamName || '',
+      natural_greeting: formData.naturalGreeting || '',
+      lead_fields: getCheckedValues('lead-fields'),
+      custom_lead_fields: formData.customLeadFields || '',
+      preferred_action_runtime_values: ['book_online', 'contact_me']
+    },
+    booking: {
+      workflow: formData.bookingWorkflow || '',
+      setup_type: formData.bookingSetupType || '',
+      booking_mode: bookingMode,
+      url: resolvedBookingUrl,
+      notes: formData.bookingNotes || '',
+      appointments: formData.appointments || '',
+      advance_booking: formData.advanceBooking || '',
+      blackout_dates: formData.blackoutDates || '',
+      visitor_choice_supported: bookingMode === 'link'
+    },
     knowledge_base: {
-      services: collectStructuredServices(),
-      service_notes: formData.serviceNotes||'',
+      services,
+      service1: serviceNames[0] || '',
+      service2: serviceNames[1] || '',
+      service3: serviceNames[2] || '',
+      service_notes: formData.serviceNotes || '',
       faqs: collectStructuredFaqs(),
-      extra_faqs: formData.faq||'',
-      urgent: { has_urgent: formData.hasUrgentSituations === 'Yes', situations: formData.urgentExamples||'', action: formData.urgentAction||'' },
-      escalation_rules: (formData.escalationRules||'').split('.').map(s => s.trim()).filter(s => s.length > 0),
-      never_say_rules: (formData.neverSay||'').split('.').map(s => s.trim()).filter(s => s.length > 0)
+      extra_faqs: formData.faq || '',
+      urgent: { has_urgent: formData.hasUrgentSituations === 'Yes', situations: formData.urgentExamples || '', action: formData.urgentAction || '' },
+      escalation_rules: (formData.escalationRules || '').split('.').map(s => s.trim()).filter(s => s.length > 0),
+      never_say_rules: (formData.neverSay || '').split('.').map(s => s.trim()).filter(s => s.length > 0)
     },
-    lead_routing: { recipient_name: formData.leadName||'', recipient_email: formData.leadEmail||'', followup_speed: formData.followupSpeed||'', followup_method: formData.followupMethod||'', lead_notes: formData.leadNotes||'' },
-    branding: { enabled: whiteLabelAddon, brand_colors: formData.brandColors||'', tagline: formData.tagline||'', brand_notes: formData.brandNotes||'' },
-    pro_followup: { enabled: plan === 'pro', email_content: formData.emailContent||'', approval_required: formData.approveEmail||'' },
-    consent: { privacy_notice_required: true, phone_contact_disclosure_required: true, privacy_policy_url: formData.bizWebsite ? formData.bizWebsite + '/privacy' : '' },
-    source: { form_language: formData.formLang||'en', selected_plan: plan, submitted_at: new Date().toISOString(), form_version: 'NoCrickets Universal Onboarding v1.2' }
+    lead_routing: { recipient_name: formData.leadName || '', recipient_email: formData.leadEmail || '', followup_speed: formData.followupSpeed || '', followup_method: formData.followupMethod || '', lead_notes: formData.leadNotes || '' },
+    branding: { enabled: whiteLabelAddon, brand_colors: formData.brandColors || '', tagline: formData.tagline || '', brand_notes: formData.brandNotes || '' },
+    pro_followup: { enabled: plan === 'pro', email_content: formData.emailContent || '', approval_required: formData.approveEmail || '' },
+    consent: { privacy_notice_required: true, phone_contact_disclosure_required: true, privacy_policy_url: formData.bizWebsite ? formData.bizWebsite.replace(/\/$/, '') + '/privacy' : '' },
+    source: { form_language: formData.formLang || 'en', selected_plan: plan, submitted_at: new Date().toISOString(), form_version: 'NoCrickets Universal Onboarding v1.3' }
   };
 }
 
@@ -1212,6 +1449,7 @@ function collectFormData() {
   return {
     bizName: document.getElementById('biz-name').value,
     bizType: document.getElementById('biz-type').value,
+    bizDescription: document.getElementById('biz-description').value,
     bizAddress: document.getElementById('biz-address').value,
     bizWebsite: document.getElementById('biz-website').value,
     bizEmail: document.getElementById('biz-email').value,
@@ -1219,12 +1457,18 @@ function collectFormData() {
     bizWhatsapp: document.getElementById('biz-whatsapp').value,
     bizSocial: document.getElementById('biz-social').value,
     contactMethod: getRadio('contact'),
+    botSlug: document.getElementById('bot-slug').value,
+    webhookSource: document.getElementById('webhook-source').value,
     hours: hoursStr,
     appointments: getRadio('appt'),
     advanceBooking: document.getElementById('advance-book').value,
     blackoutDates: document.getElementById('blackout').value,
     bookingWorkflow: getRadio('booking-workflow'),
+    bookingSetupType: getRadio('booking-setup'),
     bookingUrl: document.getElementById('booking-url').value,
+    bookingSubdomain: document.getElementById('booking-subdomain').value,
+    whiteLabelBookingDomain: document.getElementById('white-label-domain').value,
+    domainAccess: document.getElementById('domain-access').value,
     bookingNotes: document.getElementById('booking-notes').value,
     requiredLeadFields: getCheckboxes('lead-fields'),
     customLeadFields: document.getElementById('custom-lead-fields').value,
@@ -1290,7 +1534,15 @@ async function handleSubmit(e) {
     formData.selectedPlan = selectedPlan.value;
     const whiteLabelAddon = document.getElementById('addon-whitelabel')?.checked || false;
     formData.whiteLabelAddon = whiteLabelAddon ? 'Yes' : 'No';
+    formData.bookingMode = deriveBookingMode(formData);
+    formData.resolvedBookingUrl = deriveBookingUrl(formData);
+    const serviceNames = getServiceNames();
+    formData.service1 = serviceNames[0] || '';
+    formData.service2 = serviceNames[1] || '';
+    formData.service3 = serviceNames[2] || '';
+    formData.servicesJson = JSON.stringify(collectStructuredServices());
     const botConfig = buildBotConfig(formData, selectedPlan.value, whiteLabelAddon);
+    formData.mapperSafeJson = JSON.stringify(botConfig.mapperSafeValues, null, 2);
     formData.botConfig = botConfig;
     formData.botConfigJson = JSON.stringify(botConfig, null, 2);
     await fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(formData) });
@@ -1322,7 +1574,9 @@ function toggleConditionalSections() {
   const brandingSection = document.getElementById('branding-section');
   const brandingAddon = document.getElementById('addon-whitelabel');
   const bookingUrlField = document.getElementById('booking-url-field');
+  const bookingDomainFields = document.getElementById('booking-domain-fields');
   const bookingWorkflow = document.querySelector('input[name="booking-workflow"]:checked')?.value || '';
+  const bookingSetupType = document.querySelector('input[name="booking-setup"]:checked')?.value || '';
   const urgentDetails = document.getElementById('urgent-details');
   const urgentHas = document.querySelector('input[name="urgent-has"]:checked')?.value || '';
 
@@ -1337,8 +1591,12 @@ function toggleConditionalSections() {
   }
 
   if (bookingUrlField) {
-    bookingUrlField.style.display = bookingWorkflow === 'Send to booking link' ? 'block' : 'none';
+    bookingUrlField.style.display = bookingSetupType === 'Existing booking URL' ? 'block' : 'none';
   }
+  if (bookingDomainFields) {
+    bookingDomainFields.style.display = bookingSetupType === 'No online booking' ? 'none' : 'grid';
+  }
+  updateBookingPreview();
 
   if (urgentDetails) {
     urgentDetails.style.display = urgentHas === 'Yes' ? 'grid' : 'none';
@@ -1368,6 +1626,20 @@ document.querySelectorAll('input[name="booking-workflow"]').forEach(radio => {
 document.querySelectorAll('input[name="urgent-has"]').forEach(radio => {
   radio.addEventListener('change', toggleConditionalSections);
 });
+
+['bot-slug','webhook-source','booking-subdomain','booking-url','white-label-domain'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.addEventListener('input', () => { el.dataset.userEdited = 'true'; updateBookingPreview(); });
+  }
+});
+
+document.getElementById('biz-name')?.addEventListener('input', updateAutoDeploymentFields);
+document.querySelectorAll('input[name="booking-setup"]').forEach(radio => {
+  radio.addEventListener('change', toggleConditionalSections);
+});
+updateAutoDeploymentFields();
+
 
 </script>
 </body>
