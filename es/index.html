@@ -1030,9 +1030,11 @@
 <footer>
   <div class="logo"><img src="../logo-transparent.png" alt="NoCrickets" style="height:28px;width:auto;display:block;"></div>
   <p id="footer-copy">© 2026 NoCrickets. AI Marketing for Local Business.</p>
-  <div style="display:flex;gap:24px;">
+  <div style="display:flex;gap:24px;flex-wrap:wrap;justify-content:center;">
     <a href="mailto:hello@nocrickets.co">hello@nocrickets.co</a>
     <a href="https://onboarding.nocrickets.co" id="footer-cta">Get started</a>
+    <a href="/es/privacy-policy.html" id="footer-privacy">Privacy Policy</a>
+    <a href="/es/terms-and-conditions.html" id="footer-terms">Terms &amp; Conditions</a>
   </div>
 </footer>
 
@@ -1096,7 +1098,7 @@ const SITE_T = {
     closingSub:'Your competitors aren\'t waiting. Neither should you.',
     closingCta:'Get started today',
     footerCopy:'© 2026 NoCrickets. AI Marketing for Local Business.',
-    footerCta:'Get started',
+    footerCta:'Get started', footerPrivacy:'Privacy Policy', footerTerms:'Terms & Conditions',
     typedWords:['Crickets.', 'Silence.', 'Missed Leads.', 'Crickets.'],
   },
   es: {
@@ -1152,7 +1154,7 @@ const SITE_T = {
     closingSub:'Tus competidores no están esperando. Tú tampoco deberías.',
     closingCta:'Comenzar hoy',
     footerCopy:'© 2026 NoCrickets. Marketing con IA para Negocios Locales.',
-    footerCta:'Comenzar',
+    footerCta:'Comenzar', footerPrivacy:'Política de Privacidad', footerTerms:'Términos y Condiciones',
     typedWords:['Grillos.', 'Silencio.', 'Clientes Perdidos.'],
   }
 };
@@ -1219,6 +1221,7 @@ function setLang(lang) {
   set('closing-title', t.closingTitle); set('closing-sub', t.closingSub);
   set('closing-cta', t.closingCta + ' <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M3 8h10M9 4l4 4-4 4"/></svg>');
   set('footer-copy', t.footerCopy); set('footer-cta', t.footerCta);
+  set('footer-privacy', t.footerPrivacy); set('footer-terms', t.footerTerms);
 
   // Update typewriter words
   words.length = 0;
