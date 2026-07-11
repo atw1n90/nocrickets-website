@@ -509,6 +509,169 @@
     </div>
   </div>
 
+  <!-- S2B: BOT TYPE -->
+  <div class="section" id="bot-type-section">
+    <div class="section-head">
+      <div class="section-num">02B</div>
+      <h2 id="bot-type-title">Bot Type</h2>
+    </div>
+    <div class="section-body">
+      <p id="bot-type-helper" style="color:var(--text-dim);font-size:13.5px;margin-bottom:18px;line-height:1.6;">Select the type of bot that best describes what this client needs.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;">
+          <input type="radio" name="bot-type" value="service_lead" id="bt-service" style="margin-top:3px;" onchange="handleBotTypeChange()">
+          <div>
+            <div id="bt-service-label" style="font-weight:700;font-size:15px;">Service / Lead Capture Bot</div>
+            <div id="bt-service-desc" style="font-size:13px;color:#777;">Captures contact info and qualifies leads for service businesses</div>
+          </div>
+        </label>
+        <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;">
+          <input type="radio" name="bot-type" value="booking" id="bt-booking" style="margin-top:3px;" onchange="handleBotTypeChange()">
+          <div>
+            <div id="bt-booking-label" style="font-weight:700;font-size:15px;">Booking / Appointment Bot</div>
+            <div id="bt-booking-desc" style="font-size:13px;color:#777;">Guides customers to book appointments online or request a callback</div>
+          </div>
+        </label>
+        <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;">
+          <input type="radio" name="bot-type" value="order_intake" id="bt-order" style="margin-top:3px;" onchange="handleBotTypeChange()">
+          <div>
+            <div id="bt-order-label" style="font-weight:700;font-size:15px;">Order Intake Bot</div>
+            <div id="bt-order-desc" style="font-size:13px;color:#777;">Collects product/part orders and routes them to a team member for confirmation</div>
+          </div>
+        </label>
+        <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #333;border-radius:8px;transition:border-color 0.2s;">
+          <input type="radio" name="bot-type" value="faq_info" id="bt-faq" style="margin-top:3px;" onchange="handleBotTypeChange()">
+          <div>
+            <div id="bt-faq-label" style="font-weight:700;font-size:15px;">FAQ / Info Assistant</div>
+            <div id="bt-faq-desc" style="font-size:13px;color:#777;">Answers questions about the business and directs visitors — no bookings or orders</div>
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- S2C: ORDER INTAKE SETUP (shown only for order_intake bot type) -->
+  <div class="section" id="order-intake-section" style="display:none;">
+    <div class="section-head">
+      <div class="section-num">02C</div>
+      <h2 id="order-intake-title">Order Intake Setup</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="field">
+        <label for="product-categories" id="l-product-categories">Product Categories</label>
+        <div class="field-hint" id="h-product-categories">Main categories your store carries</div>
+        <textarea id="product-categories" rows="3" id="product-categories" placeholder="Filters, Brakes, Suspension, Engine, Electrical, Lights &amp; Accessories"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="popular-products" id="l-popular-products">Popular / Sample Products</label>
+        <div class="field-hint" id="h-popular-products">One product per line. Include reference price if available.</div>
+        <textarea id="popular-products" rows="5" placeholder="Filtro de aceite Cummins ISX — 95000 COP&#10;Bandas de freno para tractocamión — 280000 COP&#10;Alternador 12V camión pesado — 890000 COP"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="supported-brands" id="l-supported-brands">Supported Brands / Vehicle Brands</label>
+        <textarea id="supported-brands" rows="2" placeholder="Kenworth, Freightliner, International, Mack, Hino, Foton, JAC, Mercedes-Benz, Volvo, Scania"></textarea>
+      </div>
+
+      <div class="field">
+        <label id="l-fulfillment-options">Fulfillment Options</label>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px;">
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);">
+            <input type="checkbox" name="fulfillment-options" value="Pickup" id="fulfillment-pickup"> <span id="fulfillment-pickup-label">Pickup / Recoger en tienda</span>
+          </label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);">
+            <input type="checkbox" name="fulfillment-options" value="Delivery" id="fulfillment-delivery"> <span id="fulfillment-delivery-label">Delivery / Envío local</span>
+          </label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);">
+            <input type="checkbox" name="fulfillment-options" value="National Shipping" id="fulfillment-national"> <span id="fulfillment-national-label">National shipping / Envíos nacionales</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="delivery-areas" id="l-delivery-areas">Delivery / Service Areas</label>
+        <textarea id="delivery-areas" rows="2" placeholder="Neiva, Rivera, Palermo, Campoalegre, Huila, envíos nacionales según transportadora"></textarea>
+      </div>
+
+      <div class="field">
+        <label id="l-payment-methods">Payment Methods Accepted</label>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px;">
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);"><input type="checkbox" name="payment-methods" value="Efectivo"> <span>Cash / Efectivo</span></label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);"><input type="checkbox" name="payment-methods" value="Transferencia"> <span>Bank transfer / Transferencia</span></label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);"><input type="checkbox" name="payment-methods" value="Nequi"> <span>Nequi</span></label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);"><input type="checkbox" name="payment-methods" value="Daviplata"> <span>Daviplata</span></label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);"><input type="checkbox" name="payment-methods" value="Tarjeta"> <span>Card / Tarjeta</span></label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);"><input type="checkbox" name="payment-methods" value="Contraentrega si aplica"> <span>Cash on delivery / Contraentrega si aplica</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label id="l-payment-handling">Payment Handling</label>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px;">
+          <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);">
+            <input type="radio" name="payment-handling" value="record_preference" checked style="margin-top:2px;"> <span id="ph-record-label">Bot records payment preference only; advisor confirms later</span>
+          </label>
+          <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);">
+            <input type="radio" name="payment-handling" value="do_not_ask" style="margin-top:2px;"> <span id="ph-noask-label">Bot should not ask payment method</span>
+          </label>
+          <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);">
+            <input type="radio" name="payment-handling" value="answer_if_asked" style="margin-top:2px;"> <span id="ph-ifasked-label">Bot can answer payment methods only if customer asks</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label id="l-order-fields">Order Fields to Collect</label>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;">
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);"><input type="checkbox" name="order-fields" value="Customer name" checked> <span id="of-name-label">Customer name</span></label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);"><input type="checkbox" name="order-fields" value="WhatsApp / phone" checked> <span id="of-phone-label">WhatsApp / phone</span></label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);"><input type="checkbox" name="order-fields" value="Product or part needed" checked> <span id="of-product-label">Product or part needed</span></label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);"><input type="checkbox" name="order-fields" value="Quantity" checked> <span id="of-qty-label">Quantity</span></label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);"><input type="checkbox" name="order-fields" value="Vehicle brand" checked> <span id="of-vbrand-label">Vehicle / equipment brand</span></label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);"><input type="checkbox" name="order-fields" value="Vehicle model" checked> <span id="of-vmodel-label">Vehicle / equipment model</span></label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);"><input type="checkbox" name="order-fields" value="Vehicle year" checked> <span id="of-vyear-label">Vehicle / equipment year</span></label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);"><input type="checkbox" name="order-fields" value="VIN or plate (optional)"> <span id="of-vin-label">VIN or plate (optional)</span></label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);"><input type="checkbox" name="order-fields" value="Pickup or delivery preference" checked> <span id="of-fulfillment-label">Pickup / delivery preference</span></label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);"><input type="checkbox" name="order-fields" value="Delivery city or address"> <span id="of-address-label">Delivery city / address if delivery</span></label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);"><input type="checkbox" name="order-fields" value="Notes"> <span id="of-notes-label">Notes</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="fulfillment-message" id="l-fulfillment-message">Fulfillment / Success Message</label>
+        <div class="field-hint" id="h-fulfillment-message">What the bot tells the customer after their order is submitted</div>
+        <textarea id="fulfillment-message" rows="4" placeholder="Tu solicitud será agregada a la lista de pedidos. Un asesor te contactará por WhatsApp para confirmar disponibilidad, compatibilidad, precio final, entrega o recogida y método de pago.">Tu solicitud será agregada a la lista de pedidos. Un asesor te contactará por WhatsApp para confirmar disponibilidad, compatibilidad, precio final, entrega o recogida y método de pago.</textarea>
+      </div>
+
+      <div class="field">
+        <label id="l-order-rules">Order Bot Rules</label>
+        <div class="field-hint" id="h-order-rules">These rules are pre-checked and written into the bot's instructions. Uncheck only if not applicable.</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px;">
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);"><input type="checkbox" id="rule-no-inventory-guarantee" name="order-rules" value="Do not guarantee inventory" checked> <span id="rule-inventory-label">Do not guarantee inventory</span></label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);"><input type="checkbox" id="rule-no-compatibility-guarantee" name="order-rules" value="Do not guarantee compatibility" checked> <span id="rule-compat-label">Do not guarantee compatibility</span></label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);"><input type="checkbox" id="rule-no-payment-finalization" name="order-rules" value="Do not finalize payment in chat" checked> <span id="rule-payment-label">Do not finalize payment in chat</span></label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);"><input type="checkbox" id="rule-no-diagnosis" name="order-rules" value="Do not diagnose mechanical or product problems" checked> <span id="rule-diagnosis-label">Do not diagnose mechanical / product problems</span></label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);"><input type="checkbox" id="rule-human-confirms" name="order-rules" value="Human advisor confirms final order details" checked> <span id="rule-human-label">Human advisor confirms final order details</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label id="l-photo-handling">Photo Handling</label>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px;">
+          <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);">
+            <input type="radio" name="photo-handling" value="whatsapp_photos" checked style="margin-top:2px;"> <span id="ph-wa-label">Customer can send photos by WhatsApp</span>
+          </label>
+          <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:14px;color:var(--text-dim);">
+            <input type="radio" name="photo-handling" value="no_photos" style="margin-top:2px;"> <span id="ph-no-label">Bot should not mention photos</span>
+          </label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <!-- S3: HOURS -->
   <div class="section">
     <div class="section-head">
@@ -553,7 +716,7 @@
 
 
   <!-- S4: BOOKING WORKFLOW -->
-  <div class="section">
+  <div class="section" id="booking-workflow-section">
     <div class="section-head">
       <div class="section-num">04</div>
       <h2 id="s-booking-title">Booking Workflow</h2>
@@ -964,6 +1127,24 @@ We look forward to hearing from you!
     // S7 labels
     lBrandColors:'Brand Colors', hBrandColors:'e.g. Navy & gold, pink & white, or hex codes',
     lTagline:'Tagline or Slogan', lBrandNotes:'Other branding notes or preferences',
+    // Bot Type
+    botTypeTitle:'Bot Type', botTypeHelper:'Select the type of bot that best describes what this client needs.',
+    btServiceLabel:'Service / Lead Capture Bot', btServiceDesc:'Captures contact info and qualifies leads for service businesses',
+    btBookingLabel:'Booking / Appointment Bot', btBookingDesc:'Guides customers to book appointments online or request a callback',
+    btOrderLabel:'Order Intake Bot', btOrderDesc:'Collects product/part orders and routes them to a team member for confirmation',
+    btFaqLabel:'FAQ / Info Assistant', btFaqDesc:'Answers questions about the business and directs visitors - no bookings or orders',
+    orderIntakeTitle:'Order Intake Setup',
+    lProductCategories:'Product Categories', hProductCategories:'Main categories your store carries',
+    lPopularProducts:'Popular / Sample Products', hPopularProducts:'One product per line. Include reference price if available.',
+    lSupportedBrands:'Supported Brands / Vehicle Brands',
+    lFulfillmentOptions:'Fulfillment Options',
+    lDeliveryAreas:'Delivery / Service Areas',
+    lPaymentMethods:'Payment Methods Accepted',
+    lPaymentHandling:'Payment Handling',
+    lOrderFields:'Order Fields to Collect',
+    lFulfillmentMessage:'Fulfillment / Success Message', hFulfillmentMessage:'What the bot tells the customer after their order is submitted',
+    lOrderRules:'Order Bot Rules', hOrderRules:'Pre-checked rules written into the bot instructions. Uncheck only if not applicable.',
+    lPhotoHandling:'Photo Handling',
   },
   es: {
     heroTitle:'Cuestionario de Incorporación',
@@ -1053,6 +1234,24 @@ Nos encantaría ayudarte con [servicio]. Esto es lo que puedes esperar de nosotr
     // S7 labels
     lBrandColors:'Colores de Marca', hBrandColors:'ej. Azul marino y dorado, rosa y blanco, o códigos hex',
     lTagline:'Eslogan o Frase de Marca', lBrandNotes:'Otras notas o preferencias de marca',
+    // Bot Type
+    botTypeTitle:'Tipo de Bot', botTypeHelper:'Selecciona el tipo de bot que mejor describe lo que necesita este cliente.',
+    btServiceLabel:'Bot de Servicio / Captura de Leads', btServiceDesc:'Captura informacion de contacto y califica prospectos para negocios de servicios',
+    btBookingLabel:'Bot de Reservas / Citas', btBookingDesc:'Guia a los clientes para reservar citas en linea o solicitar una devolucion de llamada',
+    btOrderLabel:'Bot de Pedidos', btOrderDesc:'Recopila pedidos de productos o repuestos y los envia a un asesor para confirmacion',
+    btFaqLabel:'Asistente de Preguntas Frecuentes', btFaqDesc:'Responde preguntas sobre el negocio y orienta a los visitantes - sin reservas ni pedidos',
+    orderIntakeTitle:'Configuracion de Pedidos',
+    lProductCategories:'Categorias de Productos', hProductCategories:'Principales categorias que maneja tu tienda',
+    lPopularProducts:'Productos Populares / Ejemplos', hPopularProducts:'Un producto por linea. Incluye precio de referencia si esta disponible.',
+    lSupportedBrands:'Marcas Soportadas / Marcas de Vehiculos',
+    lFulfillmentOptions:'Opciones de Entrega',
+    lDeliveryAreas:'Areas de Entrega / Cobertura',
+    lPaymentMethods:'Metodos de Pago Aceptados',
+    lPaymentHandling:'Manejo de Pagos',
+    lOrderFields:'Campos a Recopilar en el Pedido',
+    lFulfillmentMessage:'Mensaje de Confirmacion de Pedido', hFulfillmentMessage:'Lo que el bot le dice al cliente despues de enviar su pedido',
+    lOrderRules:'Reglas del Bot de Pedidos', hOrderRules:'Reglas pre-seleccionadas escritas en las instrucciones del bot. Desmarca solo si no aplica.',
+    lPhotoHandling:'Manejo de Fotos',
   }
 };
 
@@ -1113,6 +1312,23 @@ function applyLang(lang) {
     'l-lead-fields': t.lLeadFields, 'h-lead-fields': t.hLeadFields, 'lf-name': t.lfName, 'lf-phone': t.lfPhone, 'lf-email': t.lfEmail, 'lf-service': t.lfService, 'lf-date': t.lfDate, 'lf-time': t.lfTime, 'lf-address': t.lfAddress, 'lf-budget': t.lfBudget, 'lf-insurance': t.lfInsurance, 'lf-project': t.lfProject, 'l-custom-lead-fields': t.lCustomLeadFields,
     'l-top-faq': t.lTopFaq, 'h-top-faq': t.hTopFaq,
     'l-escalation-rules': t.lEscalationRules, 'h-escalation-rules': t.hEscalationRules, 'l-urgent': t.lUrgent, 'l-uh-no': t.lUhNo, 'l-uh-yes': t.lUhYes, 'l-urgent-examples': t.lUrgentExamples, 'l-urgent-action': t.lUrgentAction, 'l-never-say': t.lNeverSay, 'h-never-say': t.hNeverSay,
+    'bot-type-title': t.botTypeTitle, 'bot-type-helper': t.botTypeHelper,
+    'bt-service-label': t.btServiceLabel, 'bt-service-desc': t.btServiceDesc,
+    'bt-booking-label': t.btBookingLabel, 'bt-booking-desc': t.btBookingDesc,
+    'bt-order-label': t.btOrderLabel, 'bt-order-desc': t.btOrderDesc,
+    'bt-faq-label': t.btFaqLabel, 'bt-faq-desc': t.btFaqDesc,
+    'order-intake-title': t.orderIntakeTitle,
+    'l-product-categories': t.lProductCategories, 'h-product-categories': t.hProductCategories,
+    'l-popular-products': t.lPopularProducts, 'h-popular-products': t.hPopularProducts,
+    'l-supported-brands': t.lSupportedBrands,
+    'l-fulfillment-options': t.lFulfillmentOptions,
+    'l-delivery-areas': t.lDeliveryAreas,
+    'l-payment-methods': t.lPaymentMethods,
+    'l-payment-handling': t.lPaymentHandling,
+    'l-order-fields': t.lOrderFields,
+    'l-fulfillment-message': t.lFulfillmentMessage, 'h-fulfillment-message': t.hFulfillmentMessage,
+    'l-order-rules': t.lOrderRules, 'h-order-rules': t.hOrderRules,
+    'l-photo-handling': t.lPhotoHandling,
     
     'plan-label': t.planLabel, 'plan-section-title': t.planSectionTitle, 'plan-helper': t.planHelper, 'pro-email-upsell': t.proEmailUpsell,
     'plan-starter-label': t.planStarterLabel, 'plan-starter-desc': t.planStarterDesc,
@@ -1221,6 +1437,22 @@ function getServiceSummary() {
     if (s.requires_consultation) bits.push('Consult: ' + s.requires_consultation);
     return bits.join(' | ');
   }).join('; ');
+}
+
+function handleBotTypeChange() {
+  const selected = document.querySelector('input[name="bot-type"]:checked')?.value || '';
+  const orderSection = document.getElementById('order-intake-section');
+  const bookingSection = document.getElementById('booking-workflow-section');
+  if (selected === 'order_intake') {
+    orderSection.style.display = 'block';
+    bookingSection.style.display = 'none';
+  } else if (selected === 'booking') {
+    orderSection.style.display = 'none';
+    bookingSection.style.display = 'block';
+  } else {
+    orderSection.style.display = 'none';
+    bookingSection.style.display = 'block';
+  }
 }
 
 function deriveBookingMode(formData) {
@@ -1336,13 +1568,25 @@ function buildBotConfig(formData, plan, whiteLabelAddon) {
       Service2: serviceNames[1] || '',
       Service3: serviceNames[2] || '',
       Tone: formData.tone || '',
-      BookingMode: bookingMode,
-      BookingURL: resolvedBookingUrl,
+      BookingMode: formData.botType === 'order_intake' ? 'not_applicable' : bookingMode,
+      BookingURL: formData.botType === 'order_intake' ? '' : resolvedBookingUrl,
       WebhookSource: webhookSource,
       BotSlug: botSlug,
-      TemplateType: 'Lead Capture + Booking',
+      BotType: formData.botType || 'service_lead',
+      TemplateType: formData.botType === 'order_intake' ? 'Order Intake' : formData.botType === 'faq_info' ? 'FAQ Info Assistant' : 'Lead Capture + Booking',
       TemplateVersion: 'NoCrickets Booking v2.0',
-      Source: 'Typebot'
+      Source: 'Typebot',
+      ProductCategories: formData.productCategories || '',
+      PopularProducts: formData.popularProducts || '',
+      SupportedBrands: formData.supportedBrands || '',
+      FulfillmentOptions: formData.fulfillmentOptions || '',
+      DeliveryAreas: formData.deliveryAreas || '',
+      PaymentMethods: formData.paymentMethods || '',
+      PaymentHandling: formData.paymentHandling || '',
+      OrderFields: formData.orderFields || '',
+      FulfillmentMessage: formData.fulfillmentMessage || '',
+      OrderBotRules: formData.orderRules || '',
+      PhotoHandling: formData.photoHandling || '',
     },
     business: {
       name: formData.bizName || '',
@@ -1415,7 +1659,29 @@ function buildBotConfig(formData, plan, whiteLabelAddon) {
     branding: { enabled: whiteLabelAddon, brand_colors: formData.brandColors || '', tagline: formData.tagline || '', brand_notes: formData.brandNotes || '' },
     pro_followup: { enabled: plan === 'pro', email_content: formData.emailContent || '', approval_required: formData.approveEmail || '' },
     consent: { privacy_notice_required: true, phone_contact_disclosure_required: true, privacy_policy_url: formData.bizWebsite ? formData.bizWebsite.replace(/\/$/, '') + '/privacy' : '' },
-    source: { form_language: formData.formLang || 'en', selected_plan: plan, submitted_at: new Date().toISOString(), form_version: 'NoCrickets Universal Onboarding v1.3' }
+    source: { form_language: formData.formLang || 'en', selected_plan: plan, submitted_at: new Date().toISOString(), form_version: 'NoCrickets Universal Onboarding v1.4' },
+    botType: formData.botType || 'service_lead',
+    orderIntake: {
+      enabled: formData.botType === 'order_intake',
+      productCategories: formData.productCategories || '',
+      popularProducts: formData.popularProducts || '',
+      supportedBrands: formData.supportedBrands || '',
+      fulfillmentOptions: formData.fulfillmentOptions || '',
+      deliveryAreas: formData.deliveryAreas || '',
+      paymentMethods: formData.paymentMethods || '',
+      paymentHandling: formData.paymentHandling || '',
+      orderFields: formData.orderFields || '',
+      fulfillmentMessage: formData.fulfillmentMessage || '',
+      rules: {
+        noInventoryGuarantee: formData.noInventoryGuarantee || false,
+        noCompatibilityGuarantee: formData.noCompatibilityGuarantee || false,
+        noPaymentFinalization: formData.noPaymentFinalization || false,
+        noDiagnosis: formData.noDiagnosis || false,
+        humanConfirms: formData.humanConfirms || false,
+      },
+      photoHandling: formData.photoHandling || '',
+      preferredActionRuntimeValues: ['order_request', 'contact_me'],
+    }
   };
 }
 
@@ -1501,6 +1767,23 @@ function collectFormData() {
     brandNotes: document.getElementById('brand-notes').value,
     whiteLabelAddon: document.getElementById('addon-whitelabel')?.checked ? 'Yes' : 'No',
     formLang: currentLang,
+    botType: getRadio('bot-type'),
+    productCategories: document.getElementById('product-categories')?.value || '',
+    popularProducts: document.getElementById('popular-products')?.value || '',
+    supportedBrands: document.getElementById('supported-brands')?.value || '',
+    fulfillmentOptions: getCheckboxes('fulfillment-options'),
+    deliveryAreas: document.getElementById('delivery-areas')?.value || '',
+    paymentMethods: getCheckboxes('payment-methods'),
+    paymentHandling: getRadio('payment-handling'),
+    orderFields: getCheckboxes('order-fields'),
+    fulfillmentMessage: document.getElementById('fulfillment-message')?.value || '',
+    orderRules: getCheckboxes('order-rules'),
+    noInventoryGuarantee: document.getElementById('rule-no-inventory-guarantee')?.checked || false,
+    noCompatibilityGuarantee: document.getElementById('rule-no-compatibility-guarantee')?.checked || false,
+    noPaymentFinalization: document.getElementById('rule-no-payment-finalization')?.checked || false,
+    noDiagnosis: document.getElementById('rule-no-diagnosis')?.checked || false,
+    humanConfirms: document.getElementById('rule-human-confirms')?.checked || false,
+    photoHandling: getRadio('photo-handling'),
   };
 }
 
