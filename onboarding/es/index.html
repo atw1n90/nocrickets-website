@@ -791,13 +791,12 @@
           <label class="check-card"><input type="checkbox" name="lead-fields" value="Preferred time"> <span id="lf-time">Preferred Time</span></label>
           <label class="check-card"><input type="checkbox" name="lead-fields" value="Address"> <span id="lf-address">Address</span></label>
           <label class="check-card"><input type="checkbox" name="lead-fields" value="Budget"> <span id="lf-budget">Budget</span></label>
-          <label class="check-card"><input type="checkbox" name="lead-fields" value="Insurance provider"> <span id="lf-insurance">Insurance Provider</span></label>
           <label class="check-card"><input type="checkbox" name="lead-fields" value="Project details"> <span id="lf-project">Project Details</span></label>
         </div>
       </div>
       <div class="field">
         <label for="custom-lead-fields" id="l-custom-lead-fields">Other fields to collect</label>
-        <input type="text" id="custom-lead-fields" placeholder="Example: vehicle type, case type, insurance ID…">
+        <input type="text" id="custom-lead-fields" placeholder="Example: vehicle type, vehicle year, preferred contact time…">
       </div>
     </div>
   </div>
@@ -921,7 +920,7 @@ A: We ask for 24 hours notice."></textarea>
     <div class="section-body">
       <div class="field">
         <label for="escalation-rules" id="l-escalation-rules">When should the chatbot stop answering and request human help?</label>
-        <div class="field-hint" id="h-escalation-rules">Examples: custom quotes, emergencies, complaints, insurance, legal/medical questions, pricing disputes</div>
+        <div class="field-hint" id="h-escalation-rules">Examples: custom quotes, emergencies, complaints, pricing disputes, special requests</div>
         <textarea id="escalation-rules" rows="4"></textarea>
       </div>
       <div class="field">
@@ -1058,9 +1057,9 @@ const T = {
     lBookingUrl:'Existing Booking URL', hBookingUrl:'Calendly, Square, Fresha, Google Calendar booking page, website booking page, etc.', lBookingSubdomain:'Preferred NoCrickets Booking Subdomain', hBookingSubdomain:'Normal clients use booking-clientname.nocrickets.co.', lWhiteLabelDomain:'White-label Booking Domain', hWhiteLabelDomain:'Optional. Only if they own/control a domain.', lDomainAccess:'Domain/DNS access notes', hDomainAccess:'Who can update DNS if using a white-label booking domain?',
     lBookingNotes:'Booking rules or notes', hBookingNotes:'Example: new clients need consultations, deposits required, confirmations by phone only',
     lLeadFields:'Select the customer information your chatbot should collect', hLeadFields:'Leave anything unchecked if it does not apply.',
-    lfName:'Name', lfPhone:'Phone', lfEmail:'Email', lfService:'Service Needed', lfDate:'Preferred Date', lfTime:'Preferred Time', lfAddress:'Address', lfBudget:'Budget', lfInsurance:'Insurance Provider', lfProject:'Project Details', lCustomLeadFields:'Other fields to collect',
+    lfName:'Name', lfPhone:'Phone', lfEmail:'Email', lfService:'Service Needed', lfDate:'Preferred Date', lfTime:'Preferred Time', lfAddress:'Address', lfBudget:'Budget', lfProject:'Project Details', lCustomLeadFields:'Other fields to collect',
     lTopFaq:'Top customer questions and approved answers', hTopFaq:'Structured FAQs help the AI answer more accurately. Leave unused rows blank.',
-    lEscalationRules:'When should the chatbot stop answering and request human help?', hEscalationRules:'Examples: custom quotes, emergencies, complaints, insurance, legal/medical questions, pricing disputes',
+    lEscalationRules:'When should the chatbot stop answering and request human help?', hEscalationRules:'Examples: custom quotes, emergencies, complaints, pricing disputes, special requests',
     lUrgent:'Does your business have urgent situations?', lUhNo:'No', lUhYes:'Yes', lUrgentExamples:'What situations are urgent?', lUrgentAction:'What should the chatbot do?', lNeverSay:'Things the chatbot should NEVER say or promise', hNeverSay:'Examples: do not guarantee availability, do not diagnose, do not quote exact prices unless listed',
     submitNote:'Once you submit, your NoCrickets account manager will review your responses and reach out within 3–5 business days to begin building your bot.',
     planLabel:'Select your plan:', planSectionTitle:'Select Your Plan', planHelper:'Choose your plan first so this form only asks for the setup details that apply to you.', proEmailUpsell:'✨ Automated email follow-up is included with Pro. Select Pro above to customize this section, or leave it hidden and upgrade later.',
@@ -1165,9 +1164,9 @@ We look forward to hearing from you!
     lBookingUrl:'URL de reserva existente', hBookingUrl:'Calendly, Square, Fresha, Google Calendar, página de reserva del sitio web, etc.', lBookingSubdomain:'Subdominio de reservas NoCrickets preferido', hBookingSubdomain:'Clientes normales usan booking-clientname.nocrickets.co.', lWhiteLabelDomain:'Dominio de reserva marca blanca', hWhiteLabelDomain:'Opcional. Solo si poseen/controlan un dominio.', lDomainAccess:'Notas de acceso DNS/dominio', hDomainAccess:'¿Quién puede actualizar DNS si usan dominio de marca blanca?',
     lBookingNotes:'Reglas o notas de reserva', hBookingNotes:'Ejemplo: clientes nuevos necesitan consulta, depósito requerido, confirmación solo por teléfono',
     lLeadFields:'Selecciona la información del cliente que debe recopilar el chatbot', hLeadFields:'Deja sin marcar lo que no aplica.',
-    lfName:'Nombre', lfPhone:'Teléfono', lfEmail:'Correo', lfService:'Servicio Necesario', lfDate:'Fecha Preferida', lfTime:'Hora Preferida', lfAddress:'Dirección', lfBudget:'Presupuesto', lfInsurance:'Proveedor de Seguro', lfProject:'Detalles del Proyecto', lCustomLeadFields:'Otros campos para recopilar',
+    lfName:'Nombre', lfPhone:'Teléfono', lfEmail:'Correo', lfService:'Servicio Necesario', lfDate:'Fecha Preferida', lfTime:'Hora Preferida', lfAddress:'Dirección', lfBudget:'Presupuesto', lfProject:'Detalles del Proyecto', lCustomLeadFields:'Otros campos para recopilar',
     lTopFaq:'Preguntas principales de clientes y respuestas aprobadas', hTopFaq:'Las FAQs estructuradas ayudan a que la IA responda con más precisión. Deja filas sin usar en blanco.',
-    lEscalationRules:'¿Cuándo debe el chatbot dejar de responder y pedir ayuda humana?', hEscalationRules:'Ejemplos: cotizaciones personalizadas, emergencias, quejas, seguro, preguntas legales/médicas, disputas de precio',
+    lEscalationRules:'¿Cuándo debe el chatbot dejar de responder y pedir ayuda humana?', hEscalationRules:'Ejemplos: cotizaciones personalizadas, emergencias, quejas, disputas de precio, solicitudes especiales',
     lUrgent:'¿Tu negocio tiene situaciones urgentes?', lUhNo:'No', lUhYes:'Sí', lUrgentExamples:'¿Qué situaciones son urgentes?', lUrgentAction:'¿Qué debe hacer el chatbot?', lNeverSay:'Cosas que el chatbot NUNCA debe decir o prometer', hNeverSay:'Ejemplos: no garantizar disponibilidad, no diagnosticar, no dar precios exactos a menos que estén listados',
     submitNote:'Una vez enviado, tu gestor de cuenta de NoCrickets revisará tus respuestas y se pondrá en contacto en 3–5 días hábiles para comenzar a construir tu bot.',
     planLabel:'Selecciona tu plan:', planSectionTitle:'Selecciona Tu Plan', planHelper:'Elige tu plan primero para que este formulario solo pida los detalles que aplican a ti.', proEmailUpsell:'✨ El seguimiento automático por correo está incluido con Pro. Selecciona Pro arriba para personalizar esta sección, o déjala oculta y actualiza después.',
@@ -1311,7 +1310,7 @@ function applyLang(lang) {
     'l-booking-setup': t.lBookingSetup, 'h-booking-setup': t.hBookingSetup, 'l-bs-existing': t.lBsExisting, 'l-bs-nc': t.lBsNc, 'l-bs-none': t.lBsNone,
     'l-booking-url': t.lBookingUrl, 'h-booking-url': t.hBookingUrl, 'l-booking-subdomain': t.lBookingSubdomain, 'h-booking-subdomain': t.hBookingSubdomain, 'l-white-label-domain': t.lWhiteLabelDomain, 'h-white-label-domain': t.hWhiteLabelDomain, 'l-domain-access': t.lDomainAccess, 'h-domain-access': t.hDomainAccess,
     'l-booking-notes': t.lBookingNotes, 'h-booking-notes': t.hBookingNotes,
-    'l-lead-fields': t.lLeadFields, 'h-lead-fields': t.hLeadFields, 'lf-name': t.lfName, 'lf-phone': t.lfPhone, 'lf-email': t.lfEmail, 'lf-service': t.lfService, 'lf-date': t.lfDate, 'lf-time': t.lfTime, 'lf-address': t.lfAddress, 'lf-budget': t.lfBudget, 'lf-insurance': t.lfInsurance, 'lf-project': t.lfProject, 'l-custom-lead-fields': t.lCustomLeadFields,
+    'l-lead-fields': t.lLeadFields, 'h-lead-fields': t.hLeadFields, 'lf-name': t.lfName, 'lf-phone': t.lfPhone, 'lf-email': t.lfEmail, 'lf-service': t.lfService, 'lf-date': t.lfDate, 'lf-time': t.lfTime, 'lf-address': t.lfAddress, 'lf-budget': t.lfBudget, 'lf-project': t.lfProject, 'l-custom-lead-fields': t.lCustomLeadFields,
     'l-top-faq': t.lTopFaq, 'h-top-faq': t.hTopFaq,
     'l-escalation-rules': t.lEscalationRules, 'h-escalation-rules': t.hEscalationRules, 'l-urgent': t.lUrgent, 'l-uh-no': t.lUhNo, 'l-uh-yes': t.lUhYes, 'l-urgent-examples': t.lUrgentExamples, 'l-urgent-action': t.lUrgentAction, 'l-never-say': t.lNeverSay, 'h-never-say': t.hNeverSay,
     'bot-type-title': t.botTypeTitle, 'bot-type-helper': t.botTypeHelper,
@@ -1538,7 +1537,6 @@ function getRecommendedMaxAICalls(bizType) {
   const type = (bizType || '').toLowerCase();
   if (/salon|barber|restaurant|retail|spa|nail|lash/.test(type)) return 20;
   if (/dental|dentist|hvac|plumber|electrician|auto|truck|mechanic/.test(type)) return 25;
-  if (/attorney|law|medical|clinic|doctor|therapist/.test(type)) return 35;
   return 25;
 }
 
