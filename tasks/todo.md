@@ -56,3 +56,24 @@
 - [x] Update current EN/ES website pages to use the new favicon.
 - [x] Verify page loads and favicon asset paths locally.
 - [x] Commit, push branch, and prepare/open PR to `main`.
+
+## NoCrickets Repo Merge 2026-07-27
+
+- [x] Create local `merge-repos` branch without touching `main`.
+- [x] Move current website repo files into `/website`.
+- [x] Add empty `/onboarding` and `/shared` folders.
+- [x] Fetch `atw1n90/nocrickets-onboarding` as a temporary remote.
+- [x] Merge onboarding history with unrelated histories allowed.
+- [x] Place onboarding files under `/onboarding`.
+- [x] Review duplicated brand, CSS, font, logo, and color-token assets for future `/shared` cleanup.
+- [x] Report local-only status and manual deploy/routing review items.
+
+## NoCrickets Shared Assets Merge Follow-up 2026-07-27
+
+- [x] Cherry-pick `cb0c54d` into `merge-repos` and keep cleaned character encoding.
+- [x] Create `/shared/fonts.css` and `/shared/tokens.css`.
+- [x] Move favicon and brand-kit assets from `/website` into `/shared`.
+- [x] Update `/website` pages to reference shared fonts, tokens, and assets.
+- [x] Update `/onboarding` pages to reference shared fonts, tokens, and assets.
+- [x] Render-check `/website` and `/onboarding` from the monorepo root.
+- [x] Report deploy path caveats before any push.

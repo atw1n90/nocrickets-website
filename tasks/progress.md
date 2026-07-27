@@ -54,3 +54,23 @@
 - Updated current English and Spanish homepage, pricing, privacy policy, and terms pages to point at the new favicon files.
 - Local static smoke check passed for all current public pages, root favicon fallbacks, favicon variants, and brand SVG files.
 - Cleaned public page titles to use plain ASCII hyphens so browser tabs do not show garbled dash characters.
+
+## 2026-07-27 Repo Merge
+
+- Created local-only branch `merge-repos` from current `origin/main`.
+- Moved website files into `/website` and added `/shared/.gitkeep`.
+- Fetched the existing local `nocrickets-onboarding` clone as the onboarding remote after GitHub HTTPS auth blocked direct fetch.
+- Preserved onboarding history by moving onboarding files into `/onboarding` on a temporary local branch, then merging that branch with `--allow-unrelated-histories`.
+- Left deploy configuration unchanged for later review.
+- Identified shared candidates: Google font import, core color tokens, favicon/logo assets, and repeated brand styling.
+
+## 2026-07-27 Shared Assets Follow-up
+
+- Cherry-picked the character-encoding cleanup commit into `merge-repos`.
+- Added `/shared/fonts.css` for the shared NoCrickets Google font import.
+- Added `/shared/tokens.css` for shared accent, dark background, text, muted text, and border colors.
+- Moved `/website/favicons` and `/website/brand-kit` into `/shared/favicons` and `/shared/brand-kit`.
+- Updated website and onboarding pages to reference shared fonts, tokens, and favicon assets.
+- Removed stale website-root favicon fallbacks after confirming no references remained.
+- Local monorepo-root render check passed for website, website pricing/legal/ES, and onboarding EN/ES with no shared-asset 404s, no horizontal overflow, and no visible character junk.
+- Deploy caveat: `/shared` works when served from the monorepo root or explicitly exposed by the web server; a static server rooted only at `/website` or `/onboarding` will not automatically serve sibling `/shared` files.

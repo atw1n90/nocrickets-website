@@ -9,10 +9,10 @@ Generated from the neon "nc" mark (Pacifico script, amber #FFB454 on midnight #0
 
 ## Head snippet (add to every page)
 ```html
-<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="48x48" href="/favicons/favicon-48x48.png">
-<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/shared/favicons/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/shared/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/shared/favicons/favicon-48x48.png">
+<link rel="apple-touch-icon" href="/shared/favicons/apple-touch-icon.png">
 ```
 
 If a manifest.json exists, point its icons at favicon-192x192.png and favicon-512x512.png.
