@@ -18,3 +18,12 @@
 - Left uploaded homepage/pricing files unused because the live redesign files were already in place.
 - Browser smoke check passed locally for `/privacy-policy.html` and `/terms-and-conditions.html`.
 - Sensitive scan found no API keys, webhook URLs, analytics/GTM tags, Search Console verification snippets, or secret-like values in the legal pages.
+
+## 2026-07-26 ES Redesign
+
+- Created branch `es-redesign-2026` from the merged English redesign on `origin/main`.
+- Added uploaded Spanish pages under `es/`: homepage, pricing, privacy policy, and terms.
+- Kept root English pages and `legacy/` unchanged.
+- Forced the ES homepage and pricing bundles to initialize in Spanish; the uploaded bundles contained Spanish copy but defaulted visible content to English.
+- Browser smoke check passed locally for `/es/`, `/es/pricing.html`, `/es/privacy-policy.html`, and `/es/terms-and-conditions.html`.
+- Sensitive scan found no API keys, webhook URLs, analytics/GTM tags, or Search Console verification snippets in the ES pages.

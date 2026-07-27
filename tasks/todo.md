@@ -17,4 +17,13 @@
 - [x] Replace only root `privacy-policy.html` and `terms-and-conditions.html`.
 - [x] Preserve homepage, pricing, pending ES branch work, and `legacy/`.
 - [x] Validate root legal pages render.
+- [x] Commit, push branch, and open PR to `main`.
+
+## NoCrickets ES Redesign
+
+- [x] Create `es-redesign-2026` from current `origin/main`.
+- [x] Extract uploaded ES redesign files.
+- [x] Add Spanish homepage, pricing, privacy, and terms pages under `es/`.
+- [x] Preserve existing root English pages and `legacy/`.
+- [x] Validate `/es/` and `/es/pricing.html` render.
 - [ ] Commit, push branch, and open PR to `main`.
