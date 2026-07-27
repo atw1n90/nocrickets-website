@@ -46,4 +46,4 @@
 - [x] Add static security header guidance in `_headers`.
 - [x] Mark legacy HTML files as `noindex`.
 - [x] Render-check current public pages after fixes.
-- [ ] Commit and push PR update.
+- [x] Commit and push PR update.
