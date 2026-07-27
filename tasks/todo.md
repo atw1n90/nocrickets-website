@@ -62,7 +62,7 @@
 - [x] Create local `merge-repos` branch without touching `main`.
 - [x] Move current website repo files into `/website`.
 - [x] Add empty `/onboarding` and `/shared` folders.
-- [ ] Fetch `atw1n90/nocrickets-onboarding` as a temporary remote.
+- [x] Fetch `atw1n90/nocrickets-onboarding` as a temporary remote.
 - [ ] Merge onboarding history with unrelated histories allowed.
 - [ ] Place onboarding files under `/onboarding`.
 - [ ] Review duplicated brand, CSS, font, logo, and color-token assets for future `/shared` cleanup.
