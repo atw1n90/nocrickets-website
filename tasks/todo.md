@@ -67,3 +67,13 @@
 - [x] Place onboarding files under `/onboarding`.
 - [x] Review duplicated brand, CSS, font, logo, and color-token assets for future `/shared` cleanup.
 - [x] Report local-only status and manual deploy/routing review items.
+
+## NoCrickets Shared Assets Merge Follow-up 2026-07-27
+
+- [ ] Cherry-pick `cb0c54d` into `merge-repos` and keep cleaned character encoding.
+- [ ] Create `/shared/fonts.css` and `/shared/tokens.css`.
+- [ ] Move favicon and brand-kit assets from `/website` into `/shared`.
+- [ ] Update `/website` pages to reference shared fonts, tokens, and assets.
+- [ ] Update `/onboarding` pages to reference shared fonts, tokens, and assets.
+- [ ] Render-check `/website` and `/onboarding` from the monorepo root.
+- [ ] Report deploy path caveats before any push.
