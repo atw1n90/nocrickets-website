@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://nocrickets.co/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nocrickets.co/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://nocrickets.co/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nocrickets.co/" />
+  </url>
+  <url>
+    <loc>https://nocrickets.co/pricing.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nocrickets.co/pricing.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://nocrickets.co/es/pricing.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nocrickets.co/pricing.html" />
+  </url>
+  <url>
+    <loc>https://nocrickets.co/privacy-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nocrickets.co/privacy-policy.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://nocrickets.co/es/privacy-policy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nocrickets.co/privacy-policy.html" />
+  </url>
+  <url>
+    <loc>https://nocrickets.co/terms-and-conditions.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nocrickets.co/terms-and-conditions.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://nocrickets.co/es/terms-and-conditions.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nocrickets.co/terms-and-conditions.html" />
+  </url>
+  <url>
+    <loc>https://nocrickets.co/es/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nocrickets.co/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://nocrickets.co/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nocrickets.co/" />
+  </url>
+  <url>
+    <loc>https://nocrickets.co/es/pricing.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nocrickets.co/pricing.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://nocrickets.co/es/pricing.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nocrickets.co/pricing.html" />
+  </url>
+  <url>
+    <loc>https://nocrickets.co/es/privacy-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nocrickets.co/privacy-policy.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://nocrickets.co/es/privacy-policy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nocrickets.co/privacy-policy.html" />
+  </url>
+  <url>
+    <loc>https://nocrickets.co/es/terms-and-conditions.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nocrickets.co/terms-and-conditions.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://nocrickets.co/es/terms-and-conditions.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nocrickets.co/terms-and-conditions.html" />
+  </url>
+</urlset>
