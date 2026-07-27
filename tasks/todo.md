@@ -37,3 +37,13 @@
 - [x] Correct stale legal-page pricing to match current public/onboarding prices.
 - [x] Render-check all four legal pages.
 - [ ] Commit, push branch, and open PR to `main`.
+
+## NoCrickets Audit Fixes
+
+- [x] Replace stale NoCrickets contact email references with `admin@caelumgroupventures.com` in current and legacy pages.
+- [x] Replace stale legacy phone and pricing references with current Caelum phone/pricing.
+- [x] Add `robots.txt` and `sitemap.xml`.
+- [x] Add static security header guidance in `_headers`.
+- [x] Mark legacy HTML files as `noindex`.
+- [x] Render-check current public pages after fixes.
+- [ ] Commit and push PR update.
