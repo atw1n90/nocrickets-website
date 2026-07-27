@@ -27,3 +27,12 @@
 - Forced the ES homepage and pricing bundles to initialize in Spanish; the uploaded bundles contained Spanish copy but defaulted visible content to English.
 - Browser smoke check passed locally for `/es/`, `/es/pricing.html`, `/es/privacy-policy.html`, and `/es/terms-and-conditions.html`.
 - Sensitive scan found no API keys, webhook URLs, analytics/GTM tags, or Search Console verification snippets in the ES pages.
+
+## 2026-07-26 Legal Hardening
+
+- Created branch `nocrickets-legal-hardening-2026` from the merged website `main`.
+- Updated English and Spanish legal pages to use Caelum Group Ventures contact details: `admin@caelumgroupventures.com` and `940-308-0607`.
+- Added stronger NoCrickets restrictions for medical, legal, financial, insurance, emergency, crisis-response, regulated, and high-risk use cases.
+- Added client responsibility language for customer consent, privacy compliance, accurate business settings, chatbot configuration, escalation instructions, and review of AI outputs.
+- Added privacy/terms improvements covering AI-output limits, service providers, retention/export before cancellation, U.S. privacy rights, indemnification, and electronic communications.
+- Corrected stale legal-page pricing so Growth is `$150/month` and the white-label add-on is `+$25/month`.
