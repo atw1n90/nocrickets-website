@@ -27,3 +27,13 @@
 - [x] Preserve existing root English pages and `legacy/`.
 - [x] Validate `/es/` and `/es/pricing.html` render.
 - [ ] Commit, push branch, and open PR to `main`.
+
+## NoCrickets Legal Hardening
+
+- [x] Create `nocrickets-legal-hardening-2026` from current `origin/main`.
+- [x] Compare NoCrickets legal pages against the stronger Suvelo patterns.
+- [x] Update English privacy policy and terms with Caelum contact details, regulated-use restrictions, AI-output cautions, data retention/export language, and client responsibility language.
+- [x] Mirror the same updates into Spanish privacy policy and terms.
+- [x] Correct stale legal-page pricing to match current public/onboarding prices.
+- [x] Render-check all four legal pages.
+- [ ] Commit, push branch, and open PR to `main`.
