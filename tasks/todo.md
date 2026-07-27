@@ -70,10 +70,10 @@
 
 ## NoCrickets Shared Assets Merge Follow-up 2026-07-27
 
-- [ ] Cherry-pick `cb0c54d` into `merge-repos` and keep cleaned character encoding.
-- [ ] Create `/shared/fonts.css` and `/shared/tokens.css`.
-- [ ] Move favicon and brand-kit assets from `/website` into `/shared`.
-- [ ] Update `/website` pages to reference shared fonts, tokens, and assets.
-- [ ] Update `/onboarding` pages to reference shared fonts, tokens, and assets.
-- [ ] Render-check `/website` and `/onboarding` from the monorepo root.
-- [ ] Report deploy path caveats before any push.
+- [x] Cherry-pick `cb0c54d` into `merge-repos` and keep cleaned character encoding.
+- [x] Create `/shared/fonts.css` and `/shared/tokens.css`.
+- [x] Move favicon and brand-kit assets from `/website` into `/shared`.
+- [x] Update `/website` pages to reference shared fonts, tokens, and assets.
+- [x] Update `/onboarding` pages to reference shared fonts, tokens, and assets.
+- [x] Render-check `/website` and `/onboarding` from the monorepo root.
+- [x] Report deploy path caveats before any push.

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chatbots de IA para Negocios Locales | NoCrickets Odessa TX</title>
-<meta name="description" content="NoCrickets crea chatbots de IA bilingÃ¼es para negocios locales en Odessa, Midland y el Permian Basin. Captura leads 24/7, automatiza el seguimiento, desde $99/mes.">
+<meta name="description" content="NoCrickets crea chatbots de IA bilingües para negocios locales en Odessa, Midland y el Permian Basin. Captura leads 24/7, automatiza el seguimiento, desde $99/mes.">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="author" content="NoCrickets">
 <meta name="theme-color" content="#0D0D0D">
@@ -18,18 +18,18 @@
 <meta property="og:site_name" content="NoCrickets">
 <meta property="og:url" content="https://nocrickets.co/es/">
 <meta property="og:title" content="Chatbots de IA para Negocios Locales | NoCrickets">
-<meta property="og:description" content="Chatbots de IA bilingÃ¼es que capturan leads 24/7 y envÃ­an correos de seguimiento automÃ¡tico para negocios locales.">
+<meta property="og:description" content="Chatbots de IA bilingües que capturan leads 24/7 y envían correos de seguimiento automático para negocios locales.">
 <meta property="og:image" content="https://nocrickets.co/og-image.png">
-<meta property="og:image:alt" content="NoCrickets â€” chatbot de IA para negocios locales">
+<meta property="og:image:alt" content="NoCrickets — chatbot de IA para negocios locales">
 <meta property="og:locale" content="es_MX">
 <meta property="og:locale:alternate" content="en_US">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Chatbots de IA para Negocios Locales | NoCrickets">
-<meta name="twitter:description" content="Captura leads 24/7 con chatbots de IA bilingÃ¼es y correos de seguimiento automÃ¡tico para negocios locales.">
+<meta name="twitter:description" content="Captura leads 24/7 con chatbots de IA bilingües y correos de seguimiento automático para negocios locales.">
 <meta name="twitter:image" content="https://nocrickets.co/og-image.png">
-<meta name="twitter:image:alt" content="NoCrickets â€” chatbot de IA para negocios locales">
+<meta name="twitter:image:alt" content="NoCrickets — chatbot de IA para negocios locales">
 
 <!-- Schema Markup -->
 <script type="application/ld+json">
@@ -54,7 +54,7 @@
       "url": "https://nocrickets.co/",
       "email": "admin@caelumgroupventures.com",
       "image": "https://nocrickets.co/og-image.png",
-      "description": "NoCrickets crea chatbots de IA bilingÃ¼es y sistemas de seguimiento automÃ¡tico para pequeÃ±os negocios locales en Odessa, Midland, el Permian Basin y todo Estados Unidos.",
+      "description": "NoCrickets crea chatbots de IA bilingües y sistemas de seguimiento automático para pequeños negocios locales en Odessa, Midland, el Permian Basin y todo Estados Unidos.",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Odessa",
@@ -73,8 +73,8 @@
     {
       "@type": "Service",
       "@id": "https://nocrickets.co/#service-ai-chatbots-es",
-      "name": "Chatbot de IA para captura de leads y seguimiento automÃ¡tico",
-      "serviceType": "Marketing con IA, Desarrollo de Chatbots, GeneraciÃ³n de Leads, AutomatizaciÃ³n de Correos",
+      "name": "Chatbot de IA para captura de leads y seguimiento automático",
+      "serviceType": "Marketing con IA, Desarrollo de Chatbots, Generación de Leads, Automatización de Correos",
       "provider": { "@id": "https://nocrickets.co/#localbusiness" },
       "areaServed": ["Odessa TX", "Midland TX", "Permian Basin", "United States"],
       "offers": [
@@ -100,7 +100,7 @@
       "@type": "WebPage",
       "@id": "https://nocrickets.co/es/#webpage",
       "url": "https://nocrickets.co/es/",
-      "name": "NoCrickets â€” Chatbots de IA para Negocios Locales",
+      "name": "NoCrickets — Chatbots de IA para Negocios Locales",
       "inLanguage": "es-MX",
       "isPartOf": { "@id": "https://nocrickets.co/#website" }
     },
@@ -110,26 +110,26 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Â¿Necesito un sitio web para usar NoCrickets?",
+          "name": "¿Necesito un sitio web para usar NoCrickets?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. NoCrickets puede integrar tu chatbot de IA en tu sitio web o darte un enlace compartible para Instagram, Google, Facebook o cÃ³digos QR."
+            "text": "No. NoCrickets puede integrar tu chatbot de IA en tu sitio web o darte un enlace compartible para Instagram, Google, Facebook o códigos QR."
           }
         },
         {
           "@type": "Question",
-          "name": "Â¿El chatbot puede atender en inglÃ©s y espaÃ±ol?",
+          "name": "¿El chatbot puede atender en inglés y español?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "SÃ­. NoCrickets ofrece soporte bilingÃ¼e en inglÃ©s y espaÃ±ol para que puedas atender a mÃ¡s clientes."
+            "text": "Sí. NoCrickets ofrece soporte bilingüe en inglés y español para que puedas atender a más clientes."
           }
         },
         {
           "@type": "Question",
-          "name": "Â¿QuÃ© pasa cuando llega un nuevo lead?",
+          "name": "¿Qué pasa cuando llega un nuevo lead?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "El chatbot captura el lead, lo registra en una hoja de cÃ¡lculo en vivo, te envÃ­a una notificaciÃ³n por correo, y puede activar un correo de seguimiento automÃ¡tico dependiendo del plan."
+            "text": "El chatbot captura el lead, lo registra en una hoja de cálculo en vivo, te envía una notificación por correo, y puede activar un correo de seguimiento automático dependiendo del plan."
           }
         }
       ]
@@ -137,8 +137,11 @@
   ]
 }
 </script>
-<link rel="icon" type="image/png" href="../favicon.png">
-<link rel="apple-touch-icon" href="../favicon.png">
+<link rel="icon" type="image/png" href="/shared/favicons/favicon-48x48.png">
+<link rel="apple-touch-icon" href="/shared/favicons/favicon-48x48.png">
+
+<link rel="stylesheet" href="/shared/fonts.css">
+<link rel="stylesheet" href="/shared/tokens.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -804,13 +807,13 @@
 <section class="hero">
   <div class="hero-eyebrow" id="hero-eyebrow">AI Marketing for Local Business</div>
   <h1 id="hero-headline"><span id="hero-headline-static">Your Business Deserves More Than </span><span class="accent" id="typed-word"></span><span class="typed-cursor" id="cursor"></span></h1>
-  <p class="hero-sub" id="hero-sub">We build AI-powered chatbots that capture leads and automatically follow up â€” so you never lose a customer again.</p>
+  <p class="hero-sub" id="hero-sub">We build AI-powered chatbots that capture leads and automatically follow up — so you never lose a customer again.</p>
   <div class="hero-actions">
     <a href="#demo" class="btn-primary" id="hero-cta1">
       See it in action
       <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
     </a>
-    <a href="#pricing" class="btn-ghost" id="hero-cta2">View pricing â†’</a>
+    <a href="#pricing" class="btn-ghost" id="hero-cta2">View pricing →</a>
   </div>
   <div class="hero-stats">
     <div>
@@ -880,7 +883,7 @@
         <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12l2 2 4-4"/></svg>
       </div>
       <h3 id="sol1-title">Captures every lead</h3>
-      <p id="sol1-body">Your AI bot talks to customers day or night, asks the right questions, and never misses an inquiry â€” even while you sleep.</p>
+      <p id="sol1-body">Your AI bot talks to customers day or night, asks the right questions, and never misses an inquiry — even while you sleep.</p>
     </div>
     <div class="solution-item reveal reveal-delay-2">
       <div class="solution-icon">
@@ -894,7 +897,7 @@
         <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 17h7M17 14v7"/></svg>
       </div>
       <h3 id="sol3-title">You stay in control</h3>
-      <p id="sol3-body">Every lead is logged in a live spreadsheet. Every email is tracked. You get notified. Works whether you have a website or not â€” we've got you covered either way.</p>
+      <p id="sol3-body">Every lead is logged in a live spreadsheet. Every email is tracked. You get notified. Works whether you have a website or not — we've got you covered either way.</p>
     </div>
   </div>
 </section>
@@ -933,8 +936,8 @@
   <div class="demo-inner">
     <div class="demo-text reveal reveal-delay-1">
       <h2 id="demo-title">This is exactly what your customers would experience.</h2>
-      <p id="demo-body1">Go ahead â€” chat with the bot below. This is a live demo of what we'd build for your business. Your version would be customized with your services, your tone, and your brand.</p>
-      <p id="demo-body2" style="color: var(--text-dim); font-size: 14px;">After chatting, check your email. You'll get a real automated follow-up â€” just like your customers would.</p>
+      <p id="demo-body1">Go ahead — chat with the bot below. This is a live demo of what we'd build for your business. Your version would be customized with your services, your tone, and your brand.</p>
+      <p id="demo-body2" style="color: var(--text-dim); font-size: 14px;">After chatting, check your email. You'll get a real automated follow-up — just like your customers would.</p>
     </div>
     <div class="reveal reveal-delay-2" style="width:100%;height:560px;border-radius:16px;overflow:hidden;border:1px solid #222;">
       <iframe
@@ -961,9 +964,9 @@
         <li id="f1-2">Bilingual support (English + Spanish)</li>
         <li id="f1-3">Lead capture to live Google Sheet</li>
         <li id="f1-4">Email notification on every lead</li>
-        <li id="f1-5">Works with or without a website â€” embed on your site or get a shareable link</li>
+        <li id="f1-5">Works with or without a website — embed on your site or get a shareable link</li>
         <li id="f1-6">Setup included</li>
-        <li id="f1-7" style="color:var(--text-dim);font-size:13px;border-top:1px solid #222;padding-top:12px;margin-top:4px;">âœ¦ White-label add-on available â€” custom URL + branded emails Â· <span style="color:var(--green)">+$25/mo</span></li>
+        <li id="f1-7" style="color:var(--text-dim);font-size:13px;border-top:1px solid #222;padding-top:12px;margin-top:4px;">✦ White-label add-on available — custom URL + branded emails · <span style="color:var(--green)">+$25/mo</span></li>
       </ul>
       <a href="https://onboarding.nocrickets.co" class="pricing-cta outline" id="cta-starter">Get started</a>
     </div>
@@ -976,10 +979,10 @@
         <li id="f2-1">Everything in Starter</li>
         <li id="f2-2">Automated email follow-up on every lead</li>
         <li id="f2-3">Custom follow-up email for your brand</li>
-        <li id="f2-4">Subscriber list â€” export anytime</li>
+        <li id="f2-4">Subscriber list — export anytime</li>
         <li id="f2-5">Priority setup (48hr turnaround)</li>
         <li id="f2-6">Monthly check-in + bot updates</li>
-        <li id="f2-7" style="color:var(--text-dim);font-size:13px;border-top:1px solid #222;padding-top:12px;margin-top:4px;">âœ¦ White-label add-on available â€” custom URL + branded emails Â· <span style="color:var(--green)">+$25/mo</span></li>
+        <li id="f2-7" style="color:var(--text-dim);font-size:13px;border-top:1px solid #222;padding-top:12px;margin-top:4px;">✦ White-label add-on available — custom URL + branded emails · <span style="color:var(--green)">+$25/mo</span></li>
       </ul>
       <a href="https://onboarding.nocrickets.co" class="pricing-cta primary" id="cta-growth">Get started</a>
     </div>
@@ -1019,7 +1022,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="logo"><img src="../logo.png" alt="NoCrickets" style="height:28px;width:auto;display:block;"></div>
-  <p id="footer-copy">Â© 2026 NoCrickets. AI Marketing for Local Business.</p>
+  <p id="footer-copy">© 2026 NoCrickets. AI Marketing for Local Business.</p>
   <div style="display:flex;gap:24px;">
     <a href="mailto:admin@caelumgroupventures.com">admin@caelumgroupventures.com</a>
     <a href="https://onboarding.nocrickets.co" id="footer-cta">Get started</a>
@@ -1037,8 +1040,8 @@ const SITE_T = {
     navHow:'How it works', navPricing:'Pricing', navDemo:'See demo', navCta:'Get started',
     eyebrow:'AI Marketing for Local Business',
     heroStatic:'Your Business Deserves More Than ',
-    heroSub:'We build AI-powered chatbots that capture leads and automatically follow up â€” so you never lose a customer again.',
-    heroCta1:'See it in action', heroCta2:'View pricing â†’',
+    heroSub:'We build AI-powered chatbots that capture leads and automatically follow up — so you never lose a customer again.',
+    heroCta1:'See it in action', heroCta2:'View pricing →',
     stat1:'Always-on lead capture', stat2:'Setup per client', stat3:'Extra cost per new lead',
     m1:'Lead captured', m2:'Follow-up sent', m3:'New appointment booked',
     m4:'Bot replied at 2am', m5:'Email delivered', m6:'Customer responded', m7:'New inquiry at 11pm',
@@ -1050,11 +1053,11 @@ const SITE_T = {
     solLabel:'The fix', solTitle:'Meet your new 24/7 team member.',
     solSub:'Set it up once. It works forever. You just show up and close.',
     sol1Title:'Captures every lead',
-    sol1Body:'Your AI bot talks to customers day or night, asks the right questions, and never misses an inquiry â€” even while you sleep.',
+    sol1Body:'Your AI bot talks to customers day or night, asks the right questions, and never misses an inquiry — even while you sleep.',
     sol2Title:'Follows up automatically',
     sol2Body:'The moment someone shows interest, a personalized email goes out from your business. No manual work, no delays, no dropped leads.',
     sol3Title:'You stay in control',
-    sol3Body:'Every lead is logged in a live spreadsheet. Every email is tracked. You get notified. Works whether you have a website or not â€” we\'ve got you covered either way.',
+    sol3Body:'Every lead is logged in a live spreadsheet. Every email is tracked. You get notified. Works whether you have a website or not — we\'ve got you covered either way.',
     howLabel:'How it works', howTitle:'From setup to leads in one week.',
     step1Title:'You fill out our form', step1Body:'Tell us about your business, services, tone, and customers. Takes 10 minutes.',
     step2Title:'We build your bot', step2Body:'We customize your AI chatbot and automated follow-up email. You approve before anything goes live.',
@@ -1062,80 +1065,80 @@ const SITE_T = {
     step4Title:'Leads roll in', step4Body:'Your bot captures leads, emails fire automatically, and you get notified. You just close.',
     demoLabel:'Try it yourself',
     demoTitle:'This is exactly what your customers would experience.',
-    demoBody1:'Go ahead â€” chat with the bot below. This is a live demo of what we\'d build for your business. Your version would be customized with your services, your tone, and your brand.',
-    demoBody2:'After chatting, check your email. You\'ll get a real automated follow-up â€” just like your customers would.',
-    demoComing:'Coming soon â€” bot launching shortly',
-    demoCta:'Get started instead â†’',
+    demoBody1:'Go ahead — chat with the bot below. This is a live demo of what we\'d build for your business. Your version would be customized with your services, your tone, and your brand.',
+    demoBody2:'After chatting, check your email. You\'ll get a real automated follow-up — just like your customers would.',
+    demoComing:'Coming soon — bot launching shortly',
+    demoCta:'Get started instead →',
     priceLabel:'Pricing', priceTitle:'Simple pricing. No surprises.',
     priceSub:'Both plans are fully automated after setup. Your ongoing work is essentially zero per client.',
     tier1:'Starter', tier2:'Growth', perMonth:'per month', popular:'Most popular',
     f1_1:'Custom AI chatbot for your business', f1_2:'Bilingual support (English + Spanish)',
     f1_3:'Lead capture to live Google Sheet', f1_4:'Email notification on every lead',
-    f1_5:'Works with or without a website â€” embed on your site or get a shareable link',
+    f1_5:'Works with or without a website — embed on your site or get a shareable link',
     f1_6:'Setup included',
-    f1_7:'âœ¦ White-label add-on available â€” custom URL + branded emails Â· <span style="color:var(--green)">+$25/mo</span>',
+    f1_7:'✦ White-label add-on available — custom URL + branded emails · <span style="color:var(--green)">+$25/mo</span>',
     f2_1:'Everything in Starter', f2_2:'Automated email follow-up on every lead',
-    f2_3:'Custom follow-up email for your brand', f2_4:'Subscriber list â€” export anytime',
+    f2_3:'Custom follow-up email for your brand', f2_4:'Subscriber list — export anytime',
     f2_5:'Priority setup (48hr turnaround)', f2_6:'Monthly check-in + bot updates',
-    f2_7:'âœ¦ White-label add-on available â€” custom URL + branded emails Â· <span style="color:var(--green)">+$25/mo</span>',
+    f2_7:'✦ White-label add-on available — custom URL + branded emails · <span style="color:var(--green)">+$25/mo</span>',
     ctaStarter:'Get started', ctaGrowth:'Get started',
     closingTitle:'Stop being the best-kept <span>secret</span> in town.',
     closingSub:'Your competitors aren\'t waiting. Neither should you.',
     closingCta:'Get started today',
-    footerCopy:'Â© 2026 NoCrickets. AI Marketing for Local Business.',
+    footerCopy:'© 2026 NoCrickets. AI Marketing for Local Business.',
     footerCta:'Get started',
     typedWords:['Crickets.', 'Silence.', 'Missed Leads.', 'Crickets.'],
   },
   es: {
-    navHow:'CÃ³mo funciona', navPricing:'Precios', navDemo:'Ver demo', navCta:'Comenzar',
+    navHow:'Cómo funciona', navPricing:'Precios', navDemo:'Ver demo', navCta:'Comenzar',
     eyebrow:'Marketing con IA para Negocios Locales',
-    heroStatic:'Tu Negocio Merece MÃ¡s Que ',
-    heroSub:'Creamos chatbots de IA que capturan leads y hacen seguimiento automÃ¡tico â€” para que nunca pierdas un cliente.',
-    heroCta1:'Ver en acciÃ³n', heroCta2:'Ver precios â†’',
-    stat1:'Captura de leads 24/7', stat2:'ConfiguraciÃ³n por cliente', stat3:'Costo extra por nuevo lead',
+    heroStatic:'Tu Negocio Merece Más Que ',
+    heroSub:'Creamos chatbots de IA que capturan leads y hacen seguimiento automático — para que nunca pierdas un cliente.',
+    heroCta1:'Ver en acción', heroCta2:'Ver precios →',
+    stat1:'Captura de leads 24/7', stat2:'Configuración por cliente', stat3:'Costo extra por nuevo lead',
     m1:'Lead capturado', m2:'Seguimiento enviado', m3:'Nueva cita agendada',
-    m4:'Bot respondiÃ³ a las 2am', m5:'Correo entregado', m6:'Cliente respondiÃ³', m7:'Nueva consulta a las 11pm',
-    probLabel:'Â¿Te suena familiar?',
-    probTitle:'EstÃ¡s perdiendo clientes que nunca supiste que tenÃ­as.',
-    prob1:'Un cliente te escribiÃ³ a las <strong>11pm.</strong> Lo viste a las 9am. Ya reservÃ³ con otro.',
-    prob2:'Conseguiste un lead en un evento. <strong>Nunca le diste seguimiento.</strong> Se olvidÃ³ de ti.',
-    prob3:'EstÃ¡s demasiado ocupado <strong>corriendo tu negocio</strong> para perseguir cada consulta.',
-    solLabel:'La soluciÃ³n', solTitle:'Conoce a tu nuevo miembro del equipo 24/7.',
-    solSub:'ConfigÃºralo una vez. Funciona para siempre. TÃº solo apareces y cierras.',
+    m4:'Bot respondió a las 2am', m5:'Correo entregado', m6:'Cliente respondió', m7:'Nueva consulta a las 11pm',
+    probLabel:'¿Te suena familiar?',
+    probTitle:'Estás perdiendo clientes que nunca supiste que tenías.',
+    prob1:'Un cliente te escribió a las <strong>11pm.</strong> Lo viste a las 9am. Ya reservó con otro.',
+    prob2:'Conseguiste un lead en un evento. <strong>Nunca le diste seguimiento.</strong> Se olvidó de ti.',
+    prob3:'Estás demasiado ocupado <strong>corriendo tu negocio</strong> para perseguir cada consulta.',
+    solLabel:'La solución', solTitle:'Conoce a tu nuevo miembro del equipo 24/7.',
+    solSub:'Configúralo una vez. Funciona para siempre. Tú solo apareces y cierras.',
     sol1Title:'Captura cada lead',
-    sol1Body:'Tu bot de IA habla con clientes de dÃ­a o de noche, hace las preguntas correctas, y nunca pierde una consulta â€” incluso mientras duermes.',
-    sol2Title:'Da seguimiento automÃ¡ticamente',
-    sol2Body:'En el momento en que alguien muestra interÃ©s, sale un correo personalizado de tu negocio. Sin trabajo manual, sin demoras, sin leads perdidos.',
-    sol3Title:'TÃº mantienes el control',
-    sol3Body:'Cada lead se registra en una hoja de cÃ¡lculo en vivo. Cada correo se rastrea. Te notificamos. Funciona con o sin sitio web â€” te tenemos cubierto de cualquier forma.',
-    howLabel:'CÃ³mo funciona', howTitle:'De la configuraciÃ³n a los leads en una semana.',
-    step1Title:'Llenas nuestro formulario', step1Body:'CuÃ©ntanos sobre tu negocio, servicios, tono y clientes. Toma 10 minutos.',
-    step2Title:'Construimos tu bot', step2Body:'Personalizamos tu chatbot de IA y el correo de seguimiento automÃ¡tico. TÃº apruebas antes de que salga en vivo.',
-    step3Title:'Te ponemos en lÃ­nea', step3Body:'Lo integramos en tu sitio web o te damos un enlace para Instagram, Google, Facebook o un cÃ³digo QR. No se necesita sitio web.',
-    step4Title:'Los leads llegan solos', step4Body:'Tu bot captura leads, los correos se envÃ­an automÃ¡ticamente y tÃº recibes notificaciones. Solo cierra el trato.',
-    demoLabel:'PruÃ©balo tÃº mismo',
-    demoTitle:'Esto es exactamente lo que experimentarÃ­an tus clientes.',
-    demoBody1:'Adelante â€” chatea con el bot abajo. Es una demo en vivo de lo que construirÃ­amos para tu negocio. Tu versiÃ³n estarÃ­a personalizada con tus servicios, tu tono y tu marca.',
-    demoBody2:'DespuÃ©s de chatear, revisa tu correo. RecibirÃ¡s un seguimiento automÃ¡tico real â€” igual que tus clientes.',
-    demoComing:'PrÃ³ximamente â€” bot lanzando en breve',
-    demoCta:'Comenzar en su lugar â†’',
+    sol1Body:'Tu bot de IA habla con clientes de día o de noche, hace las preguntas correctas, y nunca pierde una consulta — incluso mientras duermes.',
+    sol2Title:'Da seguimiento automáticamente',
+    sol2Body:'En el momento en que alguien muestra interés, sale un correo personalizado de tu negocio. Sin trabajo manual, sin demoras, sin leads perdidos.',
+    sol3Title:'Tú mantienes el control',
+    sol3Body:'Cada lead se registra en una hoja de cálculo en vivo. Cada correo se rastrea. Te notificamos. Funciona con o sin sitio web — te tenemos cubierto de cualquier forma.',
+    howLabel:'Cómo funciona', howTitle:'De la configuración a los leads en una semana.',
+    step1Title:'Llenas nuestro formulario', step1Body:'Cuéntanos sobre tu negocio, servicios, tono y clientes. Toma 10 minutos.',
+    step2Title:'Construimos tu bot', step2Body:'Personalizamos tu chatbot de IA y el correo de seguimiento automático. Tú apruebas antes de que salga en vivo.',
+    step3Title:'Te ponemos en línea', step3Body:'Lo integramos en tu sitio web o te damos un enlace para Instagram, Google, Facebook o un código QR. No se necesita sitio web.',
+    step4Title:'Los leads llegan solos', step4Body:'Tu bot captura leads, los correos se envían automáticamente y tú recibes notificaciones. Solo cierra el trato.',
+    demoLabel:'Pruébalo tú mismo',
+    demoTitle:'Esto es exactamente lo que experimentarían tus clientes.',
+    demoBody1:'Adelante — chatea con el bot abajo. Es una demo en vivo de lo que construiríamos para tu negocio. Tu versión estaría personalizada con tus servicios, tu tono y tu marca.',
+    demoBody2:'Después de chatear, revisa tu correo. Recibirás un seguimiento automático real — igual que tus clientes.',
+    demoComing:'Próximamente — bot lanzando en breve',
+    demoCta:'Comenzar en su lugar →',
     priceLabel:'Precios', priceTitle:'Precios simples. Sin sorpresas.',
-    priceSub:'Ambos planes son completamente automÃ¡ticos despuÃ©s de la configuraciÃ³n. Tu trabajo continuo es prÃ¡cticamente cero.',
-    tier1:'Inicial', tier2:'Crecimiento', perMonth:'por mes', popular:'MÃ¡s popular',
-    f1_1:'Chatbot de IA personalizado para tu negocio', f1_2:'Soporte bilingÃ¼e (inglÃ©s + espaÃ±ol)',
-    f1_3:'Captura de leads en Google Sheets en vivo', f1_4:'NotificaciÃ³n por correo en cada lead',
-    f1_5:'Funciona con o sin sitio web â€” integrado en tu sitio o con enlace compartible',
-    f1_6:'ConfiguraciÃ³n incluida',
-    f1_7:'âœ¦ Complemento de marca blanca disponible â€” URL personalizada + correos con tu marca Â· <span style="color:var(--green)">+$25/mes</span>',
-    f2_1:'Todo lo del plan Inicial', f2_2:'Correo de seguimiento automÃ¡tico en cada lead',
-    f2_3:'Correo de seguimiento personalizado para tu marca', f2_4:'Lista de suscriptores â€” exportable en cualquier momento',
-    f2_5:'ConfiguraciÃ³n prioritaria (entrega en 48hrs)', f2_6:'RevisiÃ³n mensual + actualizaciones del bot',
-    f2_7:'âœ¦ Complemento de marca blanca disponible â€” URL personalizada + correos con tu marca Â· <span style="color:var(--green)">+$25/mes</span>',
+    priceSub:'Ambos planes son completamente automáticos después de la configuración. Tu trabajo continuo es prácticamente cero.',
+    tier1:'Inicial', tier2:'Crecimiento', perMonth:'por mes', popular:'Más popular',
+    f1_1:'Chatbot de IA personalizado para tu negocio', f1_2:'Soporte bilingüe (inglés + español)',
+    f1_3:'Captura de leads en Google Sheets en vivo', f1_4:'Notificación por correo en cada lead',
+    f1_5:'Funciona con o sin sitio web — integrado en tu sitio o con enlace compartible',
+    f1_6:'Configuración incluida',
+    f1_7:'✦ Complemento de marca blanca disponible — URL personalizada + correos con tu marca · <span style="color:var(--green)">+$25/mes</span>',
+    f2_1:'Todo lo del plan Inicial', f2_2:'Correo de seguimiento automático en cada lead',
+    f2_3:'Correo de seguimiento personalizado para tu marca', f2_4:'Lista de suscriptores — exportable en cualquier momento',
+    f2_5:'Configuración prioritaria (entrega en 48hrs)', f2_6:'Revisión mensual + actualizaciones del bot',
+    f2_7:'✦ Complemento de marca blanca disponible — URL personalizada + correos con tu marca · <span style="color:var(--green)">+$25/mes</span>',
     ctaStarter:'Comenzar', ctaGrowth:'Comenzar',
     closingTitle:'Deja de ser el mejor <span>secreto</span> de la ciudad.',
-    closingSub:'Tus competidores no estÃ¡n esperando. TÃº tampoco deberÃ­as.',
+    closingSub:'Tus competidores no están esperando. Tú tampoco deberías.',
     closingCta:'Comenzar hoy',
-    footerCopy:'Â© 2026 NoCrickets. Marketing con IA para Negocios Locales.',
+    footerCopy:'© 2026 NoCrickets. Marketing con IA para Negocios Locales.',
     footerCta:'Comenzar',
     typedWords:['Grillos.', 'Silencio.', 'Clientes Perdidos.', 'Grillos.'],
   }

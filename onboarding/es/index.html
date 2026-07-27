@@ -4,22 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NoCrickets — Client Onboarding</title>
-<link rel="icon" type="image/png" href="https://nocrickets.co/favicon.png">
-<link rel="apple-touch-icon" href="https://nocrickets.co/favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Pacifico&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="48x48" href="/shared/favicons/favicon-48x48.png">
+<link rel="apple-touch-icon" href="/shared/favicons/apple-touch-icon.png">
+<link rel="stylesheet" href="/shared/fonts.css">
+<link rel="stylesheet" href="/shared/tokens.css">
 <style>
   :root {
-    --green: #FFB454;
+    --green: var(--color-accent);
     --green-dim: rgba(255,180,84,0.08);
     --green-border: rgba(255,180,84,0.25);
-    --dark: #0A0C18;
+    --dark: var(--color-bg-dark);
     --dark2: #12142B;
     --dark3: #181B36;
-    --dark4: #23274A;
-    --text: #EEF0FF;
-    --text-dim: #8B90B3;
+    --dark4: var(--color-border);
+    --text: var(--color-text);
+    --text-dim: var(--color-text-muted);
     --muted: #4A4F72;
-    --border: #23274A;
+    --border: var(--color-border);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -380,7 +381,7 @@
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-brand"><div style="font-family:'Pacifico',cursive;font-size:34px;text-transform:none;letter-spacing:normal;color:#FFB454;text-shadow:0 0 8px rgba(255,180,84,0.7), 0 0 24px rgba(255,180,84,0.4);line-height:1.3;white-space:nowrap;">no crickets</div><div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.32em;text-transform:uppercase;color:#FF7AB2;margin:2px 0 18px;">open 24 hours</div></div>
+  <div class="hero-brand"><div style="font-family:'Pacifico',cursive;font-size:34px;text-transform:none;letter-spacing:normal;color:var(--color-accent);text-shadow:0 0 8px rgba(255,180,84,0.7), 0 0 24px rgba(255,180,84,0.4);line-height:1.3;white-space:nowrap;">no crickets</div><div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.32em;text-transform:uppercase;color:#FF7AB2;margin:2px 0 18px;">open 24 hours</div></div>
   <h1 id="hero-title">Client Onboarding Questionnaire</h1>
   <p id="hero-sub">Help us build a custom AI chatbot tailored to your business. Complete this form and we'll take care of the rest.</p>
   <div class="accent-line"></div>
@@ -388,7 +389,7 @@
 
 <!-- FORM -->
 <div class="form-wrap">
-<p id="required-note" style="text-align:center;font-size:13px;color:#8B90B3;margin:0 0 24px;">Fields marked with <span style="color:var(--green);">*</span> are required</p>
+<p id="required-note" style="text-align:center;font-size:13px;color:var(--color-text-muted);margin:0 0 24px;">Fields marked with <span style="color:var(--green);">*</span> are required</p>
 <form id="onboarding-form" onsubmit="handleSubmit(event)">
 
   <!-- S1: BUSINESS INFO -->
@@ -467,29 +468,29 @@
           <input type="radio" name="plan" value="starter" id="plan-starter" style="margin-top:3px;">
           <div>
             <div id="plan-starter-label" style="font-weight:700;font-size:15px;">Starter — $99/mo</div>
-            <div id="plan-starter-desc" style="font-size:13px;color:#8B90B3;">Bot + lead capture</div>
+            <div id="plan-starter-desc" style="font-size:13px;color:var(--color-text-muted);">Bot + lead capture</div>
           </div>
         </label>
         <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #2E3252;border-radius:8px;transition:border-color 0.2s;" id="plan-growth-wrap">
           <input type="radio" name="plan" value="growth" id="plan-growth" style="margin-top:3px;">
           <div>
             <div id="plan-growth-label" style="font-weight:700;font-size:15px;text-align:left;">Growth — $150/mo</div>
-            <div id="plan-growth-desc" style="font-size:13px;color:#8B90B3;text-align:left;">Bot + lead capture + branded booking page + calendar sync</div>
+            <div id="plan-growth-desc" style="font-size:13px;color:var(--color-text-muted);text-align:left;">Bot + lead capture + branded booking page + calendar sync</div>
           </div>
         </label>
         <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #2E3252;border-radius:8px;transition:border-color 0.2s;" id="plan-pro-wrap">
           <input type="radio" name="plan" value="pro" id="plan-pro" style="margin-top:3px;">
           <div>
             <div id="plan-pro-label" style="font-weight:700;font-size:15px;text-align:left;">Pro — $299/mo</div>
-            <div id="plan-pro-desc" style="font-size:13px;color:#8B90B3;text-align:left;">Everything + automated email follow-up + monthly campaigns</div>
+            <div id="plan-pro-desc" style="font-size:13px;color:var(--color-text-muted);text-align:left;">Everything + automated email follow-up + monthly campaigns</div>
           </div>
         </label>
       </div>
       <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:12px 16px;border:1px solid #2E3252;border-radius:8px;background:#0D0F24;">
         <input type="checkbox" name="whitelabel" id="addon-whitelabel" style="margin-top:3px;">
         <div>
-          <div id="addon-wl-label" style="font-weight:700;font-size:14px;text-align:left;">Add Custom Branding / White-label — <span style="color:#FFB454;">+$25/mo</span></div>
-          <div id="addon-wl-desc" style="font-size:13px;color:#8B90B3;text-align:left;">Unlock the branding section, custom colors, tagline, and white-label presentation</div>
+          <div id="addon-wl-label" style="font-weight:700;font-size:14px;text-align:left;">Add Custom Branding / White-label — <span style="color:var(--color-accent);">+$25/mo</span></div>
+          <div id="addon-wl-desc" style="font-size:13px;color:var(--color-text-muted);text-align:left;">Unlock the branding section, custom colors, tagline, and white-label presentation</div>
         </div>
       </label>
       <hr class="divider">
@@ -522,28 +523,28 @@
           <input type="radio" name="bot-type" value="service_lead" id="bt-service" style="margin-top:3px;" onchange="handleBotTypeChange()">
           <div>
             <div id="bt-service-label" style="font-weight:700;font-size:15px;">Service / Lead Capture Bot</div>
-            <div id="bt-service-desc" style="font-size:13px;color:#8B90B3;">Captures contact info and qualifies leads for service businesses</div>
+            <div id="bt-service-desc" style="font-size:13px;color:var(--color-text-muted);">Captures contact info and qualifies leads for service businesses</div>
           </div>
         </label>
         <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #2E3252;border-radius:8px;transition:border-color 0.2s;">
           <input type="radio" name="bot-type" value="booking" id="bt-booking" style="margin-top:3px;" onchange="handleBotTypeChange()">
           <div>
             <div id="bt-booking-label" style="font-weight:700;font-size:15px;">Booking / Appointment Bot</div>
-            <div id="bt-booking-desc" style="font-size:13px;color:#8B90B3;">Guides customers to book appointments online or request a callback</div>
+            <div id="bt-booking-desc" style="font-size:13px;color:var(--color-text-muted);">Guides customers to book appointments online or request a callback</div>
           </div>
         </label>
         <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #2E3252;border-radius:8px;transition:border-color 0.2s;">
           <input type="radio" name="bot-type" value="order_intake" id="bt-order" style="margin-top:3px;" onchange="handleBotTypeChange()">
           <div>
             <div id="bt-order-label" style="font-weight:700;font-size:15px;">Order Intake Bot</div>
-            <div id="bt-order-desc" style="font-size:13px;color:#8B90B3;">Collects product/part orders and routes them to a team member for confirmation</div>
+            <div id="bt-order-desc" style="font-size:13px;color:var(--color-text-muted);">Collects product/part orders and routes them to a team member for confirmation</div>
           </div>
         </label>
         <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;border:2px solid #2E3252;border-radius:8px;transition:border-color 0.2s;">
           <input type="radio" name="bot-type" value="faq_info" id="bt-faq" style="margin-top:3px;" onchange="handleBotTypeChange()">
           <div>
             <div id="bt-faq-label" style="font-weight:700;font-size:15px;">FAQ / Info Assistant</div>
-            <div id="bt-faq-desc" style="font-size:13px;color:#8B90B3;">Answers questions about the business and directs visitors — no bookings or orders</div>
+            <div id="bt-faq-desc" style="font-size:13px;color:var(--color-text-muted);">Answers questions about the business and directs visitors — no bookings or orders</div>
           </div>
         </label>
       </div>
@@ -1066,9 +1067,9 @@ const T = {
     planStarterLabel:'Starter — $99/mo', planStarterDesc:'Bot + lead capture',
     planGrowthLabel:'Growth — $150/mo', planGrowthDesc:'Bot + lead capture + branded booking page + calendar sync',
     planProLabel:'Pro — $299/mo', planProDesc:'Everything + automated email follow-up + monthly campaigns',
-    addonWLLabel:'Add Custom Branding / White-label — <span style="color:#FFB454;">+$25/mo</span>', addonWLDesc:'Unlock the branding section, custom colors, tagline, and white-label presentation', deploymentInfo:'These fields help us safely duplicate the master bot without touching its logic.', lBotSlug:'Suggested Bot Slug', hBotSlug:'Used for internal bot naming and future public links.', lWebhookSource:'Webhook Source Label', hWebhookSource:'Used in the lead sheet to identify this bot/client.',
+    addonWLLabel:'Add Custom Branding / White-label — <span style="color:var(--color-accent);">+$25/mo</span>', addonWLDesc:'Unlock the branding section, custom colors, tagline, and white-label presentation', deploymentInfo:'These fields help us safely duplicate the master bot without touching its logic.', lBotSlug:'Suggested Bot Slug', hBotSlug:'Used for internal bot naming and future public links.', lWebhookSource:'Webhook Source Label', hWebhookSource:'Used in the lead sheet to identify this bot/client.',
     btnSubmit:'Submit Questionnaire →',
-    successTxt:`<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ We received your submission!</div><p style="color:#8B90B3;margin-bottom:24px;">Choose your plan below to get started. Your bot will be ready within 3–5 business days after payment.</p><div style="display:flex;flex-direction:column;gap:12px;max-width:360px;margin:0 auto;"><a href="https://buy.stripe.com/4gM14n9Tr0xBdutfgbefC03" target="_blank" style="display:block;background:#0D0D0D;color:#FFB454;border:2px solid #FFB454;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Starter — $99/mo<br><span style="font-size:13px;font-weight:400;color:#aaa;">Bot + lead capture</span></a><a href="https://buy.stripe.com/7sYdR93v3gwz765d83efC02" target="_blank" style="display:block;background:#FFB454;color:#000;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Growth — $150/mo<br><span style="font-size:13px;font-weight:400;color:#004d1a;">Bot + booking page + calendar sync</span></a><a href="https://buy.stripe.com/fZu00j0iR1BFgGF4BxefC01" target="_blank" style="display:block;background:#0D0D0D;color:#FFB454;border:2px solid #FFB454;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Pro — $299/mo<br><span style="font-size:13px;font-weight:400;color:#aaa;">Everything + email follow-up + monthly campaigns</span></a><a href="https://buy.stripe.com/dRm3cvghP5RVfCB6JFefC00" target="_blank" style="display:block;background:#0D0F24;color:#FFB454;border:1px solid #2E3252;padding:12px 24px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;">+ Add White-label — $25/mo<br><span style="font-size:12px;font-weight:400;color:#8B90B3;">Add to any plan above</span></a></div></div>`,
+    successTxt:`<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ We received your submission!</div><p style="color:var(--color-text-muted);margin-bottom:24px;">Choose your plan below to get started. Your bot will be ready within 3–5 business days after payment.</p><div style="display:flex;flex-direction:column;gap:12px;max-width:360px;margin:0 auto;"><a href="https://buy.stripe.com/4gM14n9Tr0xBdutfgbefC03" target="_blank" style="display:block;background:#0D0D0D;color:var(--color-accent);border:2px solid var(--color-accent);padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Starter — $99/mo<br><span style="font-size:13px;font-weight:400;color:#aaa;">Bot + lead capture</span></a><a href="https://buy.stripe.com/7sYdR93v3gwz765d83efC02" target="_blank" style="display:block;background:var(--color-accent);color:#000;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Growth — $150/mo<br><span style="font-size:13px;font-weight:400;color:#004d1a;">Bot + booking page + calendar sync</span></a><a href="https://buy.stripe.com/fZu00j0iR1BFgGF4BxefC01" target="_blank" style="display:block;background:#0D0D0D;color:var(--color-accent);border:2px solid var(--color-accent);padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Pro — $299/mo<br><span style="font-size:13px;font-weight:400;color:#aaa;">Everything + email follow-up + monthly campaigns</span></a><a href="https://buy.stripe.com/dRm3cvghP5RVfCB6JFefC00" target="_blank" style="display:block;background:#0D0F24;color:var(--color-accent);border:1px solid #2E3252;padding:12px 24px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;">+ Add White-label — $25/mo<br><span style="font-size:12px;font-weight:400;color:var(--color-text-muted);">Add to any plan above</span></a></div></div>`,
     consult:'Requires consultation?', consultY:'Yes', consultN:'No',
     apptNote:'ℹ️ The bot will collect your customer\'s preferred appointment time and log it to your leads sheet. You confirm directly with the customer.',
     addService:'+ Add Service',
@@ -1173,9 +1174,9 @@ We look forward to hearing from you!
     planStarterLabel:'Starter — $99/mes', planStarterDesc:'Bot + captura de leads',
     planGrowthLabel:'Growth — $150/mes', planGrowthDesc:'Bot + leads + página de reservas con tu marca + calendario',
     planProLabel:'Pro — $299/mes', planProDesc:'Todo lo anterior + seguimiento automático por correo + campañas mensuales',
-    addonWLLabel:'Agregar Branding Personalizado / Marca Blanca — <span style="color:#FFB454;">+$25/mes</span>', addonWLDesc:'Desbloquea la sección de marca, colores, eslogan y presentación sin marca NoCrickets', deploymentInfo:'Estos campos nos ayudan a duplicar el bot maestro sin tocar la lógica.', lBotSlug:'Slug sugerido del bot', hBotSlug:'Usado para nombre interno del bot y futuros enlaces públicos.', lWebhookSource:'Etiqueta de Webhook Source', hWebhookSource:'Usada en la hoja de leads para identificar este bot/cliente.',
+    addonWLLabel:'Agregar Branding Personalizado / Marca Blanca — <span style="color:var(--color-accent);">+$25/mes</span>', addonWLDesc:'Desbloquea la sección de marca, colores, eslogan y presentación sin marca NoCrickets', deploymentInfo:'Estos campos nos ayudan a duplicar el bot maestro sin tocar la lógica.', lBotSlug:'Slug sugerido del bot', hBotSlug:'Usado para nombre interno del bot y futuros enlaces públicos.', lWebhookSource:'Etiqueta de Webhook Source', hWebhookSource:'Usada en la hoja de leads para identificar este bot/cliente.',
     btnSubmit:'Enviar Cuestionario →',
-    successTxt:`<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ ¡Recibimos tu formulario!</div><p style="color:#8B90B3;margin-bottom:24px;">Elige tu plan para comenzar. Tu bot estará listo en 3–5 días hábiles después del pago.</p><div style="display:flex;flex-direction:column;gap:12px;max-width:360px;margin:0 auto;"><a href="https://buy.stripe.com/4gM14n9Tr0xBdutfgbefC03" target="_blank" style="display:block;background:#0D0D0D;color:#FFB454;border:2px solid #FFB454;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Starter — $99/mes<br><span style="font-size:13px;font-weight:400;color:#aaa;">Bot + captura de leads</span></a><a href="https://buy.stripe.com/7sYdR93v3gwz765d83efC02" target="_blank" style="display:block;background:#FFB454;color:#000;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Growth — $150/mes<br><span style="font-size:13px;font-weight:400;color:#004d1a;">Bot + leads + seguimiento automático por correo</span></a><a href="https://buy.stripe.com/fZu00j0iR1BFgGF4BxefC01" target="_blank" style="display:block;background:#0D0D0D;color:#FFB454;border:2px solid #FFB454;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Pro — $299/mes<br><span style="font-size:13px;font-weight:400;color:#aaa;">Automatización completa + página de reservas</span></a><a href="https://buy.stripe.com/dRm3cvghP5RVfCB6JFefC00" target="_blank" style="display:block;background:#0D0F24;color:#FFB454;border:1px solid #2E3252;padding:12px 24px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;">+ Agregar Marca Blanca — $25/mes<br><span style="font-size:12px;font-weight:400;color:#8B90B3;">Agregar a cualquier plan</span></a></div></div>`,
+    successTxt:`<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ ¡Recibimos tu formulario!</div><p style="color:var(--color-text-muted);margin-bottom:24px;">Elige tu plan para comenzar. Tu bot estará listo en 3–5 días hábiles después del pago.</p><div style="display:flex;flex-direction:column;gap:12px;max-width:360px;margin:0 auto;"><a href="https://buy.stripe.com/4gM14n9Tr0xBdutfgbefC03" target="_blank" style="display:block;background:#0D0D0D;color:var(--color-accent);border:2px solid var(--color-accent);padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Starter — $99/mes<br><span style="font-size:13px;font-weight:400;color:#aaa;">Bot + captura de leads</span></a><a href="https://buy.stripe.com/7sYdR93v3gwz765d83efC02" target="_blank" style="display:block;background:var(--color-accent);color:#000;padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Growth — $150/mes<br><span style="font-size:13px;font-weight:400;color:#004d1a;">Bot + leads + seguimiento automático por correo</span></a><a href="https://buy.stripe.com/fZu00j0iR1BFgGF4BxefC01" target="_blank" style="display:block;background:#0D0D0D;color:var(--color-accent);border:2px solid var(--color-accent);padding:16px 24px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Pro — $299/mes<br><span style="font-size:13px;font-weight:400;color:#aaa;">Automatización completa + página de reservas</span></a><a href="https://buy.stripe.com/dRm3cvghP5RVfCB6JFefC00" target="_blank" style="display:block;background:#0D0F24;color:var(--color-accent);border:1px solid #2E3252;padding:12px 24px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;">+ Agregar Marca Blanca — $25/mes<br><span style="font-size:12px;font-weight:400;color:var(--color-text-muted);">Agregar a cualquier plan</span></a></div></div>`,
     consult:'¿Requiere consulta?', consultY:'Sí', consultN:'No',
     apptNote:'ℹ️ El bot recopilará el horario preferido de tu cliente y lo registrará en tu hoja de leads. Tú confirmas directamente con el cliente.',
     addService:'+ Agregar Servicio',
@@ -1835,8 +1836,8 @@ async function handleSubmit(e) {
     const planLabel = planLabels[currentLang][selectedPlan.value];
 
     const successHTML = currentLang === 'es'
-      ? `<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ ¡Recibimos tu formulario!</div><p style="color:#8B90B3;margin-bottom:8px;">Seleccionaste: <strong>${planLabel}</strong></p><p style="color:#8B90B3;margin-bottom:24px;">Haz clic abajo para completar tu pago. Tu bot estará listo en 3–5 días hábiles.</p><a href="${stripeUrl}" target="_blank" style="display:inline-block;background:#FFB454;color:#000;padding:16px 32px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Pagar ahora →</a><p style="color:#8B90B3;font-size:13px;margin-top:20px;">¿Necesitas cambiar tu plan? Escríbenos a <a href="mailto:hello@nocrickets.co" style="color:#FFB454;">hello@nocrickets.co</a></p></div>`
-      : `<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ We received your submission!</div><p style="color:#8B90B3;margin-bottom:8px;">Selected plan: <strong>${planLabel}</strong></p><p style="color:#8B90B3;margin-bottom:24px;">Click below to complete your payment. Your bot will be ready within 3–5 business days.</p><a href="${stripeUrl}" target="_blank" style="display:inline-block;background:#FFB454;color:#000;padding:16px 32px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Pay now →</a><p style="color:#8B90B3;font-size:13px;margin-top:20px;">Need to change your plan? Email us at <a href="mailto:hello@nocrickets.co" style="color:#FFB454;">hello@nocrickets.co</a></p></div>`;
+      ? `<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ ¡Recibimos tu formulario!</div><p style="color:var(--color-text-muted);margin-bottom:8px;">Seleccionaste: <strong>${planLabel}</strong></p><p style="color:var(--color-text-muted);margin-bottom:24px;">Haz clic abajo para completar tu pago. Tu bot estará listo en 3–5 días hábiles.</p><a href="${stripeUrl}" target="_blank" style="display:inline-block;background:var(--color-accent);color:#000;padding:16px 32px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Pagar ahora →</a><p style="color:var(--color-text-muted);font-size:13px;margin-top:20px;">¿Necesitas cambiar tu plan? Escríbenos a <a href="mailto:hello@nocrickets.co" style="color:var(--color-accent);">hello@nocrickets.co</a></p></div>`
+      : `<div style="text-align:center;padding:8px 0;"><div style="font-size:18px;font-weight:700;margin-bottom:8px;">✅ We received your submission!</div><p style="color:var(--color-text-muted);margin-bottom:8px;">Selected plan: <strong>${planLabel}</strong></p><p style="color:var(--color-text-muted);margin-bottom:24px;">Click below to complete your payment. Your bot will be ready within 3–5 business days.</p><a href="${stripeUrl}" target="_blank" style="display:inline-block;background:var(--color-accent);color:#000;padding:16px 32px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;">Pay now →</a><p style="color:var(--color-text-muted);font-size:13px;margin-top:20px;">Need to change your plan? Email us at <a href="mailto:hello@nocrickets.co" style="color:var(--color-accent);">hello@nocrickets.co</a></p></div>`;
 
     document.getElementById('success-msg').style.display = 'block';
     document.getElementById('success-msg').innerHTML = successHTML;
@@ -1896,7 +1897,7 @@ document.querySelectorAll('input[name="plan"]').forEach(radio => {
       r.closest('label').style.borderColor = '#2E3252';
       r.closest('label').style.background = 'transparent';
     });
-    radio.closest('label').style.borderColor = '#FFB454';
+    radio.closest('label').style.borderColor = 'var(--color-accent)';
     radio.closest('label').style.background = 'rgba(255,180,84,0.08)';
     toggleConditionalSections();
   });
