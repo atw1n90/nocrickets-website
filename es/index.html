@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1256,6 +1256,7 @@ Nos encantaría ayudarte con [servicio]. Esto es lo que puedes esperar de nosotr
 };
 
 let currentLang = 'en';
+window.addEventListener('DOMContentLoaded', () => setLang('es'));
 
 function buildHours(lang) {
   const t = T[lang];
@@ -1329,7 +1330,7 @@ function applyLang(lang) {
     'l-fulfillment-message': t.lFulfillmentMessage, 'h-fulfillment-message': t.hFulfillmentMessage,
     'l-order-rules': t.lOrderRules, 'h-order-rules': t.hOrderRules,
     'l-photo-handling': t.lPhotoHandling,
-    
+
     'plan-label': t.planLabel, 'plan-section-title': t.planSectionTitle, 'plan-helper': t.planHelper, 'pro-email-upsell': t.proEmailUpsell,
     'plan-starter-label': t.planStarterLabel, 'plan-starter-desc': t.planStarterDesc,
     'plan-growth-label': t.planGrowthLabel, 'plan-growth-desc': t.planGrowthDesc,
