@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="160" viewBox="0 0 520 160">
+  <defs>
+    
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4" result="b1"></feGaussianBlur>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="b2"></feGaussianBlur>
+      <feMerge>
+        <feMergeNode in="b2"></feMergeNode>
+        <feMergeNode in="b1"></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    </filter>
+  </defs>
+  <text x="260" y="82" text-anchor="middle" class="script" filter="url(#glow)">no crickets</text>
+  <text x="260" y="132" text-anchor="middle" class="tag">OPEN 24 HOURS</text>
+</svg>

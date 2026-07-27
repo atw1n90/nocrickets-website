@@ -47,3 +47,12 @@
 - [x] Mark legacy HTML files as `noindex`.
 - [x] Render-check current public pages after fixes.
 - [x] Commit and push PR update.
+
+## NoCrickets Brand Kit and Favicon
+
+- [x] Create a clean branch from the current website repo state.
+- [x] Extract the uploaded favicon and brand kit archives.
+- [x] Save brand kit/logo/favicon assets into the repo without disturbing legal, ES, or legacy pages.
+- [x] Update current EN/ES website pages to use the new favicon.
+- [x] Verify page loads and favicon asset paths locally.
+- [x] Commit, push branch, and prepare/open PR to `main`.

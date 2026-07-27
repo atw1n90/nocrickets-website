@@ -45,3 +45,11 @@
 - Added `sitemap.xml` for EN and ES homepage, pricing, privacy, and terms pages.
 - Added `_headers` with baseline static security headers and `X-Robots-Tag` for `/legacy/*`.
 - Marked preserved legacy HTML as `noindex, nofollow, noarchive` and added `legacy/README.md` to prevent accidental reuse as current content.
+
+## 2026-07-26 Brand Kit and Favicon
+
+- Created branch `brand-assets-favicon-2026`.
+- Added the uploaded favicon set under `favicons/` and the uploaded brand kit under `brand-kit/`.
+- Refreshed root `favicon.png` and `favicon.ico` fallbacks from the new favicon artwork.
+- Updated current English and Spanish homepage, pricing, privacy policy, and terms pages to point at the new favicon files.
+- Local static smoke check passed for all current public pages, root favicon fallbacks, favicon variants, and brand SVG files.
