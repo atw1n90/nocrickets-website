@@ -9,3 +9,12 @@
 - [x] Validate links and static files.
 - [x] Commit and push branch to GitHub.
 - [ ] Open PR to `main` once GitHub PR-create permission is available.
+
+## NoCrickets EN Legal Pages
+
+- [x] Create `en-legal-pages-2026` from current `origin/main`.
+- [x] Extract uploaded English legal files.
+- [x] Replace only root `privacy-policy.html` and `terms-and-conditions.html`.
+- [x] Preserve homepage, pricing, pending ES branch work, and `legacy/`.
+- [x] Validate root legal pages render.
+- [ ] Commit, push branch, and open PR to `main`.
