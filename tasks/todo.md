@@ -63,7 +63,7 @@
 - [x] Move current website repo files into `/website`.
 - [x] Add empty `/onboarding` and `/shared` folders.
 - [x] Fetch `atw1n90/nocrickets-onboarding` as a temporary remote.
-- [ ] Merge onboarding history with unrelated histories allowed.
-- [ ] Place onboarding files under `/onboarding`.
-- [ ] Review duplicated brand, CSS, font, logo, and color-token assets for future `/shared` cleanup.
-- [ ] Report local-only status and manual deploy/routing review items.
+- [x] Merge onboarding history with unrelated histories allowed.
+- [x] Place onboarding files under `/onboarding`.
+- [x] Review duplicated brand, CSS, font, logo, and color-token assets for future `/shared` cleanup.
+- [x] Report local-only status and manual deploy/routing review items.

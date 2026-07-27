@@ -54,3 +54,12 @@
 - Updated current English and Spanish homepage, pricing, privacy policy, and terms pages to point at the new favicon files.
 - Local static smoke check passed for all current public pages, root favicon fallbacks, favicon variants, and brand SVG files.
 - Cleaned public page titles to use plain ASCII hyphens so browser tabs do not show garbled dash characters.
+
+## 2026-07-27 Repo Merge
+
+- Created local-only branch `merge-repos` from current `origin/main`.
+- Moved website files into `/website` and added `/shared/.gitkeep`.
+- Fetched the existing local `nocrickets-onboarding` clone as the onboarding remote after GitHub HTTPS auth blocked direct fetch.
+- Preserved onboarding history by moving onboarding files into `/onboarding` on a temporary local branch, then merging that branch with `--allow-unrelated-histories`.
+- Left deploy configuration unchanged for later review.
+- Identified shared candidates: Google font import, core color tokens, favicon/logo assets, and repeated brand styling.
