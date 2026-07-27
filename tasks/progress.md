@@ -36,3 +36,12 @@
 - Added client responsibility language for customer consent, privacy compliance, accurate business settings, chatbot configuration, escalation instructions, and review of AI outputs.
 - Added privacy/terms improvements covering AI-output limits, service providers, retention/export before cancellation, U.S. privacy rights, indemnification, and electronic communications.
 - Corrected stale legal-page pricing so Growth is `$150/month` and the white-label add-on is `+$25/month`.
+
+## 2026-07-26 Audit Fixes
+
+- Fixed the audit's live-site contact mismatch by replacing the stale NoCrickets contact email with `admin@caelumgroupventures.com` across current homepage/pricing bundles and legacy pages.
+- Cleaned stale legacy phone/pricing references to `940-308-0607`, Growth `$150`, and white-label `+$25`.
+- Added `robots.txt` to disallow `/legacy/` and point crawlers to `sitemap.xml`.
+- Added `sitemap.xml` for EN and ES homepage, pricing, privacy, and terms pages.
+- Added `_headers` with baseline static security headers and `X-Robots-Tag` for `/legacy/*`.
+- Marked preserved legacy HTML as `noindex, nofollow, noarchive` and added `legacy/README.md` to prevent accidental reuse as current content.
