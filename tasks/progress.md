@@ -53,3 +53,4 @@
 - Refreshed root `favicon.png` and `favicon.ico` fallbacks from the new favicon artwork.
 - Updated current English and Spanish homepage, pricing, privacy policy, and terms pages to point at the new favicon files.
 - Local static smoke check passed for all current public pages, root favicon fallbacks, favicon variants, and brand SVG files.
+- Cleaned public page titles to use plain ASCII hyphens so browser tabs do not show garbled dash characters.
