@@ -7,4 +7,5 @@
 - [x] Place redesigned `index.html` and `pricing.html` at repo root.
 - [x] Re-inject preserved snippets carefully near the top of `<head>` / appropriate body location.
 - [x] Validate links and static files.
-- [ ] Commit, push branch, and open PR to `main`.
+- [x] Commit and push branch to GitHub.
+- [ ] Open PR to `main` once GitHub PR-create permission is available.
