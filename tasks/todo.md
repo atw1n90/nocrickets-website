@@ -56,3 +56,14 @@
 - [x] Update current EN/ES website pages to use the new favicon.
 - [x] Verify page loads and favicon asset paths locally.
 - [x] Commit, push branch, and prepare/open PR to `main`.
+
+## NoCrickets Repo Merge 2026-07-27
+
+- [x] Create local `merge-repos` branch without touching `main`.
+- [x] Move current website repo files into `/website`.
+- [x] Add empty `/onboarding` and `/shared` folders.
+- [ ] Fetch `atw1n90/nocrickets-onboarding` as a temporary remote.
+- [ ] Merge onboarding history with unrelated histories allowed.
+- [ ] Place onboarding files under `/onboarding`.
+- [ ] Review duplicated brand, CSS, font, logo, and color-token assets for future `/shared` cleanup.
+- [ ] Report local-only status and manual deploy/routing review items.
