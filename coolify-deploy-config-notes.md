@@ -225,3 +225,73 @@ Publish Directory: /website or /onboarding
 
 Then immediately test `/shared/fonts.css` on each domain. If it 404s, Coolify is only copying the publish folder, so use the Nginx alias/custom Dockerfile fallback.
 
+## Current Main Branch Coolify Settings
+
+Use these settings after the repo was merged into `main`.
+
+### Onboarding Container
+
+```text
+Repository: atw1n90/nocrickets-website
+Branch: main
+Build strategy: Static
+Web server: nginx:alpine
+Base directory: /
+Domain: https://onboarding.nocrickets.co
+```
+
+Custom Nginx configuration:
+
+```nginx
+server {
+    listen 80;
+    server_name _;
+
+    root /usr/share/nginx/html/onboarding;
+    index index.html;
+
+    location /shared/ {
+        alias /usr/share/nginx/html/shared/;
+    }
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}
+```
+
+### Website Container
+
+```text
+Repository: atw1n90/nocrickets-website
+Branch: main
+Build strategy: Static
+Web server: nginx:alpine
+Base directory: /
+Domain: https://nocrickets.co, https://www.nocrickets.co
+```
+
+Custom Nginx configuration:
+
+```nginx
+server {
+    listen 80;
+    server_name _;
+
+    root /usr/share/nginx/html/website;
+    index index.html;
+
+    location /shared/ {
+        alias /usr/share/nginx/html/shared/;
+    }
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}
+```
+
+### Why This Fixes The Current Onboarding Issue
+
+Do not set the onboarding Base directory to `/onboarding` when using the custom config above. If Base directory is `/onboarding`, Coolify copies that folder as the deployed root, and nginx then looks for `/usr/share/nginx/html/onboarding/index.html`, which does not exist in that image. Setting Base directory to `/` keeps `/website`, `/onboarding`, and `/shared` available inside the image, then nginx chooses which folder is served at `/`.
+
