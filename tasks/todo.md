@@ -77,3 +77,29 @@
 - [x] Update `/onboarding` pages to reference shared fonts, tokens, and assets.
 - [x] Render-check `/website` and `/onboarding` from the monorepo root.
 - [x] Report deploy path caveats before any push.
+
+## NoCrickets P2 Live Shared Asset Verification 2026-09-03
+
+- [x] Verify `https://nocrickets.co/` returns `200`.
+- [x] Verify `https://nocrickets.co/shared/tokens.css` returns `200`.
+- [x] Verify `https://onboarding.nocrickets.co/` returns `200`.
+- [x] Confirm live onboarding HTML references `/shared/fonts.css`, `/shared/tokens.css`, and shared favicon paths.
+- [x] Confirm `https://onboarding.nocrickets.co/shared/tokens.css`, `/shared/fonts.css`, and `/shared/favicons/favicon-48x48.png` still return `404`.
+- [x] Update AGENTS.md with the current monorepo-on-main deployment decision and live onboarding shared-asset issue.
+
+## NoCrickets P2 Spanish Toggle Polish 2026-09-03
+
+- [x] Review current website and onboarding language-toggle behavior.
+- [x] Confirm website pages already use `EN` / `ES` language buttons.
+- [x] Change onboarding language buttons from `English` / `Español` to `EN` / `ES`.
+- [x] Wire Spanish translation for onboarding social media label, hint, and placeholder.
+- [x] Wire Spanish translation for remaining onboarding option labels that were still visible in English.
+- [x] Verify Spanish language switch updates the patched onboarding text.
+- [x] Surgically update AGENTS.md with the key translation finding.
+
+## NoCrickets P2 Booking Preview Link 2026-09-03
+
+- [x] Change onboarding booking preview display to `https://booking.nocrickets.co/`.
+- [x] Make the preview URL clickable.
+- [x] Add EN/ES note that the preview is for a beauty studio and will be personalized to the user's business.
+- [x] Verify the preview text renders correctly in English and Spanish.

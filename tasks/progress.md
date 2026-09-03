@@ -74,3 +74,27 @@
 - Removed stale website-root favicon fallbacks after confirming no references remained.
 - Local monorepo-root render check passed for website, website pricing/legal/ES, and onboarding EN/ES with no shared-asset 404s, no horizontal overflow, and no visible character junk.
 - Deploy caveat: `/shared` works when served from the monorepo root or explicitly exposed by the web server; a static server rooted only at `/website` or `/onboarding` will not automatically serve sibling `/shared` files.
+
+## 2026-09-03 P2 Live Verification
+
+- Confirmed the merged monorepo is now on `main` in the `nocrickets-website` repo and local source is clean.
+- Live website checks passed: `https://nocrickets.co/` returns `200`, and `https://nocrickets.co/shared/tokens.css` returns `200`.
+- Live onboarding homepage returns `200`, and its HTML references `/shared/fonts.css`, `/shared/tokens.css`, and shared favicon files.
+- Live onboarding shared assets still return `404` for `/shared/tokens.css`, `/shared/fonts.css`, and `/shared/favicons/favicon-48x48.png`.
+- Plain-English finding: onboarding source is deployed, but the onboarding container is not exposing the sibling `/shared` folder. The likely fix is a Coolify setting/config update, not an HTML change.
+
+## 2026-09-03 P2 Spanish Toggle Polish
+
+- Confirmed current website pages already use compact `EN` / `ES` language buttons.
+- Updated onboarding English and Spanish routes to use `EN` / `ES` instead of `English` / `Español`.
+- Fixed the onboarding Spanish translation wiring for the social media field, including label, helper text, and placeholder examples.
+- Added Spanish display text wiring for phone/email option labels plus order-intake and photo-handling labels that were still visible in English after switching to Spanish.
+- Verification used a terminal-based DOM simulation because local browser `file://` rendering was blocked by browser security policy. The simulation confirmed the patched onboarding fields render Spanish text after `setLang('es')`.
+
+## 2026-09-03 P2 Booking Preview Link
+
+- Updated the onboarding booking preview block in both English and Spanish routes to show the correct preview URL: `https://booking.nocrickets.co/`.
+- Made the preview URL clickable and opened in a new tab with `rel="noopener noreferrer"`.
+- Added EN/ES helper copy explaining that the preview is for a beauty studio and that the user's booking page will be personalized to their business.
+- Verified the generated preview HTML in English and Spanish with a terminal-based DOM simulation.
+- Live URL check passed: `https://booking.nocrickets.co/` returns `200`.

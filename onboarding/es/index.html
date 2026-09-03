@@ -380,8 +380,8 @@
 
 <!-- LANG BAR -->
 <div class="lang-bar">
-  <button class="lang-btn active" onclick="setLang('en')" id="btn-en">English</button>
-  <button class="lang-btn" onclick="setLang('es')" id="btn-es">Español</button>
+  <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+  <button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
 </div>
 
 <!-- HERO -->
@@ -449,12 +449,12 @@
         <div class="options-group" style="margin-top:8px">
           <div class="option-pill"><input type="radio" name="contact" id="c-wa" value="WhatsApp"><label for="c-wa">WhatsApp</label></div>
           <div class="option-pill"><input type="radio" name="contact" id="c-ph" value="Phone"><label for="c-ph" id="l-c-ph">Phone</label></div>
-          <div class="option-pill"><input type="radio" name="contact" id="c-em" value="Email"><label for="c-em">Email</label></div>
+          <div class="option-pill"><input type="radio" name="contact" id="c-em" value="Email"><label for="c-em" id="l-c-em">Email</label></div>
         </div>
       </div>
       <div class="field">
-        <label for="biz-social">Social Media Links</label>
-        <div class="field-hint">Instagram, Facebook, TikTok, or any other profiles</div>
+        <label for="biz-social" id="l-biz-social">Social Media Links</label>
+        <div class="field-hint" id="h-biz-social">Instagram, Facebook, TikTok, or any other profiles</div>
         <textarea id="biz-social" rows="3" placeholder="Instagram: https://instagram.com/yourbusiness&#10;Facebook: https://facebook.com/yourbusiness"></textarea>
       </div>
     </div>
@@ -979,7 +979,7 @@ A: We ask for 24 hours notice."></textarea>
         <div class="options-group">
           <div class="option-pill"><input type="radio" name="followup" id="f-wa" value="WhatsApp"><label for="f-wa">WhatsApp</label></div>
           <div class="option-pill"><input type="radio" name="followup" id="f-ph" value="Phone"><label for="f-ph" id="l-f-ph">Phone</label></div>
-          <div class="option-pill"><input type="radio" name="followup" id="f-em" value="Email"><label for="f-em">Email</label></div>
+          <div class="option-pill"><input type="radio" name="followup" id="f-em" value="Email"><label for="f-em" id="l-f-em">Email</label></div>
         </div>
       </div>
       <div class="field">
@@ -1059,7 +1059,7 @@ const T = {
     sBookingTitle:'Booking Workflow', sLeadFieldsTitle:'Information the Bot Should Collect', sEscalationTitle:'Escalation & Safety Rules',
     lBookingHandle:'How should the chatbot handle appointment or booking requests?', lBwLink:'Let customer choose: book online or contact me', lBwRequest:'Contact-me only', lBwCall:'Ask customer to call', lBwText:'Ask customer to text',
     lBookingSetup:'Booking page setup', hBookingSetup:'For Growth/Pro clients, this maps to the bot\'s BookingURL field.', lBsExisting:'Use existing booking URL', lBsNc:'Create NoCrickets booking page', lBsNone:'No online booking',
-    lBookingUrl:'Existing Booking URL', hBookingUrl:'Calendly, Square, Fresha, Google Calendar booking page, website booking page, etc.', lBookingSubdomain:'Preferred NoCrickets Booking Subdomain', hBookingSubdomain:'Normal clients use booking-clientname.nocrickets.co.', lWhiteLabelDomain:'White-label Booking Domain', hWhiteLabelDomain:'Optional. Only if they own/control a domain.', lDomainAccess:'Domain/DNS access notes', hDomainAccess:'Who can update DNS if using a white-label booking domain?',
+    lBookingUrl:'Existing Booking URL', hBookingUrl:'Calendly, Square, Fresha, Google Calendar booking page, website booking page, etc.', lBookingSubdomain:'Preferred NoCrickets Booking Subdomain', hBookingSubdomain:'Normal clients use booking-clientname.nocrickets.co.', bookingPreviewLabel:'Booking page preview:', bookingPreviewNote:'This preview is for a beauty studio. Your booking page will be personalized to your business.', lWhiteLabelDomain:'White-label Booking Domain', hWhiteLabelDomain:'Optional. Only if they own/control a domain.', lDomainAccess:'Domain/DNS access notes', hDomainAccess:'Who can update DNS if using a white-label booking domain?',
     lBookingNotes:'Booking rules or notes', hBookingNotes:'Example: new clients need consultations, deposits required, confirmations by phone only',
     lLeadFields:'Select the customer information your chatbot should collect', hLeadFields:'Leave anything unchecked if it does not apply.',
     lfName:'Name', lfPhone:'Phone', lfEmail:'Email', lfService:'Service Needed', lfDate:'Preferred Date', lfTime:'Preferred Time', lfAddress:'Address', lfBudget:'Budget', lfProject:'Project Details', lCustomLeadFields:'Other fields to collect',
@@ -1082,8 +1082,9 @@ const T = {
     lBizAddress:'Full Business Address', lBizWebsite:'Website URL', lBizPhone:'Business Phone *',
     lBizEmail:'Business Email *',
     lBizWhatsapp:'WhatsApp Number', hBizWhatsapp:'',
-    lBizContact:'Preferred Customer Contact', lBizSocial:'Social Media Links',
+    lBizContact:'Preferred Customer Contact', lContactPhone:'Phone', lContactEmail:'Email', lBizSocial:'Social Media Links',
     hBizSocial:'Instagram, Facebook, TikTok, or any other profiles',
+    bizSocialPh:'Instagram: https://instagram.com/yourbusiness\nFacebook: https://facebook.com/yourbusiness',
     // S2 labels
     lAppt:'Do you accept appointments, walk-ins, or both?',
     lAReq:'Appointments only', lAWalk:'Walk-ins welcome', lABoth:'Both',
@@ -1150,6 +1151,11 @@ We look forward to hearing from you!
     lFulfillmentMessage:'Fulfillment / Success Message', hFulfillmentMessage:'What the bot tells the customer after their order is submitted',
     lOrderRules:'Order Bot Rules', hOrderRules:'Pre-checked rules written into the bot instructions. Uncheck only if not applicable.',
     lPhotoHandling:'Photo Handling',
+    ofName:'Customer name', ofPhone:'WhatsApp / phone', ofProduct:'Product or part needed',
+    ofQty:'Quantity', ofVbrand:'Vehicle / equipment brand', ofVmodel:'Vehicle / equipment model',
+    ofVyear:'Vehicle / equipment year', ofVin:'VIN or plate (optional)',
+    ofFulfillment:'Pickup / delivery preference', ofAddress:'Delivery city / address if delivery',
+    ofNotes:'Notes', phWa:'Customer can send photos by WhatsApp', phNo:'Bot should not mention photos',
   },
   es: {
     heroTitle:'Cuestionario de Incorporación',
@@ -1166,7 +1172,7 @@ We look forward to hearing from you!
     sBookingTitle:'Flujo de Reservas', sLeadFieldsTitle:'Información que el Bot Debe Recopilar', sEscalationTitle:'Reglas de Escalación y Seguridad',
     lBookingHandle:'¿Cómo debe manejar el chatbot las solicitudes de cita o reserva?', lBwLink:'Dejar que el cliente elija: reservar en línea o que lo contacten', lBwRequest:'Solo que lo contacten', lBwCall:'Pedir al cliente que llame', lBwText:'Pedir al cliente que mande texto',
     lBookingSetup:'Configuración de página de reservas', hBookingSetup:'Para clientes Growth/Pro, esto alimenta el campo BookingURL del bot.', lBsExisting:'Usar URL de reserva existente', lBsNc:'Crear página de reservas NoCrickets', lBsNone:'Sin reserva en línea',
-    lBookingUrl:'URL de reserva existente', hBookingUrl:'Calendly, Square, Fresha, Google Calendar, página de reserva del sitio web, etc.', lBookingSubdomain:'Subdominio de reservas NoCrickets preferido', hBookingSubdomain:'Clientes normales usan booking-clientname.nocrickets.co.', lWhiteLabelDomain:'Dominio de reserva marca blanca', hWhiteLabelDomain:'Opcional. Solo si poseen/controlan un dominio.', lDomainAccess:'Notas de acceso DNS/dominio', hDomainAccess:'¿Quién puede actualizar DNS si usan dominio de marca blanca?',
+    lBookingUrl:'URL de reserva existente', hBookingUrl:'Calendly, Square, Fresha, Google Calendar, página de reserva del sitio web, etc.', lBookingSubdomain:'Subdominio de reservas NoCrickets preferido', hBookingSubdomain:'Clientes normales usan booking-clientname.nocrickets.co.', bookingPreviewLabel:'Vista previa de la página de reservas:', bookingPreviewNote:'Esta vista previa es para un estudio de belleza. Tu página de reservas será personalizada para tu negocio.', lWhiteLabelDomain:'Dominio de reserva marca blanca', hWhiteLabelDomain:'Opcional. Solo si poseen/controlan un dominio.', lDomainAccess:'Notas de acceso DNS/dominio', hDomainAccess:'¿Quién puede actualizar DNS si usan dominio de marca blanca?',
     lBookingNotes:'Reglas o notas de reserva', hBookingNotes:'Ejemplo: clientes nuevos necesitan consulta, depósito requerido, confirmación solo por teléfono',
     lLeadFields:'Selecciona la información del cliente que debe recopilar el chatbot', hLeadFields:'Deja sin marcar lo que no aplica.',
     lfName:'Nombre', lfPhone:'Teléfono', lfEmail:'Correo', lfService:'Servicio Necesario', lfDate:'Fecha Preferida', lfTime:'Hora Preferida', lfAddress:'Dirección', lfBudget:'Presupuesto', lfProject:'Detalles del Proyecto', lCustomLeadFields:'Otros campos para recopilar',
@@ -1185,12 +1191,13 @@ We look forward to hearing from you!
     apptNote:'ℹ️ El bot recopilará el horario preferido de tu cliente y lo registrará en tu hoja de leads. Tú confirmas directamente con el cliente.',
     addService:'+ Agregar Servicio',
     // S1 labels
-    lBizName:'Nombre del Negocio *', lBizType:'Tipo de Negocio *', lBizTypePh:'Salón, Restaurante, Retail…', lBizDescription:'Descripción Corta del Negocio *', hBizDescription:'Una frase sencilla que el bot puede usar para explicar qué hace el negocio.',
+    lBizName:'Nombre del Negocio *', lBizType:'Tipo de Negocio *', lBizTypePh:'Salón, Restaurante, Venta al por menor…', lBizDescription:'Descripción Corta del Negocio *', hBizDescription:'Una frase sencilla que el bot puede usar para explicar qué hace el negocio.',
     lBizAddress:'Dirección Completa', lBizWebsite:'Sitio Web', lBizPhone:'Teléfono del Negocio *',
     lBizEmail:'Correo del Negocio *',
     lBizWhatsapp:'Número de WhatsApp', hBizWhatsapp:'',
-    lBizContact:'Método de Contacto Preferido', lBizSocial:'Redes Sociales',
+    lBizContact:'Método de Contacto Preferido', lContactPhone:'Teléfono', lContactEmail:'Correo', lBizSocial:'Enlaces de Redes Sociales',
     hBizSocial:'Instagram, Facebook, TikTok u otros perfiles',
+    bizSocialPh:'Instagram: https://instagram.com/tunegocio\nFacebook: https://facebook.com/tunegocio',
     // S2 labels
     lAppt:'¿Aceptas citas, clientes sin cita, o ambos?',
     lAReq:'Solo con cita', lAWalk:'Sin cita bienvenido', lABoth:'Ambos',
@@ -1257,6 +1264,11 @@ Nos encantaría ayudarte con [servicio]. Esto es lo que puedes esperar de nosotr
     lFulfillmentMessage:'Mensaje de Confirmacion de Pedido', hFulfillmentMessage:'Lo que el bot le dice al cliente despues de enviar su pedido',
     lOrderRules:'Reglas del Bot de Pedidos', hOrderRules:'Reglas pre-seleccionadas escritas en las instrucciones del bot. Desmarca solo si no aplica.',
     lPhotoHandling:'Manejo de Fotos',
+    ofName:'Nombre del cliente', ofPhone:'WhatsApp / teléfono', ofProduct:'Producto o pieza necesaria',
+    ofQty:'Cantidad', ofVbrand:'Marca del vehículo / equipo', ofVmodel:'Modelo del vehículo / equipo',
+    ofVyear:'Año del vehículo / equipo', ofVin:'VIN o placa (opcional)',
+    ofFulfillment:'Preferencia de recogida / entrega', ofAddress:'Ciudad / dirección de entrega si aplica',
+    ofNotes:'Notas', phWa:'El cliente puede enviar fotos por WhatsApp', phNo:'El bot no debe mencionar fotos',
   }
 };
 
@@ -1346,6 +1358,8 @@ function applyLang(lang) {
     'l-biz-address': t.lBizAddress, 'l-biz-website': t.lBizWebsite, 'l-biz-email': t.lBizEmail,
     'l-biz-phone': t.lBizPhone, 'l-biz-whatsapp': t.lBizWhatsapp,
     'h-biz-whatsapp': t.hBizWhatsapp, 'l-biz-contact': t.lBizContact,
+    'l-c-ph': t.lContactPhone, 'l-c-em': t.lContactEmail,
+    'l-biz-social': t.lBizSocial, 'h-biz-social': t.hBizSocial,
     // S2
     'l-appt': t.lAppt, 'l-a-req': t.lAReq, 'l-a-walk': t.lAWalk, 'l-a-both': t.lABoth,
     'l-advance-book': t.lAdvanceBook, 'l-blackout': t.lBlackout,
@@ -1360,12 +1374,19 @@ function applyLang(lang) {
     // S6
     'l-lead-name': t.lLeadName, 'l-lead-email': t.lLeadEmail,
     'l-followup-speed': t.lFollowupSpeed, 'l-followup-method': t.lFollowupMethod,
+    'l-f-ph': t.lContactPhone, 'l-f-em': t.lContactEmail,
     'l-lead-notes': t.lLeadNotes, 'l-email-content': t.lEmailContent,
     'h-email-content': t.hEmailContent, 'l-approve-email': t.lApproveEmail,
     'l-ae-y': t.lAeY, 'l-ae-n': t.lAeN,
     // S7
     'l-brand-colors': t.lBrandColors, 'h-brand-colors': t.hBrandColors,
     'l-tagline': t.lTagline, 'l-brand-notes': t.lBrandNotes,
+    'of-name-label': t.ofName, 'of-phone-label': t.ofPhone,
+    'of-product-label': t.ofProduct, 'of-qty-label': t.ofQty,
+    'of-vbrand-label': t.ofVbrand, 'of-vmodel-label': t.ofVmodel,
+    'of-vyear-label': t.ofVyear, 'of-vin-label': t.ofVin,
+    'of-fulfillment-label': t.ofFulfillment, 'of-address-label': t.ofAddress,
+    'of-notes-label': t.ofNotes, 'ph-wa-label': t.phWa, 'ph-no-label': t.phNo,
   };
 
   Object.entries(ids).forEach(([id, val]) => {
@@ -1375,7 +1396,8 @@ function applyLang(lang) {
 
   // Update placeholders
   const phs = {
-    'biz-type': t.lBizTypePh, 'advance-book': t.lAdvanceBookPh,
+    'biz-type': t.lBizTypePh, 'biz-social': t.bizSocialPh,
+    'advance-book': t.lAdvanceBookPh,
     'competitors': t.lCompetitorsPh, 'followup-speed': t.lFollowupSpeedPh,
     'faq-textarea': t.lFaqPh,
   };
@@ -1392,6 +1414,7 @@ function applyLang(lang) {
   const emailEl = document.getElementById('email-content');
   if (emailEl) emailEl.value = t.emailTemplate;
 
+  updateBookingPreview();
   buildHours(lang);
   buildServices(lang);
 }
@@ -1493,14 +1516,9 @@ function updateAutoDeploymentFields() {
 function updateBookingPreview() {
   const preview = document.getElementById('booking-url-preview');
   if (!preview) return;
-  const fake = {
-    bizName: document.getElementById('biz-name')?.value || '',
-    botSlug: document.getElementById('bot-slug')?.value || '',
-    bookingUrl: document.getElementById('booking-url')?.value || '',
-    bookingSubdomain: document.getElementById('booking-subdomain')?.value || '',
-    whiteLabelBookingDomain: document.getElementById('white-label-domain')?.value || ''
-  };
-  preview.textContent = 'BookingURL preview: ' + (deriveBookingUrl(fake) || '—');
+  const dict = T[currentLang] || T.en;
+  const previewUrl = 'https://booking.nocrickets.co/';
+  preview.innerHTML = `<div>${dict.bookingPreviewLabel} <a href="${previewUrl}" target="_blank" rel="noopener noreferrer" style="color:var(--green);text-decoration:underline;">${previewUrl}</a></div><div style="font-size:13px;color:var(--text-dim);margin-top:6px;line-height:1.45;">${dict.bookingPreviewNote}</div>`;
 }
 
 function buildFeatureFlags(plan, whiteLabelAddon) {
