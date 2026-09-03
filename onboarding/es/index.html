@@ -10,17 +10,22 @@
 <link rel="stylesheet" href="/shared/tokens.css">
 <style>
   :root {
-    --green: var(--color-accent);
+    --color-accent: #FFB454;
+    --color-bg-dark: #0A0C18;
+    --color-text: #EEF0FF;
+    --color-text-muted: #8B90B3;
+    --color-border: #23274A;
+    --green: var(--color-accent, #FFB454);
     --green-dim: rgba(255,180,84,0.08);
     --green-border: rgba(255,180,84,0.25);
-    --dark: var(--color-bg-dark);
+    --dark: var(--color-bg-dark, #0A0C18);
     --dark2: #12142B;
     --dark3: #181B36;
-    --dark4: var(--color-border);
-    --text: var(--color-text);
-    --text-dim: var(--color-text-muted);
+    --dark4: var(--color-border, #23274A);
+    --text: var(--color-text, #EEF0FF);
+    --text-dim: var(--color-text-muted, #8B90B3);
     --muted: #4A4F72;
-    --border: var(--color-border);
+    --border: var(--color-border, #23274A);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
