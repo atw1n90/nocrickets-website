@@ -98,3 +98,9 @@
 - Added EN/ES helper copy explaining that the preview is for a beauty studio and that the user's booking page will be personalized to their business.
 - Verified the generated preview HTML in English and Spanish with a terminal-based DOM simulation.
 - Live URL check passed: `https://booking.nocrickets.co/` returns `200`.
+
+## 2026-09-20 DBA Footer Line
+
+- Added the approved footer/legal identity line to the current website and onboarding pages: `NoCrickets is a DBA of Caelum Group Ventures LLC · 5900 Balcones Drive STE 100, Austin, TX 78731`.
+- Omitted the phone number from public footers on purpose to reduce unnecessary phone traffic; contact/legal pages can keep fuller contact details where needed.
+- Verified each edited public page has exactly one DBA/address line and that the new footer line does not include `940-308-0607`.

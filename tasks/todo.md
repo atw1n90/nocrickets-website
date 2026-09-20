@@ -103,3 +103,10 @@
 - [x] Make the preview URL clickable.
 - [x] Add EN/ES note that the preview is for a beauty studio and will be personalized to the user's business.
 - [x] Verify the preview text renders correctly in English and Spanish.
+
+## NoCrickets DBA Footer Line 2026-09-20
+
+- [x] Add the approved no-phone DBA/address line to current website footer pages.
+- [x] Add a matching no-phone DBA/address footer line to onboarding pages.
+- [x] Verify the new footer line does not include the contact phone number.
+- [x] Update progress notes and AGENTS.md with the footer decision.
