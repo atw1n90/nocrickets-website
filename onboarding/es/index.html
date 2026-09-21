@@ -54,13 +54,28 @@
     background: var(--dark2);
     padding: 10px 24px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     gap: 8px;
     position: sticky;
     top: 0;
     z-index: 100;
     border-bottom: 1px solid var(--border);
+  }
+  .home-link {
+    color: var(--text-dim);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .home-link:hover { color: var(--green); }
+  .lang-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
   .lang-btn {
     background: transparent;
@@ -391,8 +406,11 @@
 
 <!-- LANG BAR -->
 <div class="lang-bar">
-  <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
-  <button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+  <a class="home-link" href="https://nocrickets.co/">← nocrickets.co</a>
+  <div class="lang-actions">
+    <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+    <button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+  </div>
 </div>
 
 <!-- HERO -->

@@ -104,3 +104,10 @@
 - Added the approved footer/legal identity line to the current website and onboarding pages: `NoCrickets is a DBA of Caelum Group Ventures LLC · 5900 Balcones Drive STE 100, Austin, TX 78731`.
 - Omitted the phone number from public footers on purpose to reduce unnecessary phone traffic; contact/legal pages can keep fuller contact details where needed.
 - Verified each edited public page has exactly one DBA/address line and that the new footer line does not include `940-308-0607`.
+
+## 2026-09-20 Demo Email And Onboarding Back Link
+
+- Replaced the homepage demo timeline email `maria___@gmail.com` with `customer@example.com` on English and Spanish website pages.
+- Added a sticky top-bar link from both onboarding routes back to `https://nocrickets.co/`.
+- Kept the onboarding `EN` / `ES` language buttons in the same top bar.
+- Verified the old demo email no longer appears in website/onboarding source except in this task record.

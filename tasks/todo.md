@@ -110,3 +110,10 @@
 - [x] Add a matching no-phone DBA/address footer line to onboarding pages.
 - [x] Verify the new footer line does not include the contact phone number.
 - [x] Update progress notes and AGENTS.md with the footer decision.
+
+## NoCrickets Demo Email And Onboarding Back Link 2026-09-20
+
+- [x] Replace the sample `maria___@gmail.com` demo email with `customer@example.com`.
+- [x] Add a clear link from onboarding back to `https://nocrickets.co/`.
+- [x] Verify both onboarding language routes keep the back link and language toggle.
+- [x] Update progress notes and AGENTS.md with the navigation/demo-email decision.
