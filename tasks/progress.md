@@ -111,3 +111,10 @@
 - Added a sticky top-bar link from both onboarding routes back to `https://nocrickets.co/`.
 - Kept the onboarding `EN` / `ES` language buttons in the same top bar.
 - Verified the old demo email no longer appears in website/onboarding source except in this task record.
+
+## 2026-09-21 WhatsApp Privacy Policy Coverage
+
+- Added a WhatsApp/client-bot message subsection to the English and Spanish privacy policies.
+- Covered WhatsApp message content, sender contact information, timestamps, lead details, booking requests, and related conversation metadata processed on behalf of client businesses.
+- Stated the data is used only to operate the client's bot, respond to inquiries, capture leads, support bookings, provide notifications, troubleshoot, maintain security, and deliver the NoCrickets service.
+- Included no-sale language, deletion-request routing, retention caveats, and sensitive/regulated-data limits.

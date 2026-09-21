@@ -117,3 +117,10 @@
 - [x] Add a clear link from onboarding back to `https://nocrickets.co/`.
 - [x] Verify both onboarding language routes keep the back link and language toggle.
 - [x] Update progress notes and AGENTS.md with the navigation/demo-email decision.
+
+## NoCrickets WhatsApp Privacy Policy Section 2026-09-21
+
+- [x] Add a WhatsApp/client-bot message subsection to the English privacy policy.
+- [x] Add the equivalent subsection to the Spanish privacy policy.
+- [x] Verify the section covers message data, client-bot use, no sale of message data, retention/deletion, and sensitive-data limits.
+- [x] Update progress notes and AGENTS.md with the WhatsApp privacy coverage decision.
