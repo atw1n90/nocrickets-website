@@ -1,5 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="520" height="160" viewBox="0 0 520 160">
   <defs>
+    <style>
+      .script {
+        fill: #FFB454;
+        font-family: "Pacifico", "Brush Script MT", cursive;
+        font-size: 68px;
+        font-weight: 400;
+      }
+      .tag {
+        fill: #FF7AB2;
+        font-family: "Space Mono", "Courier New", monospace;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 7px;
+      }
+    </style>
     
     <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
       <feGaussianBlur stdDeviation="4" result="b1"></feGaussianBlur>

@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: /legacy/
+Disallow:
 
 Sitemap: https://nocrickets.co/sitemap.xml

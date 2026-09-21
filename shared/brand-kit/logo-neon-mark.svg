@@ -1,5 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
   <defs>
+    <style>
+      .n {
+        fill: #FFB454;
+        font-family: "Pacifico", "Brush Script MT", cursive;
+        font-size: 70px;
+        font-weight: 400;
+      }
+    </style>
     
     <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
       <feGaussianBlur stdDeviation="3" result="b1"></feGaussianBlur>

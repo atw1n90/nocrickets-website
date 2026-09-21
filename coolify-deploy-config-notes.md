@@ -154,7 +154,6 @@ served-root/
   index.html                 from /website
   pricing.html               from /website
   es/                        from /website/es
-  legacy/                    from /website/legacy
   shared/                    from /shared
 ```
 

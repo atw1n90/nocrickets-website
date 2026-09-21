@@ -124,3 +124,13 @@
 - [x] Add the equivalent subsection to the Spanish privacy policy.
 - [x] Verify the section covers message data, client-bot use, no sale of message data, retention/deletion, and sensitive-data limits.
 - [x] Update progress notes and AGENTS.md with the WhatsApp privacy coverage decision.
+
+## NoCrickets Brand Asset Cleanup 2026-09-21
+
+- [x] Audit current website/onboarding asset references before deleting old files.
+- [x] Keep `/shared/brand-kit` and `/shared/favicons` as the official brand asset locations.
+- [x] Fix brand SVG styling so the neon mark and wordmark render visibly.
+- [x] Add a 1024x1024 Meta Business upload logo asset.
+- [x] Remove old website-root logo/image copies and historical `/website/legacy` files.
+- [x] Remove stale `/legacy` deployment notes and headers.
+- [x] Verify no current pages reference the removed asset paths.

@@ -118,3 +118,12 @@
 - Covered WhatsApp message content, sender contact information, timestamps, lead details, booking requests, and related conversation metadata processed on behalf of client businesses.
 - Stated the data is used only to operate the client's bot, respond to inquiries, capture leads, support bookings, provide notifications, troubleshoot, maintain security, and deliver the NoCrickets service.
 - Included no-sale language, deletion-request routing, retention caveats, and sensitive/regulated-data limits.
+
+## 2026-09-21 Brand Asset Cleanup
+
+- Confirmed the current website and onboarding pages load active favicons, fonts, and color tokens from `/shared/...`.
+- Fixed missing embedded styles in `shared/brand-kit/logo-neon.svg` and `shared/brand-kit/logo-neon-mark.svg`, which had made the SVG text render as dark default text.
+- Added `shared/brand-kit/nocrickets-meta-logo-1024.png` as the square 1024x1024 Meta Business upload asset.
+- Added `shared/brand-kit/README.md` so the brand kit folder is clearly marked as the source of truth.
+- Removed unused old image copies from `/website` and removed the historical `/website/legacy` folder to reduce visual clutter in GitHub.
+- Removed stale `/legacy` references from robots, headers, and Coolify deployment notes.
