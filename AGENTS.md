@@ -19,7 +19,7 @@
 - Payments note as of commit `4ae5bb1`: NoCrickets checkout uses Stripe Payment Links in `onboarding/index.html` and `onboarding/es/index.html` through the `stripeLinks` definition, post-submit `Pay now` button, and visible links in success/payment copy. These links currently charge the monthly price only. Paddle is used by Suvelo only, not NoCrickets.
 - Copy rule as of commit `4ae5bb1`: never promise or imply confirmed appointments; NoCrickets bots collect requests only.
 - Brand token note as of commit `4ae5bb1`: `shared/tokens.css` defines `--color-accent #FFB454`, `--color-bg-dark #0A0C18`, `--color-text #EEF0FF`, and `--color-border #23274A`.
-- Onboarding pricing note as of commit `4ae5bb1`: onboarding shows the `$150` setup fee and channel lines in English and Spanish, but not the founding-client waiver note. Starter clients can still provide/select WhatsApp-related fields because those inputs are not plan-gated; do not change that logic unless Alan approves.
+- Onboarding pricing note as of 2026-10-05: onboarding shows the `$150` setup fee, channel lines, and founding-client waiver note in English and Spanish. Starter clients can still provide/select WhatsApp-related fields because those inputs are not plan-gated; do not change that logic unless Alan approves.
 - Open item as of commit `4ae5bb1`: sales tax needs a decision before the first paying client. With Stripe, NoCrickets is the seller of record, so confirm Texas sales tax handling through Stripe Tax or a move to Paddle.
 - Also folded into this branch: the character-encoding/mojibake cleanup fix from commit `cb0c54d` was cherry-picked into `merge-repos`.
 
