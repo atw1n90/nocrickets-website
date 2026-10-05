@@ -153,4 +153,4 @@
 - [x] Produce the read-only refund/cancellation and Paddle report.
 - [x] Produce the read-only brand color report.
 - [x] Verify no stale prices/setup-fee text and no submission/backend code changes.
-- [ ] Commit and push the verified update to `main`.
+- [x] Commit and push the verified update to `main`.
