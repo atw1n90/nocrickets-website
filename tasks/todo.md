@@ -134,3 +134,13 @@
 - [x] Remove old website-root logo/image copies and historical `/website/legacy` files.
 - [x] Remove stale `/legacy` deployment notes and headers.
 - [x] Verify no current pages reference the removed asset paths.
+
+## NoCrickets Demo And Pricing Update 2026-10-05
+
+- [x] Replace the website Live Demo bot URL and copy in English and Spanish.
+- [x] Add the approved $150 setup-fee and channel copy to website pricing cards.
+- [x] Add the approved setup-fee and channel FAQs in English and Spanish.
+- [x] Update only the pricing clause in the English and Spanish Terms pages.
+- [x] Skip comparison-table rows because no comparison table exists in the current pricing pages.
+- [x] Verify removed/stale pricing and bot strings are gone.
+- [x] Commit and push the verified update to `main`.

@@ -127,3 +127,13 @@
 - Added `shared/brand-kit/README.md` so the brand kit folder is clearly marked as the source of truth.
 - Removed unused old image copies from `/website` and removed the historical `/website/legacy` folder to reduce visual clutter in GitHub.
 - Removed stale `/legacy` references from robots, headers, and Coolify deployment notes.
+
+## 2026-10-05 Demo And Pricing Update
+
+- Replaced the website Live Demo iframe with the A&A Beauty Studio Typebot at `https://viewer.nocrickets.co/a-a-beauty-web-demo-pc4m9xn` on English and Spanish homepages.
+- Updated Live Demo copy and sample-business note in both languages, while keeping the section label exactly `Live Demo`.
+- Added the $150 one-time setup fee and website/WhatsApp channel language to the homepage and pricing-page plan cards.
+- Added the setup-fee and bot-channel FAQs in English and Spanish.
+- Replaced only the pricing clause in the English and Spanish Terms pages with the approved $100/$150/$300, $150 setup-fee, WhatsApp, and 1,500-conversation terms language.
+- Skipped comparison-table rows because the current website has pricing cards and FAQ only; no comparison table exists to add rows to without changing layout.
+- Verified packed website templates parse, the old bot ID is gone, stale $99/$299/$199 strings are gone, conversation-limit marketing text is gone, and `1,500` appears only in the two Terms files.
