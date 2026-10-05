@@ -20,6 +20,7 @@
 - Copy rule as of commit `4ae5bb1`: never promise or imply confirmed appointments; NoCrickets bots collect requests only.
 - Brand token note as of commit `4ae5bb1`: `shared/tokens.css` defines `--color-accent #FFB454`, `--color-bg-dark #0A0C18`, `--color-text #EEF0FF`, and `--color-border #23274A`.
 - Onboarding pricing note as of 2026-10-05: onboarding shows the `$150` setup fee, channel lines, and founding-client waiver note in English and Spanish. Starter clients can still provide/select WhatsApp-related fields because those inputs are not plan-gated; do not change that logic unless Alan approves.
+- Client setup checklist note as of 2026-10-05: select the dedicated Google calendar the very first time sync is enabled, before any sync runs. If sync ever touches the main calendar, its events get copied into Easy!Appointments, and from there pushed into whatever calendar is connected next.
 - Open item as of commit `4ae5bb1`: sales tax needs a decision before the first paying client. With Stripe, NoCrickets is the seller of record, so confirm Texas sales tax handling through Stripe Tax or a move to Paddle.
 - Also folded into this branch: the character-encoding/mojibake cleanup fix from commit `cb0c54d` was cherry-picked into `merge-repos`.
 
