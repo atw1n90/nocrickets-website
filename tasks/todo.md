@@ -144,3 +144,13 @@
 - [x] Skip comparison-table rows because no comparison table exists in the current pricing pages.
 - [x] Verify removed/stale pricing and bot strings are gone.
 - [x] Commit and push the verified update to `main`.
+
+## NoCrickets Onboarding Pricing Follow-up 2026-10-05
+
+- [x] Locate onboarding plan price and description copy in English and Spanish.
+- [x] Add the approved $150 setup-fee and channel copy to onboarding plan copy only.
+- [x] Check whether Starter can still choose WhatsApp without changing form logic.
+- [x] Produce the read-only refund/cancellation and Paddle report.
+- [x] Produce the read-only brand color report.
+- [x] Verify no stale prices/setup-fee text and no submission/backend code changes.
+- [ ] Commit and push the verified update to `main`.

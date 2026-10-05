@@ -136,4 +136,12 @@
 - Added the setup-fee and bot-channel FAQs in English and Spanish.
 - Replaced only the pricing clause in the English and Spanish Terms pages with the approved $100/$150/$300, $150 setup-fee, WhatsApp, and 1,500-conversation terms language.
 - Skipped comparison-table rows because the current website has pricing cards and FAQ only; no comparison table exists to add rows to without changing layout.
-- Verified packed website templates parse, the old bot ID is gone, stale $99/$299/$199 strings are gone, conversation-limit marketing text is gone, and `1,500` appears only in the two Terms files.
+- Verified packed website templates parse, the old bot ID is gone, stale old-price strings are gone, conversation-limit marketing text is gone, and `1,500` appears only in the two Terms files.
+
+## 2026-10-05 Onboarding Pricing Follow-up
+
+- Updated English and Spanish onboarding plan labels, language dictionaries, and payment confirmation plan copy to include the $150 one-time setup fee.
+- Added the requested channel wording to onboarding plan descriptions: Starter is website chat; Growth and Pro are website chat plus WhatsApp.
+- Left all submission, webhook, Stripe link, payload, and plan-gating logic unchanged.
+- Read-only finding: Starter can still enter a WhatsApp number and choose WhatsApp as preferred contact/follow-up because those fields are not plan-gated.
+- Read-only finding: the Terms refund/cancellation language does not contradict the $150 setup fee, but the Terms pricing clause still contains the older 1,500-conversation threshold and should be reviewed separately.
