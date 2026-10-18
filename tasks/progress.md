@@ -156,3 +156,11 @@
 - Automated verification passed 26 of 26 behavior tests. Desktop English and mobile Spanish browser checks showed visible controls, no horizontal overflow, and no application console or page errors.
 - Independent review found and the final fix pass resolved two reliability issues: delayed callbacks from cancelled attempts can no longer affect retries, and stalled n8n requests now time out after 60 seconds and return the page to a retryable error state.
 - The real Meta popup was not completed locally because Meta restricts signup by configured domain; the SDK boundary and all local callback/session behavior were simulated without posting to the live n8n webhook.
+
+## 2026-10-18 Connect CSP Fix
+
+- Added a route-specific CSP to the checked-in Coolify Nginx configuration for the English and Spanish Connect pages only, preserving the existing baseline CSP rules and allowing the required Meta SDK, frames, connections, images, and n8n webhook.
+- Replaced the Meta loading message in both languages and added a page-load watchdog that displays it after 10 seconds when the SDK does not initialize.
+- Strengthened automated coverage to verify every CSP directive, reject broad sources, and exercise the 10-second English and Spanish error states.
+- Independent review found the initial `_headers` approach would not affect standard Nginx; the final implementation uses the actual Coolify Nginx configuration and keeps the deployment notes pointed to that single source of truth.
+- Pre-deployment verification passed all 29 Connect-page tests and `git diff --check`.

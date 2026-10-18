@@ -5,6 +5,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 
 const repoRoot = path.resolve(__dirname, '..');
+const nginxFile = path.join(repoRoot, 'coolify-nginx-website.conf');
 const pages = [
   {
     lang: 'en',
@@ -18,7 +19,8 @@ const pages = [
     currentStep: 'Current step',
     genericError: 'Something went wrong. Please send us a screenshot of this page.',
     httpStatus: 'HTTP status',
-    sessionId: 'Session ID'
+    sessionId: 'Session ID',
+    metaLoading: "Meta couldn't load. If this keeps happening, turn off your ad blocker or open this page in Chrome."
   },
   {
     lang: 'es',
@@ -32,7 +34,8 @@ const pages = [
     currentStep: 'Paso actual',
     genericError: 'Algo salió mal. Envíanos una captura de pantalla de esta página.',
     httpStatus: 'Estado HTTP',
-    sessionId: 'ID de sesión'
+    sessionId: 'ID de sesión',
+    metaLoading: 'Meta no pudo cargar. Si esto sigue ocurriendo, desactiva tu bloqueador de anuncios o abre esta página en Chrome.'
   }
 ];
 
@@ -169,6 +172,40 @@ async function settle() {
   await new Promise((resolve) => setImmediate(resolve));
 }
 
+test('connect routes allow only the required Meta services in their CSP', () => {
+  const nginx = fs.readFileSync(nginxFile, 'utf8');
+  const location = nginx.match(/location ~ \^\/\(connect\|es\/connect\)\/\(index\\\.html\)\?\$ \{([\s\S]*?)\n    \}/);
+  assert.ok(location, 'missing route-specific Connect location');
+
+  const policyMatch = location[1].match(/add_header Content-Security-Policy "([^"]+)" always;/);
+  assert.ok(policyMatch, 'missing Connect CSP response header');
+  const directives = Object.fromEntries(policyMatch[1].split(';').map((part) => {
+    const [name, ...sources] = part.trim().split(/\s+/);
+    return [name, sources];
+  }));
+
+  assert.deepEqual(Object.keys(directives), [
+    'frame-ancestors',
+    'base-uri',
+    'object-src',
+    'script-src',
+    'frame-src',
+    'connect-src',
+    'img-src'
+  ]);
+  assert.deepEqual(directives['frame-ancestors'], ["'self'"]);
+  assert.deepEqual(directives['base-uri'], ["'self'"]);
+  assert.deepEqual(directives['object-src'], ["'none'"]);
+  assert.deepEqual(directives['script-src'], ["'self'", "'unsafe-inline'", 'https://connect.facebook.net']);
+  assert.deepEqual(directives['frame-src'], ["'self'", 'https://*.facebook.com', 'https://*.fbcdn.net']);
+  assert.deepEqual(directives['connect-src'], ["'self'", 'https://n8n.nocrickets.co', 'https://*.facebook.com', 'https://graph.facebook.com']);
+  assert.deepEqual(directives['img-src'], ["'self'", 'data:', 'https://*.facebook.com', 'https://*.fbcdn.net']);
+  const allSources = Object.values(directives).flat();
+  assert.ok(!allSources.includes('*'), 'CSP must not contain a broad wildcard source');
+  assert.ok(!allSources.includes('https:'), 'CSP must not allow every HTTPS origin');
+  assert.equal((nginx.match(/add_header Content-Security-Policy/g) || []).length, 1, 'CSP must stay limited to the Connect location');
+});
+
 for (const page of pages) {
   test(`${page.lang} page is private, localized, and links to the other language`, () => {
     const html = readPage(page);
@@ -200,6 +237,13 @@ for (const page of pages) {
       }
     });
     assert.equal(harness.button.disabled, true);
+  });
+
+  test(`${page.lang} page reports an SDK load failure after 10 seconds`, () => {
+    const harness = createHarness(page);
+    harness.runTimer(10000);
+    assert.equal(harness.status.textContent, page.metaLoading);
+    assert.equal(harness.status.className, 'status is-error');
   });
 
   test(`${page.lang} page sends FINISH data once when the code arrives first`, async () => {

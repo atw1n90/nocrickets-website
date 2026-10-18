@@ -270,25 +270,7 @@ Base directory: /
 Domain: https://nocrickets.co, https://www.nocrickets.co
 ```
 
-Custom Nginx configuration:
-
-```nginx
-server {
-    listen 80;
-    server_name _;
-
-    root /usr/share/nginx/html/website;
-    index index.html;
-
-    location /shared/ {
-        alias /usr/share/nginx/html/shared/;
-    }
-
-    location / {
-        try_files $uri $uri/ /index.html;
-    }
-}
-```
+Custom Nginx configuration: use the exact contents of `/coolify-nginx-website.conf`. That file is the source of truth, including route-specific response headers required by the private Connect pages.
 
 ### Why This Fixes The Current Onboarding Issue
 

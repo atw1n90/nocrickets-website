@@ -165,3 +165,10 @@
 - [x] Verify localization, mobile rendering, message handling, timeout behavior, and backend error states.
 - [x] Confirm existing pages, navigation, footer links, sitemap, and `robots.txt` remain untouched.
 - [x] Complete a whole-branch review and commit locally without pushing, merging, or deploying.
+
+## NoCrickets Connect CSP Fix 2026-10-18
+
+- [x] Add route-specific Meta CSP permissions for `/connect/` and `/es/connect/` only.
+- [x] Show the localized Meta load failure after 10 seconds without requiring a click.
+- [x] Update automated coverage and run the complete Connect-page test suite.
+- [ ] Deploy to `main` and verify both live pages and their Chrome consoles.

@@ -257,7 +257,7 @@
         connecting: 'Connecting to Meta…',
         cancelled: 'WhatsApp connection cancelled.',
         currentStep: 'Current step',
-        metaLoading: 'Meta is still loading. Please wait a moment and try again.',
+        metaLoading: "Meta couldn't load. If this keeps happening, turn off your ad blocker or open this page in Chrome.",
         success: "WhatsApp connected! Keep the WhatsApp Business app open for a few minutes while we finish syncing. We'll contact you when your assistant is live.",
         genericError: 'Something went wrong. Please send us a screenshot of this page.',
         sessionId: 'Session ID',
@@ -271,6 +271,10 @@
       let flowActive = false;
       let sendStarted = false;
       let attemptId = 0;
+      let metaSdkReady = false;
+      let metaLoadTimer = setTimeout(function () {
+        if (!metaSdkReady) showStatus('error', text.metaLoading);
+      }, 10000);
 
       function showStatus(state, message) {
         status.className = 'status is-' + state;
@@ -281,6 +285,13 @@
         if (waitTimer !== null) {
           clearTimeout(waitTimer);
           waitTimer = null;
+        }
+      }
+
+      function clearMetaLoadTimer() {
+        if (metaLoadTimer !== null) {
+          clearTimeout(metaLoadTimer);
+          metaLoadTimer = null;
         }
       }
 
@@ -373,6 +384,9 @@
       }
 
       window.fbAsyncInit = function () {
+        metaSdkReady = true;
+        clearMetaLoadTimer();
+        if (status.textContent === text.metaLoading) showStatus('', '');
         window.FB.init({
           appId: '1074122095611027',
           autoLogAppEvents: true,
@@ -421,6 +435,9 @@
           stopFlow('error', text.metaLoading);
           return;
         }
+
+        metaSdkReady = true;
+        clearMetaLoadTimer();
 
         window.FB.login(function (response) {
           if (currentAttempt !== attemptId || !flowActive || sendStarted) return;
