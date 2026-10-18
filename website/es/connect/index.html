@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Conecta WhatsApp - NoCrickets</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="/shared/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/shared/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/shared/favicons/favicon-48x48.png">
+  <link rel="apple-touch-icon" href="/shared/favicons/apple-touch-icon.png">
+  <link rel="stylesheet" href="/shared/fonts.css">
+  <link rel="stylesheet" href="/shared/tokens.css">
+  <style>
+    :root {
+      --color-accent: #FFB454;
+      --color-pink: #FF7AB2;
+      --color-bg-dark: #0A0C18;
+      --color-surface: #12142B;
+      --color-surface-raised: #181B36;
+      --color-text: #EEF0FF;
+      --color-text-muted: #8B90B3;
+      --color-border: #23274A;
+      --color-success: #61D6A6;
+      --color-error: #FF8B9D;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { min-height: 100%; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      background: var(--color-bg-dark);
+      color: var(--color-text);
+      font-family: 'Bricolage Grotesque', sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: var(--color-accent); }
+
+    .site-header {
+      min-height: 72px;
+      padding: 14px clamp(20px, 5vw, 48px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .brand {
+      color: var(--color-accent);
+      font-family: 'Pacifico', cursive;
+      font-size: 24px;
+      line-height: 1.3;
+      text-decoration: none;
+      text-shadow: 0 0 8px rgba(255, 180, 84, 0.7), 0 0 22px rgba(255, 180, 84, 0.4);
+      white-space: nowrap;
+    }
+
+    .language-switch {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+    }
+
+    .language-switch span,
+    .language-switch a {
+      min-width: 38px;
+      padding: 7px 9px;
+      text-align: center;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    .language-switch span {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: #14081E;
+      font-weight: 700;
+    }
+
+    main {
+      width: 100%;
+      flex: 1;
+      display: grid;
+      place-items: center;
+      padding: clamp(32px, 6vw, 72px) 20px;
+    }
+
+    .connect-panel {
+      width: min(100%, 720px);
+      padding: clamp(28px, 5vw, 52px);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--color-pink);
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      color: #FFFFFF;
+      font-size: clamp(32px, 6vw, 52px);
+      line-height: 1.08;
+    }
+
+    .intro {
+      max-width: 62ch;
+      margin: 0 0 32px;
+      color: var(--color-text-muted);
+      font-size: 17px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      color: #FFFFFF;
+      font-size: 18px;
+    }
+
+    .checklist {
+      margin: 0 0 32px;
+      padding-left: 24px;
+      color: var(--color-text);
+    }
+
+    .checklist li { margin-bottom: 12px; }
+    .checklist li::marker { color: var(--color-accent); }
+
+    .connect-button {
+      width: 100%;
+      min-height: 52px;
+      padding: 13px 20px;
+      border: 1px solid var(--color-accent);
+      border-radius: 6px;
+      background: var(--color-accent);
+      color: #14081E;
+      cursor: pointer;
+      font: 700 16px/1.3 'Bricolage Grotesque', sans-serif;
+      transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+    }
+
+    .connect-button:hover:not(:disabled) {
+      background: #FFC477;
+      border-color: #FFC477;
+      transform: translateY(-1px);
+    }
+
+    .connect-button:focus-visible {
+      outline: 3px solid rgba(255, 122, 178, 0.55);
+      outline-offset: 3px;
+    }
+
+    .connect-button:disabled {
+      cursor: wait;
+      opacity: 0.65;
+    }
+
+    .status {
+      display: none;
+      min-height: 48px;
+      margin-top: 16px;
+      padding: 12px 14px;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      background: var(--color-surface-raised);
+      color: var(--color-text);
+      font-size: 14px;
+    }
+
+    .status.is-connecting,
+    .status.is-success,
+    .status.is-cancelled,
+    .status.is-error { display: block; }
+
+    .status.is-success { border-color: var(--color-success); }
+    .status.is-cancelled { border-color: var(--color-accent); }
+    .status.is-error { border-color: var(--color-error); }
+
+    footer {
+      padding: 20px;
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @media (max-width: 520px) {
+      .site-header { min-height: 64px; }
+      .connect-panel { padding: 26px 22px; }
+      .intro { font-size: 16px; }
+      footer { padding-inline: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/es/">no crickets</a>
+    <div class="language-switch" aria-label="Idioma">
+      <a href="/connect/" lang="en" hreflang="en">EN</a>
+      <span aria-current="page">ES</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="connect-panel" aria-labelledby="connect-heading">
+      <p class="eyebrow">Configuración de WhatsApp</p>
+      <h1 id="connect-heading">Conecta tu WhatsApp</h1>
+      <p class="intro">Esto conecta tu número de WhatsApp Business con tu asistente de NoCrickets. Seguirás usando la aplicación WhatsApp Business en tu teléfono y tus chats permanecerán en su lugar.</p>
+
+      <h2>Antes de comenzar</h2>
+      <ul class="checklist">
+        <li>Ten abierta en tu teléfono la aplicación WhatsApp Business y asegúrate de que esté actualizada a la versión más reciente.</li>
+        <li>Inicia sesión en la cuenta de Facebook que administra tu negocio.</li>
+        <li>La ventana de Meta mostrará “Caelum Group Ventures”. Esa es nuestra empresa, la compañía matriz de NoCrickets.</li>
+        <li>Meta puede pedirte que agregues un método de pago para las tarifas de mensajería de WhatsApp. Meta cobra esas tarifas directamente.</li>
+      </ul>
+
+      <button class="connect-button" id="connect-button" type="button">Conectar WhatsApp</button>
+      <div class="status" id="connect-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2026 Caelum Group Ventures LLC DBA NoCrickets &nbsp;|&nbsp;
+    <a href="/es/privacy-policy.html">Política de Privacidad</a> &nbsp;|&nbsp;
+    <a href="/es/terms-and-conditions.html">Términos y Condiciones</a> &nbsp;|&nbsp;
+    <a href="mailto:admin@caelumgroupventures.com">admin@caelumgroupventures.com</a>
+  </footer>
+
+  <script id="wa-connect-script">
+    (function () {
+      'use strict';
+
+      const lang = 'es';
+      const endpoint = 'https://n8n.nocrickets.co/webhook/wa-signup-js';
+      const button = document.getElementById('connect-button');
+      const status = document.getElementById('connect-status');
+      const text = {
+        connecting: 'Conectando con Meta…',
+        cancelled: 'La conexión de WhatsApp fue cancelada.',
+        currentStep: 'Paso actual',
+        metaLoading: 'Meta todavía se está cargando. Espera un momento e inténtalo de nuevo.',
+        success: '¡WhatsApp está conectado! Mantén abierta la aplicación WhatsApp Business durante unos minutos mientras terminamos la sincronización. Te contactaremos cuando tu asistente esté activo.',
+        genericError: 'Algo salió mal. Envíanos una captura de pantalla de esta página.',
+        sessionId: 'ID de sesión',
+        httpStatus: 'Estado HTTP'
+      };
+
+      let authorizationCode = null;
+      let sessionData = null;
+      let sessionId = null;
+      let waitTimer = null;
+      let flowActive = false;
+      let sendStarted = false;
+      let attemptId = 0;
+
+      function showStatus(state, message) {
+        status.className = 'status is-' + state;
+        status.textContent = message;
+      }
+
+      function clearWaitTimer() {
+        if (waitTimer !== null) {
+          clearTimeout(waitTimer);
+          waitTimer = null;
+        }
+      }
+
+      function resetFlow() {
+        clearWaitTimer();
+        attemptId += 1;
+        authorizationCode = null;
+        sessionData = null;
+        sessionId = null;
+        flowActive = true;
+        sendStarted = false;
+        return attemptId;
+      }
+
+      function stopFlow(state, message) {
+        flowActive = false;
+        clearWaitTimer();
+        button.disabled = false;
+        showStatus(state, message);
+      }
+
+      function appendDetail(message, label, value) {
+        return value ? message + ' ' + label + ': ' + value + '.' : message;
+      }
+
+      function isFacebookOrigin(origin) {
+        try {
+          const hostname = new URL(origin).hostname.toLowerCase();
+          return hostname === 'facebook.com' || hostname.endsWith('.facebook.com');
+        } catch (error) {
+          return false;
+        }
+      }
+
+      function parseMessage(value) {
+        try {
+          return JSON.parse(value);
+        } catch (error) {
+          return null;
+        }
+      }
+
+      async function sendSignup() {
+        if (sendStarted || !authorizationCode) return;
+
+        sendStarted = true;
+        flowActive = false;
+        clearWaitTimer();
+
+        const payload = {
+          code: authorizationCode,
+          waba_id: sessionData ? sessionData.waba_id : null,
+          phone_number_id: sessionData ? sessionData.phone_number_id : null,
+          business_id: sessionData ? sessionData.business_id : null,
+          event: sessionData ? sessionData.event : null,
+          lang: lang
+        };
+        const requestController = new AbortController();
+        const requestTimer = setTimeout(function () {
+          requestController.abort();
+        }, 60000);
+
+        try {
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+            signal: requestController.signal
+          });
+
+          if (!response.ok) {
+            let message = text.genericError;
+            message = appendDetail(message, text.sessionId, sessionId);
+            message = appendDetail(message, text.httpStatus, response.status);
+            stopFlow('error', message);
+            return;
+          }
+
+          showStatus('success', text.success);
+        } catch (error) {
+          stopFlow('error', appendDetail(text.genericError, text.sessionId, sessionId));
+        } finally {
+          clearTimeout(requestTimer);
+        }
+      }
+
+      function maybeSend(force) {
+        if (!authorizationCode || sendStarted) return;
+        if (sessionData || force) sendSignup();
+      }
+
+      window.fbAsyncInit = function () {
+        window.FB.init({
+          appId: '1074122095611027',
+          autoLogAppEvents: true,
+          xfbml: true,
+          version: 'v26.0'
+        });
+      };
+
+      window.addEventListener('message', function (event) {
+        if (!isFacebookOrigin(event.origin)) return;
+
+        const message = parseMessage(event.data);
+        if (!message || typeof message !== 'object' || message.type !== 'WA_EMBEDDED_SIGNUP') return;
+        if (!flowActive || sendStarted) return;
+
+        const data = message.data && typeof message.data === 'object' ? message.data : {};
+        if (data.session_id) sessionId = data.session_id;
+
+        if (data.error_message) {
+          stopFlow('error', appendDetail(data.error_message, text.sessionId, sessionId));
+          return;
+        }
+
+        if (message.event === 'CANCEL') {
+          stopFlow('cancelled', appendDetail(text.cancelled, text.currentStep, data.current_step));
+          return;
+        }
+
+        if (message.event !== 'FINISH' && message.event !== 'FINISH_WHATSAPP_BUSINESS_APP_ONBOARDING') return;
+
+        sessionData = {
+          waba_id: data.waba_id || null,
+          phone_number_id: data.phone_number_id || null,
+          business_id: data.business_id || null,
+          event: message.event
+        };
+        maybeSend(false);
+      });
+
+      button.addEventListener('click', function () {
+        const currentAttempt = resetFlow();
+        button.disabled = true;
+        showStatus('connecting', text.connecting);
+
+        if (!window.FB || typeof window.FB.login !== 'function') {
+          stopFlow('error', text.metaLoading);
+          return;
+        }
+
+        window.FB.login(function (response) {
+          if (currentAttempt !== attemptId || !flowActive || sendStarted) return;
+
+          const code = response && response.authResponse && response.authResponse.code;
+          if (!code) {
+            stopFlow('cancelled', text.cancelled);
+            return;
+          }
+
+          authorizationCode = code;
+          if (sessionData) {
+            maybeSend(false);
+            return;
+          }
+
+          waitTimer = setTimeout(function () {
+            if (currentAttempt !== attemptId) return;
+            waitTimer = null;
+            maybeSend(true);
+          }, 30000);
+        }, {
+          config_id: '1725275718536891',
+          response_type: 'code',
+          override_default_response_type: true,
+          extras: {
+            version: 'v4',
+            sessionInfoVersion: '3',
+            featureType: 'whatsapp_business_app_onboarding'
+          }
+        });
+      });
+    }());
+  </script>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js"></script>
+</body>
+</html>

@@ -154,3 +154,14 @@
 - [x] Produce the read-only brand color report.
 - [x] Verify no stale prices/setup-fee text and no submission/backend code changes.
 - [x] Commit and push the verified update to `main`.
+
+## NoCrickets WhatsApp Connect Page 2026-10-18
+
+- [x] Inspect the repository structure, existing page conventions, routes, and security headers.
+- [x] Create the `connect-page` branch without touching the untracked `output/` folder.
+- [x] Write and run failing tests for the Meta signup event and callback flow.
+- [x] Create the private English `/connect/` page.
+- [x] Create the private Spanish `/es/connect/` page.
+- [x] Verify localization, mobile rendering, message handling, timeout behavior, and backend error states.
+- [x] Confirm existing pages, navigation, footer links, sitemap, and `robots.txt` remain untouched.
+- [x] Complete a whole-branch review and commit locally without pushing, merging, or deploying.

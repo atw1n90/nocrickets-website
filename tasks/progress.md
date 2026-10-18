@@ -145,3 +145,14 @@
 - Left all submission, webhook, Stripe link, payload, and plan-gating logic unchanged.
 - Read-only finding: Starter can still enter a WhatsApp number and choose WhatsApp as preferred contact/follow-up because those fields are not plan-gated.
 - Read-only finding: the Terms refund/cancellation language does not contradict the $150 setup fee, but the Terms pricing clause still contains the older 1,500-conversation threshold and should be reviewed separately.
+
+## 2026-10-18 WhatsApp Connect Page
+
+- Created private directory routes at `/connect/` and `/es/connect/` on the `connect-page` branch so the current Nginx configuration serves the requested paths without modification.
+- Added the supplied Meta Embedded Signup App ID, Config ID, SDK locales, Coexistence extras, session logging listener, and n8n webhook payload.
+- Added secure Facebook-origin validation, malformed-message handling, both completion events, cancellation/error states, a 30-second session-data fallback, and one-request protection.
+- Added fully localized English and Spanish page copy, compact `EN` / `ES` switching, existing NoCrickets brand assets, mobile layout, and `noindex, nofollow` metadata.
+- Left existing pages, navigation, footer links, sitemap, and `robots.txt` unchanged; the new routes are not linked elsewhere.
+- Automated verification passed 26 of 26 behavior tests. Desktop English and mobile Spanish browser checks showed visible controls, no horizontal overflow, and no application console or page errors.
+- Independent review found and the final fix pass resolved two reliability issues: delayed callbacks from cancelled attempts can no longer affect retries, and stalled n8n requests now time out after 60 seconds and return the page to a retryable error state.
+- The real Meta popup was not completed locally because Meta restricts signup by configured domain; the SDK boundary and all local callback/session behavior were simulated without posting to the live n8n webhook.
